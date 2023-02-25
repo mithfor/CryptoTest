@@ -33,17 +33,16 @@ class MainViewController: UITabBarController {
     private func createAssetsNavigationConroller() -> UINavigationController {
         
         let assetsVC = AssetsViewController()
-        assetsVC.title = "Assets"
+        assetsVC.title = TitlesConstants.assets
         assetsVC.tabBarItem = UITabBarItem(title: assetsVC.title,
                                            image: UIImage(systemName: IconConstants.assets),
                                            tag: 0)
-        assetsVC.view.backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
         return UINavigationController(rootViewController: assetsVC)
     }
     
     private func createWatchlistNavigationController() -> UINavigationController {
         let watchlistVC = WatchlistViewController()
-        watchlistVC.title = "Watchlist"
+        watchlistVC.title = TitlesConstants.watchlist
         watchlistVC.tabBarItem = UITabBarItem(title: watchlistVC.title,
                                               image: UIImage(systemName: IconConstants.watchlist),
                                               tag: 1)
@@ -52,7 +51,7 @@ class MainViewController: UITabBarController {
     
     private func createSettingsNavigationController() -> UINavigationController {
         let settingsVC = SettingsViewController()
-        settingsVC.title = "Settings"
+        settingsVC.title = TitlesConstants.settings
         settingsVC.tabBarItem = UITabBarItem(title: settingsVC.title,
                                              image: UIImage(systemName: IconConstants.settings),
                                              tag: 2)
