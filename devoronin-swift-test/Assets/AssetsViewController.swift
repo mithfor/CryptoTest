@@ -12,6 +12,8 @@ class AssetsViewController: UIViewController {
     let assetsTableView: UITableView = {
        let tableView = UITableView()
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(AssetsTableViewHeader.self,
+                           forHeaderFooterViewReuseIdentifier: AssetsTableViewHeader.identifier)
         return tableView
     }()
 
@@ -27,7 +29,6 @@ class AssetsViewController: UIViewController {
         super.viewDidLayoutSubviews()
         assetsTableView.frame = view.bounds
     }
-    
     
     // MARK: - Private methods
     private func configure() {
@@ -75,8 +76,14 @@ extension AssetsViewController: UITableViewDelegate {
 
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return ("Header \(section)")
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(
+            withIdentifier: AssetsTableViewHeader.identifier)
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
     }
 }
 
