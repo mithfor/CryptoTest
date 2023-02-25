@@ -26,10 +26,9 @@ class MainViewController: UITabBarController {
         viewControllers = [
             createAssetsNavigationConroller(),
             createWatchlistNavigationController(),
-            createSettingsNavigationController()]
-
+            createSettingsNavigationController()
+        ]
     }
-    
     
     private func createAssetsNavigationConroller() -> UINavigationController {
         
@@ -38,6 +37,7 @@ class MainViewController: UITabBarController {
         assetsVC.tabBarItem = UITabBarItem(title: assetsVC.title,
                                            image: UIImage(systemName: "bitcoinsign.circle.fill"),
                                            tag: 0)
+        assetsVC.view.backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 1)
         return UINavigationController(rootViewController: assetsVC)
     }
     
