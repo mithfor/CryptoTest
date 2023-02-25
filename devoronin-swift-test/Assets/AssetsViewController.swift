@@ -30,6 +30,12 @@ class AssetsViewController: UIViewController {
         assetsTableView.frame = view.bounds
     }
     
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        customAppearance()
+    }
     // MARK: - Private methods
     private func configure() {
         
@@ -45,9 +51,14 @@ class AssetsViewController: UIViewController {
     }
     
     fileprivate func customAppearance() {
-        view.backgroundColor = .orange
         
         let navigationTitleFont = UIFont(name: "Helvetica", size: 34)
+        let appearance = UINavigationBarAppearance()
+        
+        appearance.backgroundColor = .purple
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.compactAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont as Any]
     }
@@ -63,7 +74,7 @@ extension AssetsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = assetsTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = "Asset #\(indexPath.row + 1)"
-        cell.imageView?.image = UIImage(systemName: IconConstants.assets)
+        cell.imageView?.image = UIImage(systemName: "house")
         cell.imageView?.tintColor = .red
         return cell
     }
@@ -79,11 +90,17 @@ extension AssetsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let header = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: AssetsTableViewHeader.identifier)
+        
+        header?.backgroundColor = .purple
         return header
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 60
+        return Constants.tableHeaderHeight
+    }
+    
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+//        view.backgroundColor = .purple
     }
 }
 

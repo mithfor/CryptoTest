@@ -25,6 +25,9 @@
 		889535AA29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889535A929AAA50A00FC4B91 /* AssetsTableViewHeader.swift */; };
 		889535AB29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889535A929AAA50A00FC4B91 /* AssetsTableViewHeader.swift */; };
 		889535AC29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889535A929AAA50A00FC4B91 /* AssetsTableViewHeader.swift */; };
+		889535B229AAAC7600FC4B91 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889535B129AAAC7600FC4B91 /* SearchTextField.swift */; };
+		889535B329AAAC7600FC4B91 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889535B129AAAC7600FC4B91 /* SearchTextField.swift */; };
+		889535B429AAAC7600FC4B91 /* SearchTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889535B129AAAC7600FC4B91 /* SearchTextField.swift */; };
 		88D77635299FDAB500BC782F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D77634299FDAB500BC782F /* AppDelegate.swift */; };
 		88D77639299FDAB500BC782F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D77638299FDAB500BC782F /* MainViewController.swift */; };
 		88D7763E299FDAB700BC782F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88D7763D299FDAB700BC782F /* Assets.xcassets */; };
@@ -57,6 +60,7 @@
 		880C4B5929AA9B2A00951D25 /* AssetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableViewCell.swift; sourceTree = "<group>"; };
 		8895359F29AAA01C00FC4B91 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		889535A929AAA50A00FC4B91 /* AssetsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableViewHeader.swift; sourceTree = "<group>"; };
+		889535B129AAAC7600FC4B91 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
 		88D77631299FDAB500BC782F /* devoronin-swift-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "devoronin-swift-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D77634299FDAB500BC782F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88D77638299FDAB500BC782F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 		889535B029AAABFE00FC4B91 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				889535B129AAAC7600FC4B91 /* SearchTextField.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -313,6 +318,7 @@
 				889535AA29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */,
 				880C4B5329AA7B7100951D25 /* AssetsViewController.swift in Sources */,
 				880C4B4929AA767B00951D25 /* SettingsViewController.swift in Sources */,
+				889535B229AAAC7600FC4B91 /* SearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +333,7 @@
 				880C4B5429AA7B7100951D25 /* AssetsViewController.swift in Sources */,
 				889535AB29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */,
 				889535A129AAA01C00FC4B91 /* Constants.swift in Sources */,
+				889535B329AAAC7600FC4B91 /* SearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +348,7 @@
 				880C4B5529AA7B7100951D25 /* AssetsViewController.swift in Sources */,
 				889535AC29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */,
 				889535A229AAA01C00FC4B91 /* Constants.swift in Sources */,
+				889535B429AAAC7600FC4B91 /* SearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

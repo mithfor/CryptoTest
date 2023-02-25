@@ -22,9 +22,12 @@ class AssetsTableViewHeader: UITableViewHeaderFooterView {
         return label
     }()
     
+    private let searchTextField = SearchTextField()
+    
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
         contentView.addSubview(label)
+        contentView.addSubview(searchTextField)
     }
     
     required init?(coder: NSCoder) {
@@ -39,8 +42,12 @@ class AssetsTableViewHeader: UITableViewHeaderFooterView {
             label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             label.heightAnchor.constraint(equalToConstant: 41),
-            label.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -16)
+            label.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            
+            searchTextField.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 8),
+            searchTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
+            searchTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
+            searchTextField.heightAnchor.constraint(equalToConstant: 36)
         ])
-        
     }
 }

@@ -11,12 +11,14 @@ import UIKit
 struct Constants {
     static let pagination: Int = 10
     static let tableCellHeight: CGFloat = 80.4
+    static let tableHeaderHeight: CGFloat = 136
 }
 
 struct IconConstants {
     static let assets = "bitcoinsign.circle.fill"
     static let watchlist = "heart.fill"
     static let settings = "gearshape.fill"
+    static let search = "magnifyingglass"
 }
 
 struct TitlesConstants {

@@ -33,8 +33,7 @@ class MainViewController: UITabBarController {
     private func createAssetsNavigationConroller() -> UINavigationController {
         
         let assetsVC = AssetsViewController()
-        assetsVC.title = TitlesConstants.assets
-        assetsVC.tabBarItem = UITabBarItem(title: assetsVC.title,
+        assetsVC.tabBarItem = UITabBarItem(title: TitlesConstants.assets,
                                            image: UIImage(systemName: IconConstants.assets),
                                            tag: 0)
         return UINavigationController(rootViewController: assetsVC)
