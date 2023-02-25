@@ -61,8 +61,8 @@ extension AssetsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = assetsTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "House #\(indexPath.row + 1)"
-        cell.imageView?.image = UIImage(systemName:"house")
+        cell.textLabel?.text = "Asset #\(indexPath.row + 1)"
+        cell.imageView?.image = UIImage(systemName: IconConstants.assets)
         cell.imageView?.tintColor = .red
         return cell
     }
@@ -80,8 +80,3 @@ extension AssetsViewController: UITableViewDelegate {
     }
 }
 
-//MARK: - Constants
-struct Constants {
-    static let pagination: Int = 10
-    static let tableCellHeight: CGFloat = 80.4
-}
