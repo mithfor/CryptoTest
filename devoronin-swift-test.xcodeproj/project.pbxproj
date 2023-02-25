@@ -7,10 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		880C4B4229AA764000951D25 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B4129AA764000951D25 /* WatchlistViewController.swift */; };
+		880C4B4329AA764000951D25 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B4129AA764000951D25 /* WatchlistViewController.swift */; };
+		880C4B4429AA764000951D25 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B4129AA764000951D25 /* WatchlistViewController.swift */; };
+		880C4B4929AA767B00951D25 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B4829AA767B00951D25 /* SettingsViewController.swift */; };
+		880C4B4A29AA767B00951D25 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B4829AA767B00951D25 /* SettingsViewController.swift */; };
+		880C4B4B29AA767B00951D25 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B4829AA767B00951D25 /* SettingsViewController.swift */; };
+		880C4B5329AA7B7100951D25 /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B5229AA7B7100951D25 /* AssetsViewController.swift */; };
+		880C4B5429AA7B7100951D25 /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B5229AA7B7100951D25 /* AssetsViewController.swift */; };
+		880C4B5529AA7B7100951D25 /* AssetsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B5229AA7B7100951D25 /* AssetsViewController.swift */; };
 		88D77635299FDAB500BC782F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D77634299FDAB500BC782F /* AppDelegate.swift */; };
-		88D77637299FDAB500BC782F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D77636299FDAB500BC782F /* SceneDelegate.swift */; };
-		88D77639299FDAB500BC782F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D77638299FDAB500BC782F /* ViewController.swift */; };
-		88D7763C299FDAB500BC782F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D7763A299FDAB500BC782F /* Main.storyboard */; };
+		88D77639299FDAB500BC782F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D77638299FDAB500BC782F /* MainViewController.swift */; };
 		88D7763E299FDAB700BC782F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 88D7763D299FDAB700BC782F /* Assets.xcassets */; };
 		88D77641299FDAB700BC782F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D7763F299FDAB700BC782F /* LaunchScreen.storyboard */; };
 		88D7764C299FDAB700BC782F /* devoronin_swift_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D7764B299FDAB700BC782F /* devoronin_swift_testTests.swift */; };
@@ -35,11 +42,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		880C4B4129AA764000951D25 /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
+		880C4B4829AA767B00951D25 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		880C4B5229AA7B7100951D25 /* AssetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
 		88D77631299FDAB500BC782F /* devoronin-swift-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "devoronin-swift-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D77634299FDAB500BC782F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88D77636299FDAB500BC782F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		88D77638299FDAB500BC782F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		88D7763B299FDAB500BC782F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		88D77638299FDAB500BC782F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		88D7763D299FDAB700BC782F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		88D77640299FDAB700BC782F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		88D77642299FDAB700BC782F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -100,12 +108,13 @@
 			isa = PBXGroup;
 			children = (
 				88D77634299FDAB500BC782F /* AppDelegate.swift */,
-				88D77636299FDAB500BC782F /* SceneDelegate.swift */,
-				88D77638299FDAB500BC782F /* ViewController.swift */,
-				88D7763A299FDAB500BC782F /* Main.storyboard */,
+				88D77638299FDAB500BC782F /* MainViewController.swift */,
 				88D7763D299FDAB700BC782F /* Assets.xcassets */,
 				88D7763F299FDAB700BC782F /* LaunchScreen.storyboard */,
 				88D77642299FDAB700BC782F /* Info.plist */,
+				880C4B4129AA764000951D25 /* WatchlistViewController.swift */,
+				880C4B4829AA767B00951D25 /* SettingsViewController.swift */,
+				880C4B5229AA7B7100951D25 /* AssetsViewController.swift */,
 			);
 			path = "devoronin-swift-test";
 			sourceTree = "<group>";
@@ -233,7 +242,6 @@
 			files = (
 				88D77641299FDAB700BC782F /* LaunchScreen.storyboard in Resources */,
 				88D7763E299FDAB700BC782F /* Assets.xcassets in Resources */,
-				88D7763C299FDAB500BC782F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +266,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				88D77639299FDAB500BC782F /* ViewController.swift in Sources */,
+				880C4B4229AA764000951D25 /* WatchlistViewController.swift in Sources */,
+				88D77639299FDAB500BC782F /* MainViewController.swift in Sources */,
 				88D77635299FDAB500BC782F /* AppDelegate.swift in Sources */,
-				88D77637299FDAB500BC782F /* SceneDelegate.swift in Sources */,
+				880C4B5329AA7B7100951D25 /* AssetsViewController.swift in Sources */,
+				880C4B4929AA767B00951D25 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,7 +278,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				880C4B4329AA764000951D25 /* WatchlistViewController.swift in Sources */,
 				88D7764C299FDAB700BC782F /* devoronin_swift_testTests.swift in Sources */,
+				880C4B4A29AA767B00951D25 /* SettingsViewController.swift in Sources */,
+				880C4B5429AA7B7100951D25 /* AssetsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -276,7 +289,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				880C4B4429AA764000951D25 /* WatchlistViewController.swift in Sources */,
 				88D77657299FDAB700BC782F /* devoronin_swift_testUITests.swift in Sources */,
+				880C4B4B29AA767B00951D25 /* SettingsViewController.swift in Sources */,
+				880C4B5529AA7B7100951D25 /* AssetsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,14 +312,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		88D7763A299FDAB500BC782F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				88D7763B299FDAB500BC782F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		88D7763F299FDAB700BC782F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
