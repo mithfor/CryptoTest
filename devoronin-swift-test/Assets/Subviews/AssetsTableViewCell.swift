@@ -37,20 +37,38 @@ class AssetsTableViewCell: UITableViewCell {
     }()
     
     
-    private var assetFullTitleLabel: UILabel = {
+    private var assetSymbolLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 24, weight: .light)
-        
+        label.textColor = ColorConstants.Asset.symbol
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private var assetShortTitleLabel: UILabel = {
+    private var assetNameLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.textColor = .systemGray4
+        label.textColor = ColorConstants.Asset.name
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private var assetPriceUSDLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+        label.textColor = ColorConstants.Asset.priceUSD
+        label.translatesAutoresizingMaskIntoConstraints =  false
+        return label
+    }()
+    
+    private var assetChangePercent24HrLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        label.textColor = ColorConstants.Asset.changePersent24HrNegative
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -90,8 +108,11 @@ class AssetsTableViewCell: UITableViewCell {
                                      for: .touchUpInside)
         contentView.addSubview(assetImageView)
         
-        contentView.addSubview(assetFullTitleLabel)
-        contentView.addSubview(assetShortTitleLabel)
+        contentView.addSubview(assetSymbolLabel)
+        contentView.addSubview(assetNameLabel)
+        
+        contentView.addSubview(assetPriceUSDLabel)
+        contentView.addSubview(assetChangePercent24HrLabel)
         
 
     }
@@ -110,11 +131,17 @@ class AssetsTableViewCell: UITableViewCell {
             assetImageView.heightAnchor.constraint(equalToConstant: 60),
             
             
-            assetFullTitleLabel.leadingAnchor.constraint(equalTo: assetImageView.trailingAnchor, constant: 8),
-            assetFullTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            assetSymbolLabel.leadingAnchor.constraint(equalTo: assetImageView.trailingAnchor, constant: 8),
+            assetSymbolLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             
-            assetShortTitleLabel.leadingAnchor.constraint(equalTo: assetFullTitleLabel.leadingAnchor),
-            assetShortTitleLabel.topAnchor.constraint(equalTo: assetFullTitleLabel.bottomAnchor, constant: 0)
+            assetNameLabel.leadingAnchor.constraint(equalTo: assetSymbolLabel.leadingAnchor),
+            assetNameLabel.topAnchor.constraint(equalTo: assetSymbolLabel.bottomAnchor, constant: 0),
+            
+            assetPriceUSDLabel.trailingAnchor.constraint(equalTo: assetDetailsButton.leadingAnchor, constant: -8),
+            assetPriceUSDLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            
+            assetChangePercent24HrLabel.trailingAnchor.constraint(equalTo: assetPriceUSDLabel.trailingAnchor),
+            assetChangePercent24HrLabel.topAnchor.constraint(equalTo: assetPriceUSDLabel.bottomAnchor, constant: 8)
             
         ])
     }
@@ -128,8 +155,10 @@ class AssetsTableViewCell: UITableViewCell {
     
     func update() {
         assetImageView.image = assetImage
-        assetFullTitleLabel.text = "BTC"
-        assetShortTitleLabel.text = "Bitcoin"
+        assetSymbolLabel.text = "BTC"
+        assetNameLabel.text = "Bitcoin"
+        assetPriceUSDLabel.text = "$6,929"
+        assetChangePercent24HrLabel.text = "+15,43%"
     }
  }
 
