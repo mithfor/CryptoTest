@@ -68,7 +68,7 @@ class AssetsTableViewCell: UITableViewCell {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        label.textColor = ColorConstants.Asset.changePersent24HrNegative
+        label.textColor = ColorConstants.Asset.changePercent24HrPositive
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import SafariServices
+import SwiftUI
 
 extension UIViewController {
     func presentAlertOnMainThread(title: String, message: String, buttonTitle: String) {
@@ -19,5 +19,23 @@ extension UIViewController {
             alertVC.modalTransitionStyle = .crossDissolve
             self.present(alertVC, animated: true)
         }
+    }
+    
+    private struct  Preview: UIViewControllerRepresentable {
+            
+        let viewController: UIViewController
+        
+        func makeUIViewController(context: Context) -> some UIViewController {
+            viewController
+        }
+        
+        func updateUIViewController(_ uiViewController: UIViewControllerType, context: Context) {
+            
+        }
+        
+    }
+    
+    func showPreview() -> some View {
+        Preview(viewController: self).edgesIgnoringSafeArea(.all)
     }
 }

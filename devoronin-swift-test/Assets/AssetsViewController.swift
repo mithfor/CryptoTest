@@ -6,6 +6,7 @@
 //
 
 import UIKit
+//import SwiftUI
 
 class AssetsViewController: UIViewController {
     
@@ -61,6 +62,15 @@ class AssetsViewController: UIViewController {
         let appearance = UINavigationBarAppearance()
         
         appearance.backgroundColor = ColorConstants.mainBackground
+        
+        if #available(iOS 13, *) {
+            appearance.shadowColor = .clear
+        } else {
+            navigationController?.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "BarBackground"), for: .default)
+            appearance.shadowImage = UIImage()
+        }
+        
+        
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
@@ -113,7 +123,11 @@ extension AssetsViewController: AssetsTableViewCellDelegate {
                                  message: "Asset #\(data)",
                                  buttonTitle: "Ok")
     }
-    
-    
 }
+
+//struct ViewControllerProvider: PreviewProvider {
+//    static var previews: some View {
+//        AssetsViewController().showPreview()
+//    }
+//}
 

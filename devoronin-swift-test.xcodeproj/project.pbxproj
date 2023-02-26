@@ -19,6 +19,15 @@
 		880C4B5A29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B5929AA9B2A00951D25 /* AssetsTableViewCell.swift */; };
 		880C4B5B29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B5929AA9B2A00951D25 /* AssetsTableViewCell.swift */; };
 		880C4B5C29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B5929AA9B2A00951D25 /* AssetsTableViewCell.swift */; };
+		883C402129ABF0A100B44916 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C402029ABF0A100B44916 /* Asset.swift */; };
+		883C402229ABF0A100B44916 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C402029ABF0A100B44916 /* Asset.swift */; };
+		883C402329ABF0A100B44916 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C402029ABF0A100B44916 /* Asset.swift */; };
+		883C402A29ABF30200B44916 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C402829ABF30200B44916 /* NetworkManager.swift */; };
+		883C402B29ABF30200B44916 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C402829ABF30200B44916 /* NetworkManager.swift */; };
+		883C402C29ABF30200B44916 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C402829ABF30200B44916 /* NetworkManager.swift */; };
+		883C402D29ABF30200B44916 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C402929ABF30200B44916 /* PersistenceManager.swift */; };
+		883C402E29ABF30200B44916 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C402929ABF30200B44916 /* PersistenceManager.swift */; };
+		883C402F29ABF30200B44916 /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883C402929ABF30200B44916 /* PersistenceManager.swift */; };
 		889535A029AAA01C00FC4B91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895359F29AAA01C00FC4B91 /* Constants.swift */; };
 		889535A129AAA01C00FC4B91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895359F29AAA01C00FC4B91 /* Constants.swift */; };
 		889535A229AAA01C00FC4B91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895359F29AAA01C00FC4B91 /* Constants.swift */; };
@@ -64,6 +73,9 @@
 		880C4B4829AA767B00951D25 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		880C4B5229AA7B7100951D25 /* AssetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
 		880C4B5929AA9B2A00951D25 /* AssetsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableViewCell.swift; sourceTree = "<group>"; };
+		883C402029ABF0A100B44916 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		883C402829ABF30200B44916 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		883C402929ABF30200B44916 /* PersistenceManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		8895359F29AAA01C00FC4B91 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		889535A929AAA50A00FC4B91 /* AssetsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableViewHeader.swift; sourceTree = "<group>"; };
 		889535B129AAAC7600FC4B91 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
@@ -113,8 +125,18 @@
 			children = (
 				880C4B5229AA7B7100951D25 /* AssetsViewController.swift */,
 				88EF7A3629AB3AB1001D3572 /* Subviews */,
+				883C402029ABF0A100B44916 /* Asset.swift */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		883C402729ABF2E600B44916 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				883C402829ABF30200B44916 /* NetworkManager.swift */,
+				883C402929ABF30200B44916 /* PersistenceManager.swift */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		8895359E29AA9FFA00FC4B91 /* Constants */ = {
@@ -156,6 +178,7 @@
 		88D77633299FDAB500BC782F /* devoronin-swift-test */ = {
 			isa = PBXGroup;
 			children = (
+				883C402729ABF2E600B44916 /* Managers */,
 				880C4B6029AA9B9400951D25 /* Assets */,
 				88EF7A5229AB410B001D3572 /* Extensions */,
 				889535B029AAABFE00FC4B91 /* CustomViews */,
@@ -337,11 +360,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				88EF7AA829AB44CC001D3572 /* UIView+Ext.swift in Sources */,
+				883C402D29ABF30200B44916 /* PersistenceManager.swift in Sources */,
 				880C4B4229AA764000951D25 /* WatchlistViewController.swift in Sources */,
 				88D77639299FDAB500BC782F /* MainViewController.swift in Sources */,
+				883C402A29ABF30200B44916 /* NetworkManager.swift in Sources */,
 				88EF7A3F29AB40B0001D3572 /* UIViewController+Ext.swift in Sources */,
 				880C4B5A29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */,
 				88D77635299FDAB500BC782F /* AppDelegate.swift in Sources */,
+				883C402129ABF0A100B44916 /* Asset.swift in Sources */,
 				889535A029AAA01C00FC4B91 /* Constants.swift in Sources */,
 				889535AA29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */,
 				880C4B5329AA7B7100951D25 /* AssetsViewController.swift in Sources */,
@@ -354,9 +380,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				883C402B29ABF30200B44916 /* NetworkManager.swift in Sources */,
 				88EF7AA929AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				880C4B4329AA764000951D25 /* WatchlistViewController.swift in Sources */,
 				88D7764C299FDAB700BC782F /* devoronin_swift_testTests.swift in Sources */,
+				883C402229ABF0A100B44916 /* Asset.swift in Sources */,
+				883C402E29ABF30200B44916 /* PersistenceManager.swift in Sources */,
 				880C4B4A29AA767B00951D25 /* SettingsViewController.swift in Sources */,
 				880C4B5B29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */,
 				880C4B5429AA7B7100951D25 /* AssetsViewController.swift in Sources */,
@@ -371,9 +400,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				883C402C29ABF30200B44916 /* NetworkManager.swift in Sources */,
 				88EF7AAA29AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				880C4B4429AA764000951D25 /* WatchlistViewController.swift in Sources */,
 				88D77657299FDAB700BC782F /* devoronin_swift_testUITests.swift in Sources */,
+				883C402329ABF0A100B44916 /* Asset.swift in Sources */,
+				883C402F29ABF30200B44916 /* PersistenceManager.swift in Sources */,
 				880C4B4B29AA767B00951D25 /* SettingsViewController.swift in Sources */,
 				880C4B5C29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */,
 				880C4B5529AA7B7100951D25 /* AssetsViewController.swift in Sources */,
