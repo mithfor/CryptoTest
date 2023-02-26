@@ -68,7 +68,6 @@ class AssetsViewController: UIViewController {
 }
 
 // MARK: - UITableViewDataSource
-
 extension AssetsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Constants.pagination
@@ -77,7 +76,7 @@ extension AssetsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = assetsTableView.dequeueReusableCell(withIdentifier: AssetsTableViewCell.identifier,
                                                           for: indexPath) as? AssetsTableViewCell {
-            cell.configureWith(delegate: self, and: indexPath.row)
+            cell.configureWith(delegate: self, and: indexPath.row, image: UIImage(systemName: "house"))
             
             return cell
         } else {
@@ -89,7 +88,7 @@ extension AssetsViewController: UITableViewDataSource {
 //MARK: - UITableViewDelegate
 extension AssetsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-            return Constants.tableCellHeight
+        return Constants.tableCellHeight
 
     }
     
@@ -106,10 +105,12 @@ extension AssetsViewController: UITableViewDelegate {
     }
     
 }
-
+//MARK: - AssetsTableViewCellDelegate
 extension AssetsViewController: AssetsTableViewCellDelegate {
-    func assetDetailsButtonDidTap(with data: Int) {
-        presentAlertOnMainThread(title: "Details", message: "Asset #\(data)", buttonTitle: "Ok")
+    func assetDetails(with data: Int) {
+        presentAlertOnMainThread(title: "Details",
+                                 message: "Asset #\(data)",
+                                 buttonTitle: "Ok")
     }
     
     
