@@ -27,3 +27,7 @@ struct TitlesConstants {
     static let watchlist = "Watchlist"
     static let settings = "Setting"
 }
+
+struct ColorConstants {
+    static let mainBackground : UIColor = .systemGray6
+}

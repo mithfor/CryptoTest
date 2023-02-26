@@ -15,6 +15,8 @@ class AssetsViewController: UIViewController {
                            forCellReuseIdentifier: AssetsTableViewCell.identifier)
         tableView.register(AssetsTableViewHeader.self,
                            forHeaderFooterViewReuseIdentifier: AssetsTableViewHeader.identifier)
+        tableView.backgroundColor = ColorConstants.mainBackground
+        
         return tableView
     }()
 
@@ -58,7 +60,7 @@ class AssetsViewController: UIViewController {
         let navigationTitleFont = UIFont(name: "Helvetica", size: 34)
         let appearance = UINavigationBarAppearance()
         
-        appearance.backgroundColor = .purple
+        appearance.backgroundColor = ColorConstants.mainBackground
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
@@ -96,7 +98,6 @@ extension AssetsViewController: UITableViewDelegate {
         let header = tableView.dequeueReusableHeaderFooterView(
             withIdentifier: AssetsTableViewHeader.identifier)
         
-        header?.backgroundColor = .purple
         return header
     }
     
