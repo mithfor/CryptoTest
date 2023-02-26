@@ -28,7 +28,9 @@ class AssetsViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        assetsTableView.frame = view.bounds
+
+        assetsTableView.pinToEdges(of: view)
+        
     }
     
     
@@ -75,12 +77,9 @@ extension AssetsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = assetsTableView.dequeueReusableCell(withIdentifier: AssetsTableViewCell.identifier,
                                                           for: indexPath) as? AssetsTableViewCell {
-//        cell.imageView?.image = UIImage(systemName: "house")
-//        cell.imageView?.tintColor = .red
-            cell.assetDetailsButtonCompletion = { [weak self] in
-                self?.presentAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😀.", buttonTitle: "Ok")
-            }
-        return cell
+            cell.configureWith(delegate: self, and: indexPath.row)
+            
+            return cell
         } else {
             return UITableViewCell()
         }
@@ -105,6 +104,14 @@ extension AssetsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return Constants.tableHeaderHeight
     }
+    
+}
+
+extension AssetsViewController: AssetsTableViewCellDelegate {
+    func assetDetailsButtonDidTap(with data: Int) {
+        presentAlertOnMainThread(title: "Details", message: "Asset #\(data)", buttonTitle: "Ok")
+    }
+    
     
 }
 

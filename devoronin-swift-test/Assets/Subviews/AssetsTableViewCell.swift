@@ -7,11 +7,15 @@
 
 import UIKit
 
+protocol AssetsTableViewCellDelegate: class {
+    func assetDetailsButtonDidTap(with data: Int)
+}
+
 class AssetsTableViewCell: UITableViewCell {
     
     static let identifier = "AssetsTableViewCell"
     
-    var assetDetailsButtonCompletion: () -> () = {}
+    weak var delegate: AssetsTableViewCellDelegate?
 
     private var assetDetailsButton: UIButton = {
         let button = UIButton()
@@ -21,6 +25,8 @@ class AssetsTableViewCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    private var assetId: Int = .zero
     
     
     // MARK: - Init
@@ -35,8 +41,8 @@ class AssetsTableViewCell: UITableViewCell {
     }
     
     // MARK: - Actions
-    @objc func assetDetailButtonDidTap() {
-        assetDetailsButtonCompletion()
+    @objc func assetDetailsButtonDidTap() {
+        delegate?.assetDetailsButtonDidTap(with: assetId)
     }
     
     // MARK: - Setup
@@ -52,15 +58,19 @@ class AssetsTableViewCell: UITableViewCell {
        assetDetailsButton.tintColor = UIColor.systemGray2
        assetDetailsButton.titleLabel?.lineBreakMode = .byTruncatingMiddle
         assetDetailsButton.addTarget(self,
-                                     action: #selector(assetDetailButtonDidTap),
+                                     action: #selector(assetDetailsButtonDidTap),
                                      for: .touchUpInside)
-
     }
     
     private func setupLayout() {
        trailingAnchor.constraint(equalTo: assetDetailsButton.trailingAnchor, constant: 8).isActive = true
        assetDetailsButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
        assetDetailsButton.heightAnchor.constraint(equalToConstant: 22).isActive = true
+    }
+    
+    func configureWith(delegate: AssetsTableViewCellDelegate, and data: Int) {
+        self.delegate = delegate
+        self.assetId = data
     }
  }
 
