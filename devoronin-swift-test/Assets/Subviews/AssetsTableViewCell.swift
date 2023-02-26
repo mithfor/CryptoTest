@@ -8,16 +8,20 @@
 import UIKit
 
 protocol AssetsTableViewCellDelegate: class {
-    func assetDetails(with data: Int)
+    func assetDetails(with data: String)
 }
 
 class AssetsTableViewCell: UITableViewCell {
+    
+    //TODO: - make ViewModel
+    private var assetViewModel: Asset?
+    
     
     static let identifier = "AssetsTableViewCell"
     
     weak var delegate: AssetsTableViewCellDelegate?
     
-    private var assetId: Int = .zero
+    private var assetId: String = ""
     private var assetImage: UIImage?
     
     private var assetDetailsButton: UIButton = {
@@ -78,7 +82,6 @@ class AssetsTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupUI()
         setupLayout()
-        update()
     }
     
     required init?(coder: NSCoder) {
@@ -94,6 +97,7 @@ class AssetsTableViewCell: UITableViewCell {
     private func setupUI() {
        autoresizingMask = [.flexibleRightMargin, .flexibleBottomMargin]
        contentView.addSubview(assetDetailsButton)
+        selectionStyle = .none
     
 
        contentView.clipsToBounds = true
@@ -117,6 +121,8 @@ class AssetsTableViewCell: UITableViewCell {
 
     }
     
+    
+    //MARK: - Layout
     private func setupLayout() {
         NSLayoutConstraint.activate([
             
@@ -141,26 +147,43 @@ class AssetsTableViewCell: UITableViewCell {
             assetPriceUSDLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
             
             assetChangePercent24HrLabel.trailingAnchor.constraint(equalTo: assetPriceUSDLabel.trailingAnchor),
-            assetChangePercent24HrLabel.topAnchor.constraint(equalTo: assetPriceUSDLabel.bottomAnchor, constant: 8)
+            assetChangePercent24HrLabel.topAnchor.constraint(equalTo: assetPriceUSDLabel.bottomAnchor, constant: 4)
             
         ])
     }
     
-    func configureWith(delegate: AssetsTableViewCellDelegate, and data: Int, image: UIImage?) {
+    func configureWith(delegate: AssetsTableViewCellDelegate, and asset: Asset, image: UIImage?) {
         self.delegate = delegate
-        self.assetId = data
+        self.assetViewModel = asset
         self.assetImage = image
         update()
     }
     
     func update() {
         assetImageView.image = assetImage
-        assetSymbolLabel.text = "BTC"
-        assetNameLabel.text = "Bitcoin"
-        assetPriceUSDLabel.text = "$6,929"
-        assetChangePercent24HrLabel.text = "+15,43%"
+        assetSymbolLabel.text = assetViewModel?.symbol
+        assetNameLabel.text = assetViewModel?.name
+        assetPriceUSDLabel.text = "$\(NSString(format: "%.2f", Double(assetViewModel?.priceUsd ?? "0.00") ?? 0.0))"
+        
+        
+        let changePercent24HrTrend = Double(assetViewModel?.changePercent24Hr ?? "0.00") ?? 0.0
+        
+
+        assetChangePercent24HrLabel.textColor = changePercent24HrTrend >= 0
+                                                ? ColorConstants.Asset.changePercent24HrPositive
+                                                : ColorConstants.Asset.changePersent24HrNegative
+        
+        let positiveSign = changePercent24HrTrend >= 0 ? "+" : ""
+        
+        assetChangePercent24HrLabel.text = "\(positiveSign)\(NSString(format: "%.2f", changePercent24HrTrend))%"
     }
  }
+
+extension Double {
+    func round2Precision() -> Double {
+        (self * 100) / 100
+    }
+}
 
 
    

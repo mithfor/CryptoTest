@@ -20,6 +20,8 @@ class AssetsViewController: UIViewController {
         
         return tableView
     }()
+    
+    private var assets: [Asset]?
 
     
     //MARK: - Overriden
@@ -27,13 +29,13 @@ class AssetsViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
+        fetchAssets()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
         assetsTableView.pinToEdges(of: view)
-        
     }
     
     
@@ -86,9 +88,16 @@ extension AssetsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard let assets = self.assets else {
+            return UITableViewCell()
+        }
+        
         if let cell = assetsTableView.dequeueReusableCell(withIdentifier: AssetsTableViewCell.identifier,
                                                           for: indexPath) as? AssetsTableViewCell {
-            cell.configureWith(delegate: self, and: indexPath.row, image: UIImage(systemName: "house"))
+            cell.configureWith(delegate: self,
+                               and: assets[indexPath.row],
+                               image: UIImage(systemName: "house"))
             
             return cell
         } else {
@@ -118,10 +127,27 @@ extension AssetsViewController: UITableViewDelegate {
 }
 //MARK: - AssetsTableViewCellDelegate
 extension AssetsViewController: AssetsTableViewCellDelegate {
-    func assetDetails(with data: Int) {
+    func assetDetails(with data: String) {
         presentAlertOnMainThread(title: "Details",
                                  message: "Asset #\(data)",
                                  buttonTitle: "Ok")
+    }
+}
+
+extension AssetsViewController {
+    private func fetchAssets() {
+        NetworkManager.shared.fetchAssets(page: 1) { [weak self] (result) in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let responce):
+                    self?.assets = responce.data
+                    self?.assetsTableView.reloadData()
+                case .failure(_):
+                    self?.presentAlertOnMainThread(title: "ERROR", message: "Loading Data", buttonTitle: "OK")
+                }
+            }
+
+        }
     }
 }
 
