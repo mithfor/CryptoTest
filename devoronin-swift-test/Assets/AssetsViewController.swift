@@ -11,7 +11,8 @@ class AssetsViewController: UIViewController {
     
     let assetsTableView: UITableView = {
        let tableView = UITableView()
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(AssetsTableViewCell.self,
+                           forCellReuseIdentifier: AssetsTableViewCell.identifier)
         tableView.register(AssetsTableViewHeader.self,
                            forHeaderFooterViewReuseIdentifier: AssetsTableViewHeader.identifier)
         return tableView
@@ -22,7 +23,7 @@ class AssetsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configure()
+        setupUI()
     }
     
     override func viewDidLayoutSubviews() {
@@ -37,7 +38,7 @@ class AssetsViewController: UIViewController {
         customAppearance()
     }
     // MARK: - Private methods
-    private func configure() {
+    private func setupUI() {
         
         assetsTableView.dataSource = self
         assetsTableView.delegate = self
@@ -72,11 +73,17 @@ extension AssetsViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = assetsTableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "Asset #\(indexPath.row + 1)"
-        cell.imageView?.image = UIImage(systemName: "house")
-        cell.imageView?.tintColor = .red
+        if let cell = assetsTableView.dequeueReusableCell(withIdentifier: AssetsTableViewCell.identifier,
+                                                          for: indexPath) as? AssetsTableViewCell {
+//        cell.imageView?.image = UIImage(systemName: "house")
+//        cell.imageView?.tintColor = .red
+            cell.assetDetailsButtonCompletion = { [weak self] in
+                self?.presentAlertOnMainThread(title: "Empty Username", message: "Please enter a username. We need to know who to look for 😀.", buttonTitle: "Ok")
+            }
         return cell
+        } else {
+            return UITableViewCell()
+        }
     }
 }
 
@@ -99,8 +106,5 @@ extension AssetsViewController: UITableViewDelegate {
         return Constants.tableHeaderHeight
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-//        view.backgroundColor = .purple
-    }
 }
 

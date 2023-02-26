@@ -24,10 +24,14 @@ class AssetsTableViewHeader: UITableViewHeaderFooterView {
     
     private let searchTextField = SearchTextField()
     
-    override init(reuseIdentifier: String?) {
-        super.init(reuseIdentifier: reuseIdentifier)
+    fileprivate func setupUI() {
         contentView.addSubview(label)
         contentView.addSubview(searchTextField)
+    }
+    
+    override init(reuseIdentifier: String?) {
+        super.init(reuseIdentifier: reuseIdentifier)
+        setupUI()
     }
     
     required init?(coder: NSCoder) {

@@ -19,6 +19,7 @@ struct IconConstants {
     static let watchlist = "heart.fill"
     static let settings = "gearshape.fill"
     static let search = "magnifyingglass"
+    static let details = "chevron.right"
 }
 
 struct TitlesConstants {
