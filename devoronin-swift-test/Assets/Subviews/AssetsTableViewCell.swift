@@ -30,11 +30,29 @@ class AssetsTableViewCell: UITableViewCell {
     
     private var assetImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.frame = CGRect(x: 0, y: 0, width: 60, height: 60)
         imageView.contentMode = .scaleToFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
                 
         return imageView
+    }()
+    
+    
+    private var assetFullTitleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 24, weight: .light)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private var assetShortTitleLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.textAlignment = .left
+        label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        label.textColor = .systemGray4
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
     }()
     
     // MARK: - Init
@@ -71,6 +89,11 @@ class AssetsTableViewCell: UITableViewCell {
                                      action: #selector(assetDetailsButtonDidTap),
                                      for: .touchUpInside)
         contentView.addSubview(assetImageView)
+        
+        contentView.addSubview(assetFullTitleLabel)
+        contentView.addSubview(assetShortTitleLabel)
+        
+
     }
     
     private func setupLayout() {
@@ -84,7 +107,15 @@ class AssetsTableViewCell: UITableViewCell {
             assetImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             assetImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             assetImageView.widthAnchor.constraint(equalToConstant: 60),
-            assetImageView.heightAnchor.constraint(equalToConstant: 60)
+            assetImageView.heightAnchor.constraint(equalToConstant: 60),
+            
+            
+            assetFullTitleLabel.leadingAnchor.constraint(equalTo: assetImageView.trailingAnchor, constant: 8),
+            assetFullTitleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 16),
+            
+            assetShortTitleLabel.leadingAnchor.constraint(equalTo: assetFullTitleLabel.leadingAnchor),
+            assetShortTitleLabel.topAnchor.constraint(equalTo: assetFullTitleLabel.bottomAnchor, constant: 0)
+            
         ])
     }
     
@@ -97,19 +128,10 @@ class AssetsTableViewCell: UITableViewCell {
     
     func update() {
         assetImageView.image = assetImage
+        assetFullTitleLabel.text = "BTC"
+        assetShortTitleLabel.text = "Bitcoin"
     }
  }
-
-extension AssetsTableViewCell {
-    func setIcon(_ image: UIImage?) {
-        
-        guard let image = image else {return}
-        let iconView = UIImageView(frame: CGRect(x: 10, y: 0, width: 20, height: 20))
-        iconView.image = image
-        let iconConteinerView: UIView = UIView(frame: CGRect(x: 20, y: 0, width: 20, height: 20))
-        iconConteinerView.addSubview(iconView)
-    }
-}
 
 
    
