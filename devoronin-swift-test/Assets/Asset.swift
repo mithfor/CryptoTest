@@ -27,7 +27,7 @@ struct AssetListResponse: Codable {
 }
 
 // MARK: - Asset
-struct Asset: Codable, Hashable {
+struct Asset: Codable, Hashable, Equatable {
 
   var id                : String? = nil
   var rank              : String? = nil

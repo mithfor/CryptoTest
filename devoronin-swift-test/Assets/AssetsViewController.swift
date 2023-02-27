@@ -20,9 +20,23 @@ protocol AssetsViewControllerOutput: AnyObject {
     func fetchImageFor(asset: Asset, completion: @escaping (AssetIcon) -> ())
 }
 
+
+class ResultVC: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .cyan
+    }
+}
+
+//MARK: - AssetsViewController
 class AssetsViewController: UIViewController {
     
     var interactor: AssetsInteractorInput?
+    
+    private var assets: Assets?
+    private var filteredAssets = Assets()
+    private var assetWithImage = AssetsWithImages()
+    private var isSearching = false
     
     let assetsTableView: UITableView = {
        let tableView = UITableView()
@@ -35,9 +49,14 @@ class AssetsViewController: UIViewController {
         return tableView
     }()
     
-    private var assets: Assets?
-    private var assetWithImage = [Asset: UIImage]()
-    
+    lazy var searchController: UISearchController = {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchResultsUpdater = self
+        searchController.searchBar.delegate = self
+        return searchController
+    }()
+
     
     //MARK: - Overriden
     override func viewDidLoad() {
@@ -53,45 +72,23 @@ class AssetsViewController: UIViewController {
         assetsTableView.pinToEdges(of: view)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        customAppearance()
-    }
     // MARK: - Private methods
     private func setupUI() {
         
         assetsTableView.dataSource = self
         assetsTableView.delegate = self
         
-        customAppearance()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.largeTitleDisplayMode = .always
+        
+        navigationItem.searchController = searchController
+
         addSubviews()
         configureRefreshControl()
     }
     
     private func addSubviews() {
         view.addSubview(assetsTableView)
-    }
-    
-    fileprivate func customAppearance() {
-        
-        let navigationTitleFont = UIFont(name: "Helvetica", size: 34)
-        let appearance = UINavigationBarAppearance()
-        
-        appearance.backgroundColor = ColorConstants.mainBackground
-        
-        if #available(iOS 13, *) {
-            appearance.shadowColor = .clear
-        } else {
-            navigationController?.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "BarBackground"), for: .default)
-            appearance.shadowImage = UIImage()
-        }
-        
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.compactAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-        
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont as Any]
     }
     
     func configureRefreshControl () {
@@ -103,7 +100,7 @@ class AssetsViewController: UIViewController {
         
     @objc func handleRefreshControl() {
         
-        assetsTableView.reloadData()
+       interactor?.fetchAssets()
 
        DispatchQueue.main.async {
           self.assetsTableView.refreshControl?.endRefreshing()
@@ -114,7 +111,8 @@ class AssetsViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension AssetsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return assets?.count ?? Constants.pagination
+        guard let assets = assets else {return .zero}
+        return isSearching ? filteredAssets.count : assets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -126,7 +124,7 @@ extension AssetsViewController: UITableViewDataSource {
         if let cell = assetsTableView.dequeueReusableCell(withIdentifier: AssetsTableViewCell.identifier,
                                                           for: indexPath) as? AssetsTableViewCell {
             cell.configureWith(delegate: self,
-                               and: assets[indexPath.row],
+                               and: filteredAssets[indexPath.row],
                                image: assetWithImage[assets[indexPath.row]])
             
             return cell
@@ -142,18 +140,6 @@ extension AssetsViewController: UITableViewDelegate {
         return Constants.tableCellHeight
 
     }
-    
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let header = tableView.dequeueReusableHeaderFooterView(
-            withIdentifier: AssetsTableViewHeader.identifier)
-        
-        return header
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return Constants.tableHeaderHeight
-    }
-    
 }
 //MARK: - AssetsTableViewCellDelegate
 extension AssetsViewController: AssetsTableViewCellDelegate {
@@ -164,10 +150,12 @@ extension AssetsViewController: AssetsTableViewCellDelegate {
     }
 }
 
+// MARK: - AssetsPresenterOutput
 extension AssetsViewController: AssetsPresenterOutput {
     
     func updateAssets(assets: Assets) {
         self.assets = assets
+        self.filteredAssets = assets
         
         let group = DispatchGroup()
         
@@ -185,6 +173,40 @@ extension AssetsViewController: AssetsPresenterOutput {
         
     }
 }
+
+//MARK: - UISearchResultsUpdating
+extension AssetsViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else {
+            return
+        }
+    }
+}
+
+//MARK: - UISearchBarDelegate
+extension AssetsViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
+     
+        guard let text = searchController.searchBar.text,
+              let assets = assets
+              else {
+            return
+        }
+        
+        if searchText.isEmpty {
+            isSearching = false
+            filteredAssets = assets
+        } else {
+            isSearching = true
+            filteredAssets = assets.filter({ (asset) -> Bool in
+                (asset.id?.lowercased().contains(text.lowercased()) ?? false)})
+        }
+    
+        assetsTableView.reloadData()
+    }
+}
+
 
 //struct ViewControllerProvider: PreviewProvider {
 //    static var previews: some View {
