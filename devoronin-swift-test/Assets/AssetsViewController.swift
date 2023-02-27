@@ -8,12 +8,16 @@
 import UIKit
 //import SwiftUI
 
+typealias AssetsWithImages = [Asset: UIImage]
+
 protocol AssetsViewControllerInput: AnyObject {
-    func updateAssets(assets: [Asset])
+    func updateAssets(assets: Assets)
+//    func updateAssetImage(_ image: UIImage)
 }
 
 protocol AssetsViewControllerOutput: AnyObject {
     func fetchAssets()
+    func fetchImageFor(asset: Asset, completion: @escaping (UIImage) -> ())
 }
 
 class AssetsViewController: UIViewController {
@@ -32,7 +36,7 @@ class AssetsViewController: UIViewController {
     }()
     
     private var assets: Assets?
-
+    private var assetWithImage = [Asset: UIImage]()
     
     //MARK: - Overriden
     override func viewDidLoad() {
@@ -94,7 +98,7 @@ class AssetsViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension AssetsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Constants.pagination
+        return assets?.count ?? Constants.pagination
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,7 +111,7 @@ extension AssetsViewController: UITableViewDataSource {
                                                           for: indexPath) as? AssetsTableViewCell {
             cell.configureWith(delegate: self,
                                and: assets[indexPath.row],
-                               image: UIImage(systemName: "house"))
+                               image: assetWithImage[assets[indexPath.row]])
             
             return cell
         } else {
@@ -145,11 +149,24 @@ extension AssetsViewController: AssetsTableViewCellDelegate {
 }
 
 extension AssetsViewController: AssetsPresenterOutput {
-    func updateAssets(assets: [Asset]) {
+    
+    func updateAssets(assets: Assets) {
         self.assets = assets
-        DispatchQueue.main.async {
+        
+        let group = DispatchGroup()
+        
+        self.assets?.forEach { [weak self] asset in
+            group.enter()
+            self?.interactor?.fetchImageFor(asset: asset) {  [weak self] (image) in
+                self?.assetWithImage[asset] = image
+                group.leave()
+            }
+        }
+        
+        group.notify(queue: .main) {
             self.assetsTableView.reloadData()
         }
+        
     }
 }
 

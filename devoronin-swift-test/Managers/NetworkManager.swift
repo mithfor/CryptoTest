@@ -18,22 +18,27 @@ enum NetworkError: String, Error {
     case alreadyInFavorites = "This user is already in your favorites!"
 }
 
+enum NetworkResponse {
+    
+}
+
 class NetworkManager {
     
     static let shared           = NetworkManager()
     let cache                   = NSCache<NSString, UIImage>()
     
-    typealias Handler = (Result<AssetListResponse, NetworkError>) -> Void
+    typealias AssetsHandler = (Result<AssetListResponse, NetworkError>) -> Void
+    typealias ImageHandler = (Result<UIImage, NetworkError>) -> Void
     
     private let baseURL: String = "http://api.coincap.io/v2/"
     
     private init() {}
     
     func fetchAssets( page: Int,
-                      completed: @escaping Handler) {
+                      completed: @escaping AssetsHandler) {
         
         let endpoint = String("\(baseURL)assets")
-                
+        
         guard let url = URL(string: endpoint) else {
             completed(.failure(.endpoint))
             return
@@ -47,9 +52,9 @@ class NetworkManager {
             }
             
             guard let response = response as? HTTPURLResponse,
-                response.statusCode == 200 else {
-                    completed(.failure(.invalidResponse))
-                    return
+                  response.statusCode == 200 else {
+                completed(.failure(.invalidResponse))
+                return
             }
             
             guard let jsonData = jsonData else {
@@ -71,72 +76,51 @@ class NetworkManager {
         task.resume()
     }
     
-//    func getUserInfo(for username: String,
-//                     completed: @escaping (Result<User, GFError>) -> Void) {
-//
-//          let endpoint = baseURL + "\(username)"
-//
-//          guard let url = URL(string: endpoint) else {
-//              completed(.failure(.invalidUserName))
-//              return
-//          }
-//
-//          let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-//
-//              if let _ = error {
-//                  completed(.failure(.unableToComplete))
-//                  return
-//              }
-//
-//              guard let response = response as? HTTPURLResponse,
-//                  response.statusCode == 200 else {
-//                      completed(.failure(.invalidResponse))
-//                      return
-//              }
-//
-//              guard let data = data else {
-//                  completed(.failure(.invalidData))
-//                  return
-//              }
-//
-//              do {
-//                  let decoder                 = JSONDecoder()
-//                decoder.dateDecodingStrategy  = .iso8601
-//                  let user                    = try decoder.decode(User.self, from: data)
-//                  completed(.success(user))
-//              } catch {
-//                  completed(.failure(.invalidData))
-//              }
-//          }
-//
-//          task.resume()
-//      }
-    
-    func downLoadImage(from urlString: String, completed: @escaping (UIImage?) -> Void) {
+    func downloadImage(from asset: Asset, completed: @escaping ImageHandler) {
+        
+        // urlFromAsset
+        
+        let urlString = "https://cryptoicon-api.vercel.app/api/icon/\(asset.symbol?.lowercased() ?? "btc")"
+        
         let cacheKey = NSString(string: urlString)
         
         if let image  = cache.object(forKey: cacheKey) {
-            completed(image)
+            completed(.success(image))
         }
         
         guard let url = URL(string: urlString) else {
-            completed(nil)
+            completed(.failure(.endpoint))
             return
         }
         
-        let task = URLSession.shared.dataTask(with: url) { [weak self] (data, response, error) in
-            guard let self = self,
-                error == nil,
-                let response = response as? HTTPURLResponse,
-                response.statusCode == 200,
-                let data = data,
-                let image = UIImage(data: data) else {
-                    completed(nil)
-                    return
-                }   
+        let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             
-            self.cache.setObject(image, forKey: cacheKey)
-            completed(image)
+            if let _ = error {
+                completed(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse,
+                  response.statusCode == 200 else {
+                completed(.failure(.invalidResponse))
+                return
+            }
+            
+            
+            guard let data = data else {
+                completed(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                if let image = UIImage(data: data) {
+                    self.cache.setObject(image, forKey: cacheKey)
+                    completed(.success(image))
+                } else {
+                    completed(.failure(.invalidData))
+                }
+                
+            }
         }
         
         task.resume()

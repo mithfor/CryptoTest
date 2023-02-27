@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 typealias AssetsPresenterInput = AssetsInteractorOutput
 typealias AssetsPresenterOutput = AssetsViewControllerInput
@@ -15,6 +16,10 @@ final class AssetsPresenter {
 }
 
 extension AssetsPresenter: AssetsPresenterInput {
+    func fetched(image: UIImage, completion: (UIImage) -> ()) {
+        completion(image)
+    }
+    
     func fetchFailure() {
         print(#function)
     }

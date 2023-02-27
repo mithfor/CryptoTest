@@ -3,4 +3,86 @@
    uuid = "EB412776-CDC7-46E0-8C35-30A5A0773B83"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6919C0C3-02A9-495E-A785-7360E58C80F5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "devoronin-swift-test/Managers/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "downloadImage(from:completed:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6919C0C3-02A9-495E-A785-7360E58C80F5 - 949fae85739dcefd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "devoronin_swift_test.NetworkManager.downloadImage(from: devoronin_swift_test.Asset, completed: (Swift.Result&lt;__C.UIImage, devoronin_swift_test.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "devoronin-swift-test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "1381">
+               </Location>
+               <Location
+                  uuid = "6919C0C3-02A9-495E-A785-7360E58C80F5 - 72b5b24ba65c5ae0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in devoronin_swift_test.NetworkManager.downloadImage(from: devoronin_swift_test.Asset, completed: (Swift.Result&lt;__C.UIImage, devoronin_swift_test.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "devoronin-swift-test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "402">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "37565D31-C095-4D9E-BB23-D87150BB5905"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "devoronin-swift-test/Managers/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "downloadImage(from:completed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7C20F509-6117-45AE-9679-85369CB8AB6F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "devoronin-swift-test/Managers/NetworkManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "downloadImage(from:completed:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
