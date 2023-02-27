@@ -164,7 +164,7 @@ class AssetsTableViewCell: UITableViewCell {
         assetImageView.image = assetImage
         assetSymbolLabel.text = assetViewModel?.symbol
         assetNameLabel.text = assetViewModel?.name
-        assetPriceUSDLabel.text = (assetViewModel?.priceUsd ?? "").decimalPlaces(equalsTo: 2)
+        assetPriceUSDLabel.text = "$\(String.formatToCurrency(string: assetViewModel?.priceUsd ?? ""))"
         
         
         let changePercent24HrTrend = Double(assetViewModel?.changePercent24Hr ?? "0.00") ?? 0.0

@@ -89,17 +89,17 @@ final class AssetDetailsViewController: UIViewController {
     }
     
     private func updateUI() {
+        
         title = "\(asset.name ?? "") \(asset.symbol ?? "")"
         
-        assetPriceUSDLabel.text = "$\((asset.priceUsd ?? "").decimalPlaces(equalsTo: 2))"
+        assetPriceUSDLabel.text = "$\(String.formatToCurrency(string: asset.priceUsd ?? ""))"
         
         let changePercent24HrTrend = Double(asset.changePercent24Hr ?? "0.00") ?? 0.0
         assetChangePercent24HrLabel.textColor = changePercent24HrTrend >= 0
                                                 ? ColorConstants.Asset.changePercent24HrPositive
                                                 : ColorConstants.Asset.changePersent24HrNegative
         let positiveSign = changePercent24HrTrend >= 0 ? "+" : ""
-        assetChangePercent24HrLabel.text = "\(positiveSign)\(NSString(format: "%.2f", changePercent24HrTrend))%"
-                title = "\(asset.name ?? "") \(asset.symbol ?? "")"
+        assetChangePercent24HrLabel.text = "\(positiveSign)\(String.formatToCurrency(string: asset.changePercent24Hr ?? ""))%"
     }
 }
 
