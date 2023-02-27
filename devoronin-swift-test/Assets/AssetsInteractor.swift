@@ -6,14 +6,13 @@
 //
 
 import Foundation
-import UIKit
 
 typealias Assets = [Asset]
 typealias AssetsInteractorInput = AssetsViewControllerOutput
 
 protocol AssetsInteractorOutput: AnyObject {
     func fetched(assets: Assets)
-    func fetched(image: UIImage, completion: @escaping ((UIImage) -> ()))
+    func fetched(_ assetIcon: AssetIcon, completion: @escaping ((AssetIcon) -> ()))
     func fetchFailure()
 }
 
@@ -25,19 +24,11 @@ final class AssetsInteractor {
 
 extension AssetsInteractor: AssetsInteractorInput {
     
-    func fetchImageFor(asset: Asset, completion: @escaping (UIImage) -> ()){
-//        NetworkManager.shared.downloadImage(from: asset) { [weak self] result in
-//            switch result {
-//            case .success(let image):
-//                self?.presenter?.fetched(image: image, completion: completion)
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-        guard let image = UIImage(named: asset.symbol?.lowercased() ?? "usd") else {
-            return completion(UIImage(named: "usd") ?? UIImage())
-        }
-        self.presenter?.fetched(image: image, completion: completion)
+    func fetchImageFor(asset: Asset, completion: @escaping (AssetIcon) -> ()){
+
+        let assetIcon = IconManager.shared.fetchIconFor(asset: asset)
+        
+        self.presenter?.fetched(assetIcon, completion: completion)
     }
     
     func fetchAssets() {
@@ -52,3 +43,5 @@ extension AssetsInteractor: AssetsInteractorInput {
         }
     }
 }
+
+

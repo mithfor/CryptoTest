@@ -9,15 +9,15 @@ import UIKit
 //import SwiftUI
 
 typealias AssetsWithImages = [Asset: UIImage]
+typealias AssetImage = UIImage
 
 protocol AssetsViewControllerInput: AnyObject {
     func updateAssets(assets: Assets)
-//    func updateAssetImage(_ image: UIImage)
 }
 
 protocol AssetsViewControllerOutput: AnyObject {
     func fetchAssets()
-    func fetchImageFor(asset: Asset, completion: @escaping (UIImage) -> ())
+    func fetchImageFor(asset: Asset, completion: @escaping (AssetIcon) -> ())
 }
 
 class AssetsViewController: UIViewController {
@@ -38,6 +38,7 @@ class AssetsViewController: UIViewController {
     private var assets: Assets?
     private var assetWithImage = [Asset: UIImage]()
     
+    
     //MARK: - Overriden
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,7 +52,6 @@ class AssetsViewController: UIViewController {
 
         assetsTableView.pinToEdges(of: view)
     }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -85,7 +85,6 @@ class AssetsViewController: UIViewController {
             navigationController?.navigationBar.setBackgroundImage(#imageLiteral(resourceName: "BarBackground"), for: .default)
             appearance.shadowImage = UIImage()
         }
-        
         
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.compactAppearance = appearance
@@ -157,8 +156,8 @@ extension AssetsViewController: AssetsPresenterOutput {
         
         self.assets?.forEach { [weak self] asset in
             group.enter()
-            self?.interactor?.fetchImageFor(asset: asset) {  [weak self] (image) in
-                self?.assetWithImage[asset] = image
+            self?.interactor?.fetchImageFor(asset: asset) {  [weak self] (assetIcon) in
+                self?.assetWithImage[asset] = assetIcon.image
                 group.leave()
             }
         }
