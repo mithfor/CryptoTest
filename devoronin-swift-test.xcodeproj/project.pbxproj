@@ -44,6 +44,15 @@
 		88DC6DFC29AC765500C8D62F /* AssetsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6DFB29AC765500C8D62F /* AssetsPresenter.swift */; };
 		88DC6E0129AC7D0D00C8D62F /* AssetsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E0029AC7D0D00C8D62F /* AssetsConfigurator.swift */; };
 		88DC6E0929ACABED00C8D62F /* IconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E0829ACABED00C8D62F /* IconManager.swift */; };
+		88DC6E0F29AD11E200C8D62F /* AssetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E0E29AD11E200C8D62F /* AssetDetailsViewController.swift */; };
+		88DC6E1029AD11E200C8D62F /* AssetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E0E29AD11E200C8D62F /* AssetDetailsViewController.swift */; };
+		88DC6E1129AD11E200C8D62F /* AssetDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E0E29AD11E200C8D62F /* AssetDetailsViewController.swift */; };
+		88DC6E1B29AD3E4700C8D62F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E1A29AD3E4700C8D62F /* AppConstants.swift */; };
+		88DC6E1C29AD3E4700C8D62F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E1A29AD3E4700C8D62F /* AppConstants.swift */; };
+		88DC6E1D29AD3E4700C8D62F /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E1A29AD3E4700C8D62F /* AppConstants.swift */; };
+		88DC6E2229AD468200C8D62F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E2129AD468200C8D62F /* String+Ext.swift */; };
+		88DC6E2329AD468200C8D62F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E2129AD468200C8D62F /* String+Ext.swift */; };
+		88DC6E2429AD468200C8D62F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E2129AD468200C8D62F /* String+Ext.swift */; };
 		88EF7A3F29AB40B0001D3572 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EF7A3E29AB40B0001D3572 /* UIViewController+Ext.swift */; };
 		88EF7A4029AB40B0001D3572 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EF7A3E29AB40B0001D3572 /* UIViewController+Ext.swift */; };
 		88EF7A4129AB40B0001D3572 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EF7A3E29AB40B0001D3572 /* UIViewController+Ext.swift */; };
@@ -95,6 +104,9 @@
 		88DC6DFB29AC765500C8D62F /* AssetsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsPresenter.swift; sourceTree = "<group>"; };
 		88DC6E0029AC7D0D00C8D62F /* AssetsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsConfigurator.swift; sourceTree = "<group>"; };
 		88DC6E0829ACABED00C8D62F /* IconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconManager.swift; sourceTree = "<group>"; };
+		88DC6E0E29AD11E200C8D62F /* AssetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailsViewController.swift; sourceTree = "<group>"; };
+		88DC6E1A29AD3E4700C8D62F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
+		88DC6E2129AD468200C8D62F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		88EF7A3E29AB40B0001D3572 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		88EF7AA729AB44CC001D3572 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -150,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				8895359F29AAA01C00FC4B91 /* Constants.swift */,
+				88DC6E1A29AD3E4700C8D62F /* AppConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -185,6 +198,7 @@
 		88D77633299FDAB500BC782F /* devoronin-swift-test */ = {
 			isa = PBXGroup;
 			children = (
+				88DC6E0D29AD11BD00C8D62F /* AssetDetails */,
 				883C402729ABF2E600B44916 /* Managers */,
 				880C4B6029AA9B9400951D25 /* Assets */,
 				88EF7A5229AB410B001D3572 /* Extensions */,
@@ -219,6 +233,14 @@
 			path = "devoronin-swift-testUITests";
 			sourceTree = "<group>";
 		};
+		88DC6E0D29AD11BD00C8D62F /* AssetDetails */ = {
+			isa = PBXGroup;
+			children = (
+				88DC6E0E29AD11E200C8D62F /* AssetDetailsViewController.swift */,
+			);
+			path = AssetDetails;
+			sourceTree = "<group>";
+		};
 		88EF7A3629AB3AB1001D3572 /* Subviews */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +255,7 @@
 			children = (
 				88EF7AA729AB44CC001D3572 /* UIView+Ext.swift */,
 				88EF7A3E29AB40B0001D3572 /* UIViewController+Ext.swift */,
+				88DC6E2129AD468200C8D62F /* String+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -366,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88DC6E1B29AD3E4700C8D62F /* AppConstants.swift in Sources */,
 				88EF7AA829AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				88DC6DF729AC6E7D00C8D62F /* AssetsInteractor.swift in Sources */,
 				880C4B4229AA764000951D25 /* WatchlistViewController.swift in Sources */,
@@ -378,10 +402,12 @@
 				88DC6E0929ACABED00C8D62F /* IconManager.swift in Sources */,
 				88DC6E0129AC7D0D00C8D62F /* AssetsConfigurator.swift in Sources */,
 				889535A029AAA01C00FC4B91 /* Constants.swift in Sources */,
+				88DC6E0F29AD11E200C8D62F /* AssetDetailsViewController.swift in Sources */,
 				889535AA29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */,
 				88DC6DFC29AC765500C8D62F /* AssetsPresenter.swift in Sources */,
 				880C4B5329AA7B7100951D25 /* AssetsViewController.swift in Sources */,
 				880C4B4929AA767B00951D25 /* SettingsViewController.swift in Sources */,
+				88DC6E2229AD468200C8D62F /* String+Ext.swift in Sources */,
 				889535B229AAAC7600FC4B91 /* SearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,13 +419,16 @@
 				883C402B29ABF30200B44916 /* NetworkManager.swift in Sources */,
 				88EF7AA929AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				880C4B4329AA764000951D25 /* WatchlistViewController.swift in Sources */,
+				88DC6E2329AD468200C8D62F /* String+Ext.swift in Sources */,
 				88D7764C299FDAB700BC782F /* devoronin_swift_testTests.swift in Sources */,
+				88DC6E1029AD11E200C8D62F /* AssetDetailsViewController.swift in Sources */,
 				883C402229ABF0A100B44916 /* Asset.swift in Sources */,
 				880C4B4A29AA767B00951D25 /* SettingsViewController.swift in Sources */,
 				880C4B5B29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */,
 				880C4B5429AA7B7100951D25 /* AssetsViewController.swift in Sources */,
 				889535AB29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */,
 				889535A129AAA01C00FC4B91 /* Constants.swift in Sources */,
+				88DC6E1C29AD3E4700C8D62F /* AppConstants.swift in Sources */,
 				889535B329AAAC7600FC4B91 /* SearchTextField.swift in Sources */,
 				88EF7A4029AB40B0001D3572 /* UIViewController+Ext.swift in Sources */,
 			);
@@ -412,13 +441,16 @@
 				883C402C29ABF30200B44916 /* NetworkManager.swift in Sources */,
 				88EF7AAA29AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				880C4B4429AA764000951D25 /* WatchlistViewController.swift in Sources */,
+				88DC6E2429AD468200C8D62F /* String+Ext.swift in Sources */,
 				88D77657299FDAB700BC782F /* devoronin_swift_testUITests.swift in Sources */,
+				88DC6E1129AD11E200C8D62F /* AssetDetailsViewController.swift in Sources */,
 				883C402329ABF0A100B44916 /* Asset.swift in Sources */,
 				880C4B4B29AA767B00951D25 /* SettingsViewController.swift in Sources */,
 				880C4B5C29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */,
 				880C4B5529AA7B7100951D25 /* AssetsViewController.swift in Sources */,
 				889535AC29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */,
 				889535A229AAA01C00FC4B91 /* Constants.swift in Sources */,
+				88DC6E1D29AD3E4700C8D62F /* AppConstants.swift in Sources */,
 				889535B429AAAC7600FC4B91 /* SearchTextField.swift in Sources */,
 				88EF7A4129AB40B0001D3572 /* UIViewController+Ext.swift in Sources */,
 			);

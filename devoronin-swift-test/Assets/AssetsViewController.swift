@@ -48,7 +48,6 @@ class AssetsViewController: UIViewController {
     lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.obscuresBackgroundDuringPresentation = false
-        searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
         return searchController
     }()
@@ -75,7 +74,7 @@ class AssetsViewController: UIViewController {
         assetsTableView.delegate = self
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.largeTitleDisplayMode = .automatic
         navigationItem.searchController = searchController
 
         addSubviews()
@@ -152,10 +151,9 @@ extension AssetsViewController: UITableViewDelegate {
 }
 //MARK: - AssetsTableViewCellDelegate
 extension AssetsViewController: AssetsTableViewCellDelegate {
-    func assetDetails(with data: String) {
-        presentAlertOnMainThread(title: "Details",
-                                 message: "Asset #\(data)",
-                                 buttonTitle: "Ok")
+    func details(of asset: Asset) {
+        let vc = AssetDetailsViewController(asset: asset)
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -184,15 +182,6 @@ extension AssetsViewController: AssetsPresenterOutput {
             self.assetsTableView.reloadData()
         }
         
-    }
-}
-
-//MARK: - UISearchResultsUpdating
-extension AssetsViewController: UISearchResultsUpdating {
-    func updateSearchResults(for searchController: UISearchController) {
-        guard let text = searchController.searchBar.text else {
-            return
-        }
     }
 }
 

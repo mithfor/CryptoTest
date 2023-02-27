@@ -8,7 +8,7 @@
 import UIKit
 
 protocol AssetsTableViewCellDelegate: class {
-    func assetDetails(with data: String)
+    func details(of asset: Asset)
 }
 
 class AssetsTableViewCell: UITableViewCell {
@@ -90,7 +90,8 @@ class AssetsTableViewCell: UITableViewCell {
     
     // MARK: - Actions
     @objc func assetDetailsButtonDidTap() {
-        delegate?.assetDetails(with: assetId)
+        guard let asset = assetViewModel else {return}
+        delegate?.details(of: asset)
     }
     
     // MARK: - Setup
@@ -163,7 +164,7 @@ class AssetsTableViewCell: UITableViewCell {
         assetImageView.image = assetImage
         assetSymbolLabel.text = assetViewModel?.symbol
         assetNameLabel.text = assetViewModel?.name
-        assetPriceUSDLabel.text = "$\(NSString(format: "%.2f", Double(assetViewModel?.priceUsd ?? "0.00") ?? 0.0))"
+        assetPriceUSDLabel.text = (assetViewModel?.priceUsd ?? "").decimalPlaces(equalsTo: 2)
         
         
         let changePercent24HrTrend = Double(assetViewModel?.changePercent24Hr ?? "0.00") ?? 0.0
@@ -179,11 +180,6 @@ class AssetsTableViewCell: UITableViewCell {
     }
  }
 
-extension Double {
-    func round2Precision() -> Double {
-        (self * 100) / 100
-    }
-}
 
 
    
