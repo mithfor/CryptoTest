@@ -66,6 +66,7 @@ class AssetsViewController: UIViewController {
         
         customAppearance()
         addSubviews()
+        configureRefreshControl()
     }
     
     private func addSubviews() {
@@ -91,6 +92,22 @@ class AssetsViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: navigationTitleFont as Any]
+    }
+    
+    func configureRefreshControl () {
+        self.assetsTableView.refreshControl = UIRefreshControl()
+        self.assetsTableView.refreshControl?.addTarget(self, action:
+                                          #selector(handleRefreshControl),
+                                          for: .valueChanged)
+    }
+        
+    @objc func handleRefreshControl() {
+        
+        assetsTableView.reloadData()
+
+       DispatchQueue.main.async {
+          self.assetsTableView.refreshControl?.endRefreshing()
+       }
     }
 }
 
