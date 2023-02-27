@@ -20,12 +20,9 @@ protocol AssetsViewControllerOutput: AnyObject {
     func fetchImageFor(asset: Asset, completion: @escaping (AssetIcon) -> ())
 }
 
-
-class ResultVC: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .cyan
-    }
+enum ActionState {
+    case active
+    case inactive
 }
 
 //MARK: - AssetsViewController
@@ -36,14 +33,14 @@ class AssetsViewController: UIViewController {
     private var assets: Assets?
     private var filteredAssets = Assets()
     private var assetWithImage = AssetsWithImages()
-    private var isSearching = false
+    private var searching: ActionState = .inactive
     
     let assetsTableView: UITableView = {
        let tableView = UITableView()
         tableView.register(AssetsTableViewCell.self,
                            forCellReuseIdentifier: AssetsTableViewCell.identifier)
-        tableView.register(AssetsTableViewHeader.self,
-                           forHeaderFooterViewReuseIdentifier: AssetsTableViewHeader.identifier)
+//        tableView.register(AssetsTableViewHeader.self,
+//                           forHeaderFooterViewReuseIdentifier: AssetsTableViewHeader.identifier)
         tableView.backgroundColor = ColorConstants.mainBackground
         
         return tableView
@@ -80,7 +77,6 @@ class AssetsViewController: UIViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
-        
         navigationItem.searchController = searchController
 
         addSubviews()
@@ -103,6 +99,7 @@ class AssetsViewController: UIViewController {
        interactor?.fetchAssets()
 
        DispatchQueue.main.async {
+          self.searchController.searchBar.text = ""
           self.assetsTableView.refreshControl?.endRefreshing()
        }
     }
@@ -112,7 +109,11 @@ class AssetsViewController: UIViewController {
 extension AssetsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let assets = assets else {return .zero}
-        return isSearching ? filteredAssets.count : assets.count
+        switch searching {
+            case .active: return filteredAssets.count
+            case .inactive: return assets.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -123,9 +124,18 @@ extension AssetsViewController: UITableViewDataSource {
         
         if let cell = assetsTableView.dequeueReusableCell(withIdentifier: AssetsTableViewCell.identifier,
                                                           for: indexPath) as? AssetsTableViewCell {
-            cell.configureWith(delegate: self,
-                               and: filteredAssets[indexPath.row],
-                               image: assetWithImage[assets[indexPath.row]])
+            
+            switch searching {
+            case .inactive:
+                cell.configureWith(delegate: self,
+                                   and:  assets[indexPath.row],
+                                   image: assetWithImage[assets[indexPath.row]])
+            case .active:
+                cell.configureWith(delegate: self,
+                                   and:  filteredAssets[indexPath.row],
+                                   image: assetWithImage[filteredAssets[indexPath.row]])
+            }
+
             
             return cell
         } else {
@@ -195,10 +205,10 @@ extension AssetsViewController: UISearchBarDelegate {
         }
         
         if searchText.isEmpty {
-            isSearching = false
+            searching = .inactive
             filteredAssets = assets
         } else {
-            isSearching = true
+            searching = .active
             filteredAssets = assets.filter({ (asset) -> Bool in
                 (asset.id?.lowercased().contains(text.lowercased()) ?? false)})
         }
