@@ -8,7 +8,17 @@
 import UIKit
 //import SwiftUI
 
+protocol AssetsViewControllerInput: AnyObject {
+    func updateAssets(assets: [Asset])
+}
+
+protocol AssetsViewControllerOutput: AnyObject {
+    func fetchAssets()
+}
+
 class AssetsViewController: UIViewController {
+    
+    var interactor: AssetsInteractorInput?
     
     let assetsTableView: UITableView = {
        let tableView = UITableView()
@@ -21,7 +31,7 @@ class AssetsViewController: UIViewController {
         return tableView
     }()
     
-    private var assets: [Asset]?
+    private var assets: Assets?
 
     
     //MARK: - Overriden
@@ -29,7 +39,7 @@ class AssetsViewController: UIViewController {
         super.viewDidLoad()
 
         setupUI()
-        fetchAssets()
+        interactor?.fetchAssets()
     }
     
     override func viewDidLayoutSubviews() {
@@ -134,19 +144,11 @@ extension AssetsViewController: AssetsTableViewCellDelegate {
     }
 }
 
-extension AssetsViewController {
-    private func fetchAssets() {
-        NetworkManager.shared.fetchAssets(page: 1) { [weak self] (result) in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let responce):
-                    self?.assets = responce.data
-                    self?.assetsTableView.reloadData()
-                case .failure(_):
-                    self?.presentAlertOnMainThread(title: "ERROR", message: "Loading Data", buttonTitle: "OK")
-                }
-            }
-
+extension AssetsViewController: AssetsPresenterOutput {
+    func updateAssets(assets: [Asset]) {
+        self.assets = assets
+        DispatchQueue.main.async {
+            self.assetsTableView.reloadData()
         }
     }
 }
