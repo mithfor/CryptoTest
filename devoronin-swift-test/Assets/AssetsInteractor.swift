@@ -13,7 +13,7 @@ typealias AssetsInteractorInput = AssetsViewControllerOutput
 protocol AssetsInteractorOutput: AnyObject {
     func fetched(assets: Assets)
     func fetched(_ assetIcon: AssetIcon, completion: @escaping ((AssetIcon) -> ()))
-    func fetchFailure()
+    func fetchFailure(error: NetworkError)
 }
 
 final class AssetsInteractor {
@@ -37,8 +37,8 @@ extension AssetsInteractor: AssetsInteractorInput {
             case .success(let responce):
                 self?.assets = responce.data
                 self?.presenter?.fetched(assets: self?.assets ?? Assets())
-            case .failure(_):
-                self?.presenter?.fetchFailure()
+            case .failure(let error):
+                self?.presenter?.fetchFailure(error: error)
             }
         }
     }

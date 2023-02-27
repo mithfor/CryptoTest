@@ -19,8 +19,8 @@ extension AssetsPresenter: AssetsPresenterInput {
         completion(assetIcon)
     }
     
-    func fetchFailure() {
-        print(#function)
+    func fetchFailure(error: NetworkError) {
+        viewController?.updateFailed(with: error)
     }
     
     func fetched(assets: Assets) {

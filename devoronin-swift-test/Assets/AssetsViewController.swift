@@ -13,6 +13,7 @@ typealias AssetImage = UIImage
 
 protocol AssetsViewControllerInput: AnyObject {
     func updateAssets(assets: Assets)
+    func updateFailed(with error: NetworkError)
 }
 
 protocol AssetsViewControllerOutput: AnyObject {
@@ -39,8 +40,6 @@ class AssetsViewController: UIViewController {
        let tableView = UITableView()
         tableView.register(AssetsTableViewCell.self,
                            forCellReuseIdentifier: AssetsTableViewCell.identifier)
-//        tableView.register(AssetsTableViewHeader.self,
-//                           forHeaderFooterViewReuseIdentifier: AssetsTableViewHeader.identifier)
         tableView.backgroundColor = ColorConstants.mainBackground
         
         return tableView
@@ -100,6 +99,7 @@ class AssetsViewController: UIViewController {
 
        DispatchQueue.main.async {
           self.searchController.searchBar.text = ""
+            
           self.assetsTableView.refreshControl?.endRefreshing()
        }
     }
@@ -136,7 +136,6 @@ extension AssetsViewController: UITableViewDataSource {
                                    image: assetWithImage[filteredAssets[indexPath.row]])
             }
 
-            
             return cell
         } else {
             return UITableViewCell()
@@ -162,6 +161,10 @@ extension AssetsViewController: AssetsTableViewCellDelegate {
 
 // MARK: - AssetsPresenterOutput
 extension AssetsViewController: AssetsPresenterOutput {
+    func updateFailed(with error: NetworkError) {
+        presentAlertOnMainThread(title: "NetworkError", message: error.rawValue, buttonTitle: "OK")
+    }
+    
     
     func updateAssets(assets: Assets) {
         self.assets = assets
