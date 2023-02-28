@@ -26,7 +26,7 @@ class AssetsTableViewCell: UITableViewCell {
     
     private var assetDetailsButton: UIButton = {
         let button = UIButton()
-        button.setImage(UIImage(systemName: IconConstants.details),
+        button.setImage(UIImage(systemName: Constants.Icon.details),
                         for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button

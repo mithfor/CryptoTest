@@ -17,18 +17,27 @@ struct Constants {
         struct Size {
             static let normal: CGFloat = 20
         }
-        
-        
     }
+    
+    struct Icon {
+        static let assets = "bitcoinsign.circle.fill"
+        static let watchlist = "heart.fill"
+        static let settings = "gearshape.fill"
+        static let search = "magnifyingglass"
+        static let details = "chevron.right"
+    }
+    
+    struct IconFill {
+        static let assets = "bitcoinsign.circle.fill"
+        static let watchlist = "heart.fill"
+        static let settings = "gearshape.fill"
+        static let search = "magnifyingglass"
+        static let details = "chevron.right"
+    }
+
 }
 
-struct IconConstants {
-    static let assets = "bitcoinsign.circle.fill"
-    static let watchlist = "heart.fill"
-    static let settings = "gearshape.fill"
-    static let search = "magnifyingglass"
-    static let details = "chevron.right"
-}
+
 
 struct TitlesConstants {
     static let assets = "Assets"

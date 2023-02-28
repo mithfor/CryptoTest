@@ -35,7 +35,7 @@ class MainViewController: UITabBarController {
         let assetsVC = DefaultAssetsConfigurator.configured(AssetsViewController())
         assetsVC.title = TitlesConstants.assets
         assetsVC.tabBarItem = UITabBarItem(title: TitlesConstants.assets,
-                                           image: UIImage(systemName: IconConstants.assets),
+                                           image: UIImage(systemName: Constants.Icon.assets),
                                            tag: 0)
         return UINavigationController(rootViewController: assetsVC)
     }
@@ -44,7 +44,7 @@ class MainViewController: UITabBarController {
         let watchlistVC = WatchlistViewController()
         watchlistVC.title = TitlesConstants.watchlist
         watchlistVC.tabBarItem = UITabBarItem(title: watchlistVC.title,
-                                              image: UIImage(systemName: IconConstants.watchlist),
+                                              image: UIImage(systemName: Constants.Icon.watchlist),
                                               tag: 1)
         return UINavigationController(rootViewController: watchlistVC)
     }
@@ -53,7 +53,7 @@ class MainViewController: UITabBarController {
         let settingsVC = SettingsViewController()
         settingsVC.title = TitlesConstants.settings
         settingsVC.tabBarItem = UITabBarItem(title: settingsVC.title,
-                                             image: UIImage(systemName: IconConstants.settings),
+                                             image: UIImage(systemName: Constants.Icon.settings),
                                              tag: 2)
         return UINavigationController(rootViewController: settingsVC)
     }

@@ -20,6 +20,7 @@ final class AssetDetailsViewController: UIViewController {
     }()
     
     
+    
     // MARK: - Init
     init(asset: Asset) {
         self.asset = asset
@@ -55,8 +56,14 @@ final class AssetDetailsViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = ColorConstants.mainBackground
         navigationItem.largeTitleDisplayMode = .never
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Watchlist", style: .plain, target: self, action: #selector(addTapped))
+
         
         view.addSubview(detailView)
+    }
+    
+    @objc func addTapped() {
+        print(#function)
     }
     
     private func updateUI() {
@@ -84,4 +91,5 @@ final class AssetDetailsViewController: UIViewController {
 //        AssetDetailsViewController().showPreview()
 //    }
 //}
+
 
