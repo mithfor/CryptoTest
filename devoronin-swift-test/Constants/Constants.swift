@@ -12,6 +12,14 @@ struct Constants {
     static let pagination: Int = 10
     static let tableCellHeight: CGFloat = 80.4
     static let tableHeaderHeight: CGFloat = 136
+    
+    struct Fonts {
+        struct Size {
+            static let normal: CGFloat = 20
+        }
+        
+        
+    }
 }
 
 struct IconConstants {

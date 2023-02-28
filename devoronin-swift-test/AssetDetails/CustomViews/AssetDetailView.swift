@@ -7,6 +7,13 @@
 
 import UIKit
 
+protocol AssetDetailAccessable: class {
+    
+    func updateLine1(with value: String)
+    func updateLine2(with value: String)
+    func updateLine3(with value: String)
+}
+
 final class AssetDetailView: UIView {
     
     //MARK: VARIABLES
@@ -55,28 +62,33 @@ final class AssetDetailView: UIView {
         return stackView
     }()
     
-    private lazy var fooView1: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemGreen
-        view.layer.borderWidth = 2
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+    
+    
+    private lazy var stackLine1: DetailHorizontalStackView = {
+        let stack = DetailHorizontalStackView()
+        stack.leftLabel.text = "Market Cap"
+        stack.leftLabel.font = UIFont.systemFont(ofSize: Constants.Fonts.Size.normal, weight: .regular)
+        stack.rightLabel.font = UIFont.systemFont(ofSize: Constants.Fonts.Size.normal, weight: .regular)
+        stack.rightLabel.textColor = ColorConstants.Asset.priceUSD
+        return stack
     }()
     
-    private lazy var fooView2: UIView = {
-        let view = UIView()
-        view.backgroundColor = .gray
-        view.layer.borderWidth = 2
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+    private lazy var stackLine2: DetailHorizontalStackView = {
+        let stack = DetailHorizontalStackView()
+        stack.leftLabel.text = "Supply"
+        stack.leftLabel.font = UIFont.systemFont(ofSize: Constants.Fonts.Size.normal, weight: .regular)
+        stack.rightLabel.font = UIFont.systemFont(ofSize: Constants.Fonts.Size.normal, weight: .regular)
+        stack.rightLabel.textColor = ColorConstants.Asset.priceUSD
+        return stack
     }()
     
-    private lazy var fooView3: UIView = {
-        let view = UIView()
-        view.backgroundColor = .yellow
-        view.layer.borderWidth = 2
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+    private lazy var stackLine3: DetailHorizontalStackView = {
+        let stack = DetailHorizontalStackView()
+        stack.leftLabel.text = "Volume (24h)"
+        stack.leftLabel.font = UIFont.systemFont(ofSize: Constants.Fonts.Size.normal, weight: .regular)
+        stack.rightLabel.font = UIFont.systemFont(ofSize: Constants.Fonts.Size.normal, weight: .regular)
+        stack.rightLabel.textColor = ColorConstants.Asset.priceUSD
+        return stack
     }()
     
     // MARK: - INIT
@@ -98,7 +110,7 @@ final class AssetDetailView: UIView {
         setupAssetChangePercent24HrLabelConstraints()
         setupChartViewConstraints()
         setupStackViewConstraints()
-        setupFooViewsConstraints()
+        setupLinesConstraints()
     }
     
     // MARK: - CONSTRAINTS METHODS
@@ -107,7 +119,7 @@ final class AssetDetailView: UIView {
         addSubview(scrollView)
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
             scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
@@ -135,7 +147,6 @@ final class AssetDetailView: UIView {
             assetPriceUSDLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 24),
             assetPriceUSDLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             assetPriceUSDLabel.heightAnchor.constraint(equalToConstant: 76),
-            assetPriceUSDLabel.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.50)
         ])
     }
     
@@ -169,32 +180,27 @@ final class AssetDetailView: UIView {
         ])
     }
     
-    private func setupFooViewsConstraints() {
+    private func setupLinesConstraints() {
         
-        stackView.addArrangedSubview(fooView1)
-        stackView.addArrangedSubview(fooView2)
-        stackView.addArrangedSubview(fooView3)
+        stackView.addArrangedSubview(stackLine1)
+        stackView.addArrangedSubview(stackLine2)
+        stackView.addArrangedSubview(stackLine3)
         
         NSLayoutConstraint.activate([
-            fooView1.widthAnchor.constraint(equalTo: stackView.widthAnchor),
-            fooView1.heightAnchor.constraint(equalToConstant: 44)
+            stackLine1.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: -24),
+            stackLine1.heightAnchor.constraint(equalToConstant: 44)
         ])
         
         NSLayoutConstraint.activate([
-            fooView2.widthAnchor.constraint(equalTo: stackView.widthAnchor),
-            fooView2.heightAnchor.constraint(equalToConstant: 44)
+            stackLine2.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: -24),
+            stackLine2.heightAnchor.constraint(equalToConstant: 44)
         ])
         
         NSLayoutConstraint.activate([
-            fooView3.widthAnchor.constraint(equalTo: stackView.widthAnchor),
-            fooView3.heightAnchor.constraint(equalToConstant: 44)
+            stackLine3.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: -24),
+            stackLine3.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
-    
-    
-    
-    
- 
     
 //    private func setupItemImageViewConstraints() {
 //        contentView.addSubview(imageView)
@@ -219,4 +225,16 @@ final class AssetDetailView: UIView {
 //    }
 }
 
-
+extension AssetDetailView: AssetDetailAccessable {
+    func updateLine1(with value: String) {
+        stackLine1.rightLabel.text = value
+    }
+    
+    func updateLine2(with value: String) {
+        stackLine2.rightLabel.text = value
+    }
+    
+    func updateLine3(with value: String) {
+        stackLine3.rightLabel.text = value
+    }
+}

@@ -71,6 +71,11 @@ final class AssetDetailsViewController: UIViewController {
                                                 : ColorConstants.Asset.changePersent24HrNegative
         let positiveSign = changePercent24HrTrend >= 0 ? "+" : ""
         detailView.assetChangePercent24HrLabel.text = "\(positiveSign)\(String.formatToCurrency(string: asset.changePercent24Hr ?? ""))%"
+        
+        detailView.updateLine1(with: "$\(String.formatToCurrency(string: asset.marketCapUsd ?? "No data"))")
+        detailView.updateLine2(with: "$\(String.formatToCurrency(string: asset.maxSupply ?? "No data"))")
+        detailView.updateLine3(with: "$\(String.formatToCurrency(string: asset.volumeUsd24Hr ?? "No data"))")
+        
     }
 }
 
@@ -79,3 +84,4 @@ final class AssetDetailsViewController: UIViewController {
 //        AssetDetailsViewController().showPreview()
 //    }
 //}
+
