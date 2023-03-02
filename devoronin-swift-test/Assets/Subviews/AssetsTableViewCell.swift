@@ -45,7 +45,7 @@ class AssetsTableViewCell: UITableViewCell {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 24, weight: .light)
-        label.textColor = ColorConstants.Asset.symbol
+        label.textColor = Constants.Color.Asset.symbol
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -54,7 +54,7 @@ class AssetsTableViewCell: UITableViewCell {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 16, weight: .regular)
-        label.textColor = ColorConstants.Asset.name
+        label.textColor = Constants.Color.Asset.name
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -63,7 +63,7 @@ class AssetsTableViewCell: UITableViewCell {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 22, weight: .regular)
-        label.textColor = ColorConstants.Asset.priceUSD
+        label.textColor = Constants.Color.Asset.priceUSD
         label.translatesAutoresizingMaskIntoConstraints =  false
         return label
     }()
@@ -72,7 +72,7 @@ class AssetsTableViewCell: UITableViewCell {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
-        label.textColor = ColorConstants.Asset.changePercent24HrPositive
+        label.textColor = Constants.Color.Asset.changePercent24HrPositive
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -171,8 +171,8 @@ class AssetsTableViewCell: UITableViewCell {
         
 
         assetChangePercent24HrLabel.textColor = changePercent24HrTrend >= 0
-                                                ? ColorConstants.Asset.changePercent24HrPositive
-                                                : ColorConstants.Asset.changePersent24HrNegative
+                                                ? Constants.Color.Asset.changePercent24HrPositive
+                                                : Constants.Color.Asset.changePersent24HrNegative
         
         let positiveSign = changePercent24HrTrend >= 0 ? "+" : ""
         

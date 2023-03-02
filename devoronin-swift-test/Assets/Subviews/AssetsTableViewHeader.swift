@@ -25,7 +25,7 @@ class AssetsTableViewHeader: UITableViewHeaderFooterView {
     private let searchTextField = SearchTextField()
     
     fileprivate func setupUI() {
-        contentView.backgroundColor = ColorConstants.mainBackground
+        contentView.backgroundColor = Constants.Color.mainBackground
         contentView.addSubview(label)
         contentView.addSubview(searchTextField)
     }

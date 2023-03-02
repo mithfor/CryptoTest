@@ -40,7 +40,7 @@ class AssetsViewController: UIViewController {
        let tableView = UITableView()
         tableView.register(AssetsTableViewCell.self,
                            forCellReuseIdentifier: AssetsTableViewCell.identifier)
-        tableView.backgroundColor = ColorConstants.mainBackground
+        tableView.backgroundColor = Constants.Color.mainBackground
         
         return tableView
     }()

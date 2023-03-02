@@ -54,15 +54,16 @@ final class AssetDetailsViewController: UIViewController {
     
     // MARK: - Setup
     private func setupUI() {
-        view.backgroundColor = ColorConstants.mainBackground
+        view.backgroundColor = Constants.Color.mainBackground
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Watchlist", style: .plain, target: self, action: #selector(addTapped))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Watchlist", style: .plain, target: self, action: #selector(didTapAddToWatchList))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Constants.Icon.watchlist, style: .plain, target: self, action: #selector(didTapAddToWatchList))
 
         
         view.addSubview(detailView)
     }
     
-    @objc func addTapped() {
+    @objc func didTapAddToWatchList() {
         print(#function)
     }
     
@@ -70,14 +71,9 @@ final class AssetDetailsViewController: UIViewController {
         
         title = "\(asset.name ?? "") \(asset.symbol ?? "")"
         
-        detailView.assetPriceUSDLabel.text = "$\(String.formatToCurrency(string: asset.priceUsd ?? ""))"
+        detailView.updateAssetPriceUSD(with: "$\(String.formatToCurrency(string: asset.priceUsd ?? "No data"))", and: Constants.Color.Asset.priceUSD)
         
-        let changePercent24HrTrend = Double(asset.changePercent24Hr ?? "0.00") ?? 0.0
-        detailView.assetChangePercent24HrLabel.textColor = changePercent24HrTrend >= 0
-                                                ? ColorConstants.Asset.changePercent24HrPositive
-                                                : ColorConstants.Asset.changePersent24HrNegative
-        let positiveSign = changePercent24HrTrend >= 0 ? "+" : ""
-        detailView.assetChangePercent24HrLabel.text = "\(positiveSign)\(String.formatToCurrency(string: asset.changePercent24Hr ?? ""))%"
+        detailView.updateAssetChangePercent24Hr(with: "\(String.formatToCurrency(string: asset.changePercent24Hr ?? "No data"))%", and: Constants.Color.Asset.priceUSD)
         
         detailView.updateLine1(with: "$\(String.formatToCurrency(string: asset.marketCapUsd ?? "No data"))")
         detailView.updateLine2(with: "$\(String.formatToCurrency(string: asset.maxSupply ?? "No data"))")

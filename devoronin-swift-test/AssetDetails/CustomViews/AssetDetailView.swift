@@ -6,17 +6,25 @@
 //
 
 import UIKit
+import Charts
 
 protocol AssetDetailAccessable: class {
     
     func updateLine1(with value: String)
     func updateLine2(with value: String)
     func updateLine3(with value: String)
+    func updateAssetPriceUSD(with text: String, and color:  UIColor)
+    func updateAssetChangePercent24Hr(with value: String, and color:  UIColor)
 }
 
-final class AssetDetailView: UIView {
+final class AssetDetailView: UIView, ChartViewDelegate {
+    //MARK: - CHARTS
+    
+     var barChart = BarChartView()
+    
     
     //MARK: VARIABLES
+    
     private lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
         return sv
@@ -27,29 +35,28 @@ final class AssetDetailView: UIView {
         return view
     }()
 
-    lazy var assetPriceUSDLabel: UILabel = {
+    private lazy var assetPriceUSDLabel: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 64, weight: .thin)
-        label.textColor = ColorConstants.Asset.priceUSD
+        label.textColor = Constants.Color.Asset.priceUSD
         label.translatesAutoresizingMaskIntoConstraints =  false
         return label
     }()
     
-    lazy var assetChangePercent24HrLabel: UILabel = {
+    private lazy var assetChangePercent24HrLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 22, weight: .light)
-        label.textColor = ColorConstants.Asset.changePercent24HrPositive
+        label.textColor = Constants.Color.Asset.changePercent24HrPositive
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    private lazy var chartView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemRed
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
+    private lazy var chartViewController: ChartViewController = {
+        let vc = ChartViewController()
+        vc.view.translatesAutoresizingMaskIntoConstraints = false
+        return vc
     }()
     
     private lazy var stackView: UIStackView = {
@@ -69,7 +76,7 @@ final class AssetDetailView: UIView {
         stack.leftLabel.text = "Market Cap"
         stack.leftLabel.font = UIFont.systemFont(ofSize: Constants.Fonts.Size.normal, weight: .regular)
         stack.rightLabel.font = UIFont.systemFont(ofSize: Constants.Fonts.Size.normal, weight: .regular)
-        stack.rightLabel.textColor = ColorConstants.Asset.priceUSD
+        stack.rightLabel.textColor = Constants.Color.Asset.priceUSD
         return stack
     }()
     
@@ -78,7 +85,7 @@ final class AssetDetailView: UIView {
         stack.leftLabel.text = "Supply"
         stack.leftLabel.font = UIFont.systemFont(ofSize: Constants.Fonts.Size.normal, weight: .regular)
         stack.rightLabel.font = UIFont.systemFont(ofSize: Constants.Fonts.Size.normal, weight: .regular)
-        stack.rightLabel.textColor = ColorConstants.Asset.priceUSD
+        stack.rightLabel.textColor = Constants.Color.Asset.priceUSD
         return stack
     }()
     
@@ -87,7 +94,7 @@ final class AssetDetailView: UIView {
         stack.leftLabel.text = "Volume (24h)"
         stack.leftLabel.font = UIFont.systemFont(ofSize: Constants.Fonts.Size.normal, weight: .regular)
         stack.rightLabel.font = UIFont.systemFont(ofSize: Constants.Fonts.Size.normal, weight: .regular)
-        stack.rightLabel.textColor = ColorConstants.Asset.priceUSD
+        stack.rightLabel.textColor = Constants.Color.Asset.priceUSD
         return stack
     }()
     
@@ -103,12 +110,15 @@ final class AssetDetailView: UIView {
     }
     
     private func commonInit() {
+        
+        barChart.delegate = self
+        
         setupScrollViewContstraints()
         setupContentViewConstraints()
         
         setupAssetPriceUSDLabelConstraints()
         setupAssetChangePercent24HrLabelConstraints()
-        setupChartViewConstraints()
+        setupChartControllerViewConstraints()
         setupStackViewConstraints()
         setupLinesConstraints()
     }
@@ -159,14 +169,16 @@ final class AssetDetailView: UIView {
         ])
     }
     
-    private func setupChartViewConstraints() {
-        contentView.addSubview(chartView)
+    
+    private func setupChartControllerViewConstraints() {
+        contentView.addSubview(chartViewController.view)
         NSLayoutConstraint.activate([
-            chartView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            chartView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            chartView.heightAnchor.constraint(equalToConstant: 240),
-            chartView.topAnchor.constraint(lessThanOrEqualTo: assetChangePercent24HrLabel.bottomAnchor, constant: 10)
+            chartViewController.view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            chartViewController.view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            chartViewController.view.heightAnchor.constraint(equalToConstant: 240),
+            chartViewController.view.topAnchor.constraint(lessThanOrEqualTo: assetChangePercent24HrLabel.bottomAnchor, constant: 10)
         ])
+        chartViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
     private func setupStackViewConstraints() {
@@ -175,7 +187,7 @@ final class AssetDetailView: UIView {
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             stackView.heightAnchor.constraint(equalToConstant: 172),
-            stackView.topAnchor.constraint(equalTo: chartView.bottomAnchor, constant: 20),
+            stackView.topAnchor.constraint(equalTo: chartViewController.view.bottomAnchor, constant: 20),
             stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -20)
         ])
     }
@@ -201,31 +213,19 @@ final class AssetDetailView: UIView {
             stackLine3.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
-    
-//    private func setupItemImageViewConstraints() {
-//        contentView.addSubview(imageView)
-//        imageView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            imageView.topAnchor.constraint(equalTo: contentView.topAnchor),
-//            imageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-//            imageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-//            imageView.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, multiplier: 0.50)
-//        ])
-//    }
-//
-//    private func setupDescriptionLabelConstraints() {
-//        contentView.addSubview(descriptionLabel)
-//        descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            descriptionLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 20),
-//            descriptionLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-//            descriptionLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-//            descriptionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
-//        ])
-//    }
+
 }
 
+// MARK: - AssetDetailAccessable
 extension AssetDetailView: AssetDetailAccessable {
+    func updateAssetPriceUSD(with text: String, and color: UIColor) {
+        assetPriceUSDLabel.text = text
+    }
+    
+    func updateAssetChangePercent24Hr(with value: String, and color: UIColor) {
+        assetChangePercent24HrLabel.text = value
+    }
+    
     func updateLine1(with value: String) {
         stackLine1.rightLabel.text = value
     }
@@ -238,3 +238,12 @@ extension AssetDetailView: AssetDetailAccessable {
         stackLine3.rightLabel.text = value
     }
 }
+
+// MARK - ChartViewDelegate
+
+extension AssetDetailsViewController: ChartViewDelegate {
+
+
+}
+
+
