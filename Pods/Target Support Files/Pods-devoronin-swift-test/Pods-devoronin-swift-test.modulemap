@@ -1,0 +1,6 @@
+framework module Pods_devoronin_swift_test {
+  umbrella header "Pods-devoronin-swift-test-umbrella.h"
+
+  export *
+  module * { export * }
+}

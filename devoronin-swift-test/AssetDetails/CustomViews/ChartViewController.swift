@@ -50,9 +50,8 @@ class ChartViewController: UIViewController {
     
     private func setupChartConstraints() {
         view.addSubview(barChart)
-        view.backgroundColor = .cyan
         barChart.translatesAutoresizingMaskIntoConstraints = false
-//        barChart.pinToEdges(of: view)
+        barChart.pinToEdges(of: view)
         
         barChart.center = view.center
     }
