@@ -10,7 +10,7 @@ import UIKit
 
 class ChartViewController: UIViewController {
 
-    private let barChart = BarChartView()
+    private let lineChart = LineChartView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,39 +22,67 @@ class ChartViewController: UIViewController {
     private func createChart() {
         //create bar chart
         
-        
         setupChartConstraints()
         
+        //supply data
+        setupData()
+        
+        
         //configure the axis
+        lineChart.rightAxis.enabled = false
+        lineChart.leftAxis.enabled = false
+        lineChart.drawGridBackgroundEnabled = false
+        
+        lineChart.xAxis.enabled = false
+        lineChart.animate(xAxisDuration: 1)
         
         //configure legend
         
-        //supply data
-        var entries = [BarChartDataEntry]()
-        for x in 0..<10 {
-            entries.append(BarChartDataEntry(x: Double(x),
-                                             y: Double.random(in: 0...30)
-            ))
-        }
-        
-        let set = BarChartDataSet(entries: entries, label: "Cost")
-        let data = BarChartData(dataSet: set)
-        
-        barChart.data = data
-        
-        view.addSubview(barChart)
-        barChart.center = view.center
-        
+
 
     }
     
     private func setupChartConstraints() {
-        view.addSubview(barChart)
-        barChart.translatesAutoresizingMaskIntoConstraints = false
-        barChart.pinToEdges(of: view)
+        view.addSubview(lineChart)
+        lineChart.translatesAutoresizingMaskIntoConstraints = false
+        lineChart.pinToEdges(of: view)
         
-        barChart.center = view.center
+        lineChart.center = view.center
     }
+    
+    private func setupData() {
+        
+
+//        var entries = [LineChartData]()
+        
+        let set = LineChartDataSet(entries: yValues, label: "VALUE")
+        
+        set.drawCirclesEnabled = false
+        set.mode = .cubicBezier
+        set.lineWidth = 3
+        set.setColor(.black)
+        
+        let data = LineChartData(dataSet: set)
+        
+        data.setDrawValues(false)
+        lineChart.data = data
+        
+        
+    }
+    
+    let yValues: [ChartDataEntry] = [
+        ChartDataEntry(x: 0, y: 0),
+        ChartDataEntry(x: 1, y: 4),
+        ChartDataEntry(x: 2, y: 6),
+        ChartDataEntry(x: 3, y: 8),
+        ChartDataEntry(x: 4, y: 100),
+        ChartDataEntry(x: 5, y: 6),
+        ChartDataEntry(x: 6, y: 7),
+        ChartDataEntry(x: 7, y: 8),
+        ChartDataEntry(x: 8, y: 50),
+        ChartDataEntry(x: 9, y: 0),
+        
+    ]
 
 }
 
