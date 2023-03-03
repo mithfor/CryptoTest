@@ -65,8 +65,8 @@ class NetworkManager {
             do {
                 let decoder = JSONDecoder()
                 decoder.dataDecodingStrategy = .base64
-                let assets = try decoder.decode(AssetListHistoryResponse.self, from: jsonData)
-                completed(.success(assets))
+                let assetHistory = try decoder.decode(AssetListHistoryResponse.self, from: jsonData)
+                completed(.success(assetHistory))
             } catch {
                 completed(.failure(.invalidData))
             }

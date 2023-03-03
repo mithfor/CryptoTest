@@ -9,7 +9,7 @@ import UIKit
 import SwiftUI
 
 protocol AssetDetailsViewControllerInput: AnyObject {
-    func updateHistory()
+    func updateHistory(with assetHistory: [AssetHistory])
     func updateFailed(with error: NetworkError)
 }
 
@@ -24,8 +24,8 @@ final class AssetDetailsViewController: UIViewController {
     
     var interactor: AssetDetailsInteractorInput?
     
-    private var detailView: AssetDetailView = {
-        let view = AssetDetailView()
+    private var detailView: AssetDetailsView = {
+        let view = AssetDetailsView()
         
         return view
     }()
@@ -49,6 +49,8 @@ final class AssetDetailsViewController: UIViewController {
         super.viewDidLoad()
         
         setupUI()
+        
+        interactor?.fetchHistory()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,6 +92,19 @@ final class AssetDetailsViewController: UIViewController {
         detailView.updateLine3(with: "$\(String.formatToCurrency(string: asset.volumeUsd24Hr ?? "No data"))")
         
     }
+}
+
+extension AssetDetailsViewController: AssetDetailsViewControllerInput {
+    func updateHistory(with assetHistory: [AssetHistory]) {
+        detailView.updateHistoryChart(with: assetHistory)
+    }
+    
+    
+    func updateFailed(with error: NetworkError) {
+        print(error)
+    }
+    
+    
 }
 
 //struct ViewControllerProvider: PreviewProvider {

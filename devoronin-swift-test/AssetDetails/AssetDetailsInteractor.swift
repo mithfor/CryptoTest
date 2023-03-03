@@ -23,7 +23,6 @@ final class AssetDetailsInteractor {
 
 extension AssetDetailsInteractor: AssetDetailsInteractorInput {
     func fetchHistory() {
-        print(#function)
         NetworkManager.shared.fetchAssetHistory(id: "bitcoin") { [weak self] result in
             switch result {
             case .success(let responce):

@@ -49,7 +49,7 @@
 		88D77641299FDAB700BC782F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88D7763F299FDAB700BC782F /* LaunchScreen.storyboard */; };
 		88D7764C299FDAB700BC782F /* devoronin_swift_testTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D7764B299FDAB700BC782F /* devoronin_swift_testTests.swift */; };
 		88D77657299FDAB700BC782F /* devoronin_swift_testUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88D77656299FDAB700BC782F /* devoronin_swift_testUITests.swift */; };
-		88DC40EF29ADCD5100EF8A55 /* AssetDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC40EE29ADCD5100EF8A55 /* AssetDetailView.swift */; };
+		88DC40EF29ADCD5100EF8A55 /* AssetDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC40EE29ADCD5100EF8A55 /* AssetDetailsView.swift */; };
 		88DC6DF729AC6E7D00C8D62F /* AssetsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6DF629AC6E7D00C8D62F /* AssetsInteractor.swift */; };
 		88DC6DFC29AC765500C8D62F /* AssetsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6DFB29AC765500C8D62F /* AssetsPresenter.swift */; };
 		88DC6E0129AC7D0D00C8D62F /* AssetsConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E0029AC7D0D00C8D62F /* AssetsConfigurator.swift */; };
@@ -125,7 +125,7 @@
 		88D77652299FDAB700BC782F /* devoronin-swift-testUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "devoronin-swift-testUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		88D77656299FDAB700BC782F /* devoronin_swift_testUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = devoronin_swift_testUITests.swift; sourceTree = "<group>"; };
 		88D77658299FDAB700BC782F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		88DC40EE29ADCD5100EF8A55 /* AssetDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailView.swift; sourceTree = "<group>"; };
+		88DC40EE29ADCD5100EF8A55 /* AssetDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailsView.swift; sourceTree = "<group>"; };
 		88DC6DF629AC6E7D00C8D62F /* AssetsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsInteractor.swift; sourceTree = "<group>"; };
 		88DC6DFB29AC765500C8D62F /* AssetsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsPresenter.swift; sourceTree = "<group>"; };
 		88DC6E0029AC7D0D00C8D62F /* AssetsConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsConfigurator.swift; sourceTree = "<group>"; };
@@ -289,7 +289,7 @@
 		88DC40EA29ADC89E00EF8A55 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				88DC40EE29ADCD5100EF8A55 /* AssetDetailView.swift */,
+				88DC40EE29ADCD5100EF8A55 /* AssetDetailsView.swift */,
 				88CE8CDA29ADEDEB00C60DE3 /* DetailHorizontalStackView.swift */,
 				88E1311C29B0645600DAF0B0 /* ChartViewController.swift */,
 			);
@@ -299,11 +299,11 @@
 		88DC6E0D29AD11BD00C8D62F /* AssetDetails */ = {
 			isa = PBXGroup;
 			children = (
+				88DC40EA29ADC89E00EF8A55 /* CustomViews */,
 				8839F7C029B1D7AE004D4399 /* AssetDetailsInteractor.swift */,
 				88DC6E0E29AD11E200C8D62F /* AssetDetailsViewController.swift */,
 				8839F7D329B1EB5D004D4399 /* AssetDetailsConfigurator.swift */,
 				8839F7F629B1F5C6004D4399 /* AssetDetailsPresenter.swift */,
-				88DC40EA29ADC89E00EF8A55 /* CustomViews */,
 				8839F7CC29B1D809004D4399 /* Models */,
 			);
 			path = AssetDetails;
@@ -601,7 +601,7 @@
 				880C4B5A29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */,
 				88D77635299FDAB500BC782F /* AppDelegate.swift in Sources */,
 				883C402129ABF0A100B44916 /* Asset.swift in Sources */,
-				88DC40EF29ADCD5100EF8A55 /* AssetDetailView.swift in Sources */,
+				88DC40EF29ADCD5100EF8A55 /* AssetDetailsView.swift in Sources */,
 				88DC6E0929ACABED00C8D62F /* IconManager.swift in Sources */,
 				88DC6E0129AC7D0D00C8D62F /* AssetsConfigurator.swift in Sources */,
 				8839F7F729B1F5C6004D4399 /* AssetDetailsPresenter.swift in Sources */,

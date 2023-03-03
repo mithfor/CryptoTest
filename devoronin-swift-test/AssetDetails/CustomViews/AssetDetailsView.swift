@@ -13,14 +13,15 @@ protocol AssetDetailAccessable: class {
     func updateLine1(with value: String)
     func updateLine2(with value: String)
     func updateLine3(with value: String)
-    func updateAssetPriceUSD(with text: String, and color:  UIColor)
+    func updateAssetPriceUSD(with value: String, and color:  UIColor)
     func updateAssetChangePercent24Hr(with value: String, and color:  UIColor)
+    func updateHistoryChart(with data: [AssetHistory])
 }
 
-final class AssetDetailView: UIView, ChartViewDelegate {
+final class AssetDetailsView: UIView, ChartViewDelegate {
     //MARK: - CHARTS
     
-     var barChart = BarChartView()
+     var lineChart = LineChartView()
     
     
     //MARK: VARIABLES
@@ -64,7 +65,6 @@ final class AssetDetailView: UIView, ChartViewDelegate {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
-        stackView.spacing = 1
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -111,7 +111,7 @@ final class AssetDetailView: UIView, ChartViewDelegate {
     
     private func commonInit() {
         
-        barChart.delegate = self
+        lineChart.delegate = self
         
         setupScrollViewContstraints()
         setupContentViewConstraints()
@@ -217,7 +217,17 @@ final class AssetDetailView: UIView, ChartViewDelegate {
 }
 
 // MARK: - AssetDetailAccessable
-extension AssetDetailView: AssetDetailAccessable {
+extension AssetDetailsView: AssetDetailAccessable {
+    func updateHistoryChart(with data: [AssetHistory]) {
+        
+        data.enumerated().forEach { (index, item) in
+        chartViewController.yValues.append(ChartDataEntry(x: Double(index),
+                                                          y: Double(item.priceUsd ?? "111.0") ?? 0.0))
+        }
+        
+        chartViewController.
+    }
+    
     func updateAssetPriceUSD(with text: String, and color: UIColor) {
         assetPriceUSDLabel.text = text
     }

@@ -20,6 +20,6 @@ extension AssetDetailsPresenter: AssetDetailsPresenterInput {
     }
     
     func historyFetched(assetHistory: [AssetHistory]) {
-        viewController?.updateHistory()
+        viewController?.updateHistory(with: assetHistory)
     }
 }
