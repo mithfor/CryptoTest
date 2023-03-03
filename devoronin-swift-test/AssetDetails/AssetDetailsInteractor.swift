@@ -1,0 +1,37 @@
+//
+//  AssetDetailInteractor.swift
+//  devoronin-swift-test
+//
+//  Created by Dmitrii Voronin on 03.03.2023.
+//
+
+import Foundation
+
+typealias AssetDetailsInteractorInput =  AssetDetailsViewControllerOutput
+
+protocol AssetDetailsInteractorOutput: AnyObject {
+    func historyFetched(assetHistory : [AssetHistory])
+    func fetchFailure(error: NetworkError)
+}
+
+final class AssetDetailsInteractor {
+    
+    private var assetHistory = [AssetHistory]()
+    
+    var presenter: AssetDetailsPresenterInput?
+}
+
+extension AssetDetailsInteractor: AssetDetailsInteractorInput {
+    func fetchHistory() {
+        print(#function)
+        NetworkManager.shared.fetchAssetHistory(id: "bitcoin") { [weak self] result in
+            switch result {
+            case .success(let responce):
+                self?.assetHistory = responce.data
+                self?.presenter?.historyFetched(assetHistory: self?.assetHistory ?? [AssetHistory]())
+            case .failure(let error):
+                self?.presenter?.fetchFailure(error: error)
+            }
+        }
+    }
+}

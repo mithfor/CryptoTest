@@ -14,13 +14,13 @@
             filePath = "devoronin-swift-test/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "97"
-            endingLineNumber = "97"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
             landmarkName = "downloadImage(from:completed:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6919C0C3-02A9-495E-A785-7360E58C80F5 - 949fae85739dce9e"
+                  uuid = "6919C0C3-02A9-495E-A785-7360E58C80F5 - 949fae85739dc329"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -30,12 +30,12 @@
                   urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Managers/NetworkManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "97"
-                  endingLineNumber = "97"
+                  startingLineNumber = "140"
+                  endingLineNumber = "140"
                   offsetFromSymbolStart = "1381">
                </Location>
                <Location
-                  uuid = "6919C0C3-02A9-495E-A785-7360E58C80F5 - 72b5b24ba65c5a0f"
+                  uuid = "6919C0C3-02A9-495E-A785-7360E58C80F5 - 72b5b24ba65c50b4"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -45,8 +45,8 @@
                   urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Managers/NetworkManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "99"
-                  endingLineNumber = "99"
+                  startingLineNumber = "142"
+                  endingLineNumber = "142"
                   offsetFromSymbolStart = "402">
                </Location>
             </Locations>
@@ -62,8 +62,8 @@
             filePath = "devoronin-swift-test/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
             landmarkName = "downloadImage(from:completed:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -78,8 +78,8 @@
             filePath = "devoronin-swift-test/Managers/NetworkManager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "104"
-            endingLineNumber = "104"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "downloadImage(from:completed:)"
             landmarkType = "7">
          </BreakpointContent>

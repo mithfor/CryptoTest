@@ -28,11 +28,54 @@ class NetworkManager {
     let cache                   = NSCache<NSString, UIImage>()
     
     typealias AssetsHandler = (Result<AssetListResponse, NetworkError>) -> Void
+    typealias AssetHistoryHandler = (Result<AssetListHistoryResponse, NetworkError>) ->Void
     typealias ImageHandler = (Result<UIImage, NetworkError>) -> Void
     
     private let baseURL: String = "http://api.coincap.io/v2/"
     
     private init() {}
+    
+    func fetchAssetHistory(id: String, completed: @escaping AssetHistoryHandler) {
+        
+        let endpoint = String("\(baseURL)assets/\(id)/history?interval=h1")
+        
+        guard let url = URL(string: endpoint) else {
+            completed(.failure(.endpoint))
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { (jsonData, response, error) in
+            
+            if let _ = error {
+                completed(.failure(.unableToComplete))
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse,
+                  response.statusCode == 200 else {
+                completed(.failure(.invalidResponse))
+                return
+            }
+            
+            guard let jsonData = jsonData else {
+                completed(.failure(.invalidData))
+                return
+            }
+            
+            do {
+                let decoder = JSONDecoder()
+                decoder.dataDecodingStrategy = .base64
+                let assets = try decoder.decode(AssetListHistoryResponse.self, from: jsonData)
+                completed(.success(assets))
+            } catch {
+                completed(.failure(.invalidData))
+            }
+            
+        }
+        
+        task.resume()
+        
+    }
     
     func fetchAssets( page: Int,
                       completed: @escaping AssetsHandler) {

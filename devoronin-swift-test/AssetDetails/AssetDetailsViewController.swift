@@ -8,10 +8,21 @@
 import UIKit
 import SwiftUI
 
+protocol AssetDetailsViewControllerInput: AnyObject {
+    func updateHistory()
+    func updateFailed(with error: NetworkError)
+}
+
+protocol AssetDetailsViewControllerOutput: AnyObject {
+    func fetchHistory()
+}
+
 final class AssetDetailsViewController: UIViewController {
     
     //MARK: - Private vars
     private let asset: Asset
+    
+    var interactor: AssetDetailsInteractorInput?
     
     private var detailView: AssetDetailView = {
         let view = AssetDetailView()
@@ -56,7 +67,6 @@ final class AssetDetailsViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = Constants.Color.mainBackground
         navigationItem.largeTitleDisplayMode = .never
-//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Watchlist", style: .plain, target: self, action: #selector(didTapAddToWatchList))
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: Constants.Icon.watchlist, style: .plain, target: self, action: #selector(didTapAddToWatchList))
 
         
