@@ -21,7 +21,8 @@ final class AssetDetailsViewController: UIViewController {
     
     //MARK: - Private vars
     private let asset: Asset
-    private var isInWatchList = false
+    private let watchList = WatchList()
+//    private var isInWatchList = false
     
     var interactor: AssetDetailsInteractorInput?
     
@@ -70,17 +71,7 @@ final class AssetDetailsViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = Constants.Color.mainBackground
         navigationItem.largeTitleDisplayMode = .never
-        
-        if WatchList().contains(asset) {
-            isInWatchList = true
-        }
-        
-        let imageName = isInWatchList == false ? Constants.Icon.watchlist : Constants.IconFill.watchlist
-        
-        
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: imageName), style: .plain, target: self, action: #selector(didTapAddToWatchList))
-
-        
+    
         view.addSubview(detailView)
     }
     
@@ -89,6 +80,8 @@ final class AssetDetailsViewController: UIViewController {
     private func updateUI() {
                 
         updateTitle(with: asset.name ?? "Default Name", and: asset.symbol ?? "Default Symbol")
+        
+        updateWatchList()
         
         updateDetailView()
     }
@@ -101,20 +94,27 @@ final class AssetDetailsViewController: UIViewController {
         detailView.updateLine3(with: "$\(String.formatToCurrency(string: asset.volumeUsd24Hr ?? "No data"))")
     }
     
+    private func updateWatchList() {
+        let imageName = watchList.contains(asset) == false ? Constants.Icon.watchlist : Constants.IconFill.watchlist
+        
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: imageName), style: .plain, target: self, action: #selector(didTapAddToWatchList))
+    }
+    
     
     //MARK: - ACTIONS
     @objc func didTapAddToWatchList() {
         
         var imageName = ""
-        if isInWatchList {
+        if watchList.contains(asset) {
             imageName = Constants.Icon.watchlist
-            WatchList().remove(asset)
-            isInWatchList = false
+            watchList.remove(asset)
+//            isInWatchList = false
            
         } else {
             imageName = Constants.IconFill.watchlist
-            WatchList().add(asset)
-            isInWatchList = true
+            watchList.add(asset)
+//            isInWatchList = true
         }
 
         navigationItem.rightBarButtonItem?.image = UIImage(systemName: imageName)
