@@ -27,15 +27,14 @@ class ChangePercent24HrLabel: UILabel {
     }
     
     private func setupText() {
-        let changePercent24HrTrend = value
-        
 
+        let changePercent24HrTrend = value
         textColor = changePercent24HrTrend >= 0
                                                 ? Constants.Color.Asset.changePercent24HrPositive
                                                 : Constants.Color.Asset.changePersent24HrNegative
-        
+
         let positiveSign = changePercent24HrTrend >= 0 ? "+" : ""
-        
+
         text = "\(positiveSign)\(NSString(format: "%.2f", changePercent24HrTrend))%"
     }
 }

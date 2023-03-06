@@ -23,7 +23,6 @@ final class AssetDetailsView: UIView, ChartViewDelegate {
     
      var lineChart = LineChartView()
     
-    
     //MARK: VARIABLES
     
     private lazy var scrollView: UIScrollView = {
@@ -49,7 +48,6 @@ final class AssetDetailsView: UIView, ChartViewDelegate {
         let label = ChangePercent24HrLabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 22, weight: .light)
-//        label.textColor = Constants.Color.Asset.changePercent24HrPositive
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -218,11 +216,12 @@ final class AssetDetailsView: UIView, ChartViewDelegate {
 
 // MARK: - AssetDetailAccessable
 extension AssetDetailsView: AssetDetailAccessable {
+    
     func updateHistoryChart(with data: [AssetHistory]) {
         
         data.enumerated().forEach { (index, item) in
         chartViewController.yValues.append(ChartDataEntry(x: Double(index),
-                                                          y: Double(item.priceUsd ?? "111.0") ?? 0.0))
+                                                          y: Double(item.priceUsd ?? "No Data") ?? 0.0))
         }
         
         DispatchQueue.main.async {

@@ -80,17 +80,18 @@ final class AssetDetailsViewController: UIViewController {
     }
     
     private func updateUI() {
+                
+        updateTitle(with: asset.name ?? "Default Name", and: asset.symbol ?? "Default Symbol")
         
-        title = "\(asset.name ?? "") \(asset.symbol ?? "")"
-        
-        detailView.updateAssetPriceUSD(with: "$\(String.formatToCurrency(string: asset.priceUsd ?? "No data"))", and: Constants.Color.Asset.name)
-        
+        updateDetailView()
+    }
+    
+    private func updateDetailView() {
+        detailView.updateAssetPriceUSD(with: "$\(String.formatToCurrency(string: asset.priceUsd ?? "No data"))", and: Constants.Color.Asset.symbol)
         detailView.updateAssetChangePercent24Hr(with: asset.changePercent24Hr ?? "No data")
-        
         detailView.updateLine1(with: "$\(String.formatToCurrency(string: asset.marketCapUsd ?? "No data"))")
         detailView.updateLine2(with: "$\(String.formatToCurrency(string: asset.maxSupply ?? "No data"))")
         detailView.updateLine3(with: "$\(String.formatToCurrency(string: asset.volumeUsd24Hr ?? "No data"))")
-        
     }
 }
 
@@ -99,13 +100,28 @@ extension AssetDetailsViewController: AssetDetailsViewControllerInput {
         detailView.updateHistoryChart(with: assetHistory)
     }
     
+    func updateTitle(with name: String, and symbol: String) {
+        
+        let navLabel = UILabel()
+        let navTitle = NSMutableAttributedString(string: name, attributes:[
+                                                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: AppConstants.navigationItemTextSize),
+                                                    NSAttributedString.Key.foregroundColor: Constants.Color.Asset.symbol,])
+        navTitle.append(NSMutableAttributedString(string: " "))
+        navTitle.append(NSMutableAttributedString(string: symbol, attributes:[
+                                                    NSAttributedString.Key.font: UIFont.systemFont(ofSize: AppConstants.navigationItemTextSize),
+                                                    NSAttributedString.Key.foregroundColor: Constants.Color.Asset.name]))
+
+        navLabel.attributedText = navTitle
+        self.navigationItem.titleView = navLabel
+    }
+    
     
     func updateFailed(with error: NetworkError) {
         print(error)
     }
-    
-    
 }
+
+
 
 
 
