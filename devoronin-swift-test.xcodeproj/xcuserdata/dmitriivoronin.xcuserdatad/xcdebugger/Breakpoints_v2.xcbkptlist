@@ -18,38 +18,6 @@
             endingLineNumber = "140"
             landmarkName = "downloadImage(from:completed:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "6919C0C3-02A9-495E-A785-7360E58C80F5 - 949fae85739dc329"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "devoronin_swift_test.NetworkManager.downloadImage(from: devoronin_swift_test.Asset, completed: (Swift.Result&lt;__C.UIImage, devoronin_swift_test.NetworkError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "devoronin-swift-test"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Managers/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "140"
-                  endingLineNumber = "140"
-                  offsetFromSymbolStart = "1381">
-               </Location>
-               <Location
-                  uuid = "6919C0C3-02A9-495E-A785-7360E58C80F5 - 72b5b24ba65c50b4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in devoronin_swift_test.NetworkManager.downloadImage(from: devoronin_swift_test.Asset, completed: (Swift.Result&lt;__C.UIImage, devoronin_swift_test.NetworkError&gt;) -&gt; ()) -&gt; ()"
-                  moduleName = "devoronin-swift-test"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Managers/NetworkManager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "142"
-                  endingLineNumber = "142"
-                  offsetFromSymbolStart = "402">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
