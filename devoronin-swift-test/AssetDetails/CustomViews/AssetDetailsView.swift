@@ -14,7 +14,7 @@ protocol AssetDetailAccessable: class {
     func updateLine2(with value: String)
     func updateLine3(with value: String)
     func updateAssetPriceUSD(with value: String, and color:  UIColor)
-    func updateAssetChangePercent24Hr(with value: String, and color:  UIColor)
+    func updateAssetChangePercent24Hr(with value: String)
     func updateHistoryChart(with data: [AssetHistory])
 }
 
@@ -40,16 +40,16 @@ final class AssetDetailsView: UIView, ChartViewDelegate {
         let label = UILabel()
         label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 64, weight: .thin)
-        label.textColor = Constants.Color.Asset.priceUSD
+        label.textColor = Constants.Color.Asset.name
         label.translatesAutoresizingMaskIntoConstraints =  false
         return label
     }()
     
-    private lazy var assetChangePercent24HrLabel: UILabel = {
-        let label = UILabel(frame: .zero)
+    private lazy var assetChangePercent24HrLabel: ChangePercent24HrLabel = {
+        let label = ChangePercent24HrLabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 22, weight: .light)
-        label.textColor = Constants.Color.Asset.changePercent24HrPositive
+//        label.textColor = Constants.Color.Asset.changePercent24HrPositive
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -234,8 +234,8 @@ extension AssetDetailsView: AssetDetailAccessable {
         assetPriceUSDLabel.text = text
     }
     
-    func updateAssetChangePercent24Hr(with value: String, and color: UIColor) {
-        assetChangePercent24HrLabel.text = value
+    func updateAssetChangePercent24Hr(with value: String) {
+        assetChangePercent24HrLabel.setupText(with: Double(value) ?? 0.0)
     }
     
     func updateLine1(with value: String) {

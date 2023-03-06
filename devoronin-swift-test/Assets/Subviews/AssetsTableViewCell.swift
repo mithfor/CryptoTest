@@ -68,8 +68,8 @@ class AssetsTableViewCell: UITableViewCell {
         return label
     }()
     
-    private var assetChangePercent24HrLabel: UILabel = {
-        let label = UILabel(frame: .zero)
+    private var assetChangePercent24HrLabel: ChangePercent24HrLabel = {
+        let label = ChangePercent24HrLabel()
         label.textAlignment = .left
         label.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         label.textColor = Constants.Color.Asset.changePercent24HrPositive
@@ -166,20 +166,8 @@ class AssetsTableViewCell: UITableViewCell {
         assetNameLabel.text = assetViewModel?.name
         assetPriceUSDLabel.text = "$\(String.formatToCurrency(string: assetViewModel?.priceUsd ?? ""))"
         
-        
-        let changePercent24HrTrend = Double(assetViewModel?.changePercent24Hr ?? "0.00") ?? 0.0
-        
 
-        assetChangePercent24HrLabel.textColor = changePercent24HrTrend >= 0
-                                                ? Constants.Color.Asset.changePercent24HrPositive
-                                                : Constants.Color.Asset.changePersent24HrNegative
+        assetChangePercent24HrLabel.setupText(with: Double(assetViewModel?.changePercent24Hr ?? "0.00") ?? 0.0)
         
-        let positiveSign = changePercent24HrTrend >= 0 ? "+" : ""
-        
-        assetChangePercent24HrLabel.text = "\(positiveSign)\(NSString(format: "%.2f", changePercent24HrTrend))%"
     }
  }
-
-
-
-   

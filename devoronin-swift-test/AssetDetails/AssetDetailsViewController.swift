@@ -83,9 +83,9 @@ final class AssetDetailsViewController: UIViewController {
         
         title = "\(asset.name ?? "") \(asset.symbol ?? "")"
         
-        detailView.updateAssetPriceUSD(with: "$\(String.formatToCurrency(string: asset.priceUsd ?? "No data"))", and: Constants.Color.Asset.priceUSD)
+        detailView.updateAssetPriceUSD(with: "$\(String.formatToCurrency(string: asset.priceUsd ?? "No data"))", and: Constants.Color.Asset.name)
         
-        detailView.updateAssetChangePercent24Hr(with: "\(String.formatToCurrency(string: asset.changePercent24Hr ?? "No data"))%", and: Constants.Color.Asset.priceUSD)
+        detailView.updateAssetChangePercent24Hr(with: asset.changePercent24Hr ?? "No data")
         
         detailView.updateLine1(with: "$\(String.formatToCurrency(string: asset.marketCapUsd ?? "No data"))")
         detailView.updateLine2(with: "$\(String.formatToCurrency(string: asset.maxSupply ?? "No data"))")
@@ -107,10 +107,5 @@ extension AssetDetailsViewController: AssetDetailsViewControllerInput {
     
 }
 
-//struct ViewControllerProvider: PreviewProvider {
-//    static var previews: some View {
-//        AssetDetailsViewController().showPreview()
-//    }
-//}
 
 

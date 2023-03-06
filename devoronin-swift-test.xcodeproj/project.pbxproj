@@ -34,6 +34,9 @@
 		883CEEE529B5CFA100D9ABDA /* ChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEE429B5CFA100D9ABDA /* ChartRenderer.swift */; };
 		883CEEE629B5CFA100D9ABDA /* ChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEE429B5CFA100D9ABDA /* ChartRenderer.swift */; };
 		883CEEE729B5CFA100D9ABDA /* ChartRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEE429B5CFA100D9ABDA /* ChartRenderer.swift */; };
+		883CEEEC29B6024A00D9ABDA /* ChangePercent24HrLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEEB29B6024A00D9ABDA /* ChangePercent24HrLabel.swift */; };
+		883CEEED29B6024A00D9ABDA /* ChangePercent24HrLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEEB29B6024A00D9ABDA /* ChangePercent24HrLabel.swift */; };
+		883CEEEE29B6024A00D9ABDA /* ChangePercent24HrLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEEB29B6024A00D9ABDA /* ChangePercent24HrLabel.swift */; };
 		889535A029AAA01C00FC4B91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895359F29AAA01C00FC4B91 /* Constants.swift */; };
 		889535A129AAA01C00FC4B91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895359F29AAA01C00FC4B91 /* Constants.swift */; };
 		889535A229AAA01C00FC4B91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895359F29AAA01C00FC4B91 /* Constants.swift */; };
@@ -113,6 +116,7 @@
 		883C402029ABF0A100B44916 /* Asset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		883C402829ABF30200B44916 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		883CEEE429B5CFA100D9ABDA /* ChartRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRenderer.swift; sourceTree = "<group>"; };
+		883CEEEB29B6024A00D9ABDA /* ChangePercent24HrLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePercent24HrLabel.swift; sourceTree = "<group>"; };
 		8895359F29AAA01C00FC4B91 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		889535A929AAA50A00FC4B91 /* AssetsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableViewHeader.swift; sourceTree = "<group>"; };
 		889535B129AAAC7600FC4B91 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
@@ -226,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				889535B129AAAC7600FC4B91 /* SearchTextField.swift */,
+				883CEEEB29B6024A00D9ABDA /* ChangePercent24HrLabel.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -602,6 +607,7 @@
 				8839F7D429B1EB5D004D4399 /* AssetDetailsConfigurator.swift in Sources */,
 				883CEEE529B5CFA100D9ABDA /* ChartRenderer.swift in Sources */,
 				8839F7C129B1D7AE004D4399 /* AssetDetailsInteractor.swift in Sources */,
+				883CEEEC29B6024A00D9ABDA /* ChangePercent24HrLabel.swift in Sources */,
 				883C402A29ABF30200B44916 /* NetworkManager.swift in Sources */,
 				88EF7A3F29AB40B0001D3572 /* UIViewController+Ext.swift in Sources */,
 				880C4B5A29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */,
@@ -630,6 +636,7 @@
 			files = (
 				883C402B29ABF30200B44916 /* NetworkManager.swift in Sources */,
 				8839F7E229B1F2CF004D4399 /* AssetDetailsConfigurator.swift in Sources */,
+				883CEEED29B6024A00D9ABDA /* ChangePercent24HrLabel.swift in Sources */,
 				88EF7AA929AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				880C4B4329AA764000951D25 /* WatchlistViewController.swift in Sources */,
 				88DC6E2329AD468200C8D62F /* String+Ext.swift in Sources */,
@@ -656,6 +663,7 @@
 			files = (
 				883C402C29ABF30200B44916 /* NetworkManager.swift in Sources */,
 				8839F7E129B1F2CF004D4399 /* AssetDetailsConfigurator.swift in Sources */,
+				883CEEEE29B6024A00D9ABDA /* ChangePercent24HrLabel.swift in Sources */,
 				88EF7AAA29AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				880C4B4429AA764000951D25 /* WatchlistViewController.swift in Sources */,
 				88DC6E2429AD468200C8D62F /* String+Ext.swift in Sources */,

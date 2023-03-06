@@ -35,7 +35,7 @@ class ChartRenderer: LineChartRenderer {
 
             let phaseY = animator.phaseY
 
-            var pt = CGPoint()
+            var point = CGPoint()
 
             for i in 0 ..< dataSets.count
             {
@@ -54,24 +54,24 @@ class ChartRenderer: LineChartRenderer {
 
                 for j in stride(from: xBounds.min, through: xBounds.range + xBounds.min, by: 1)
                 {
-                    guard let e = dataSet.entryForIndex(j) else { break }
+                    guard let entry = dataSet.entryForIndex(j) else { break }
 
-                    guard e.y == maxValue || e.y == minValue else { continue }
+                    guard entry.y == maxValue || entry.y == minValue else { continue }
 
-                    pt.x = CGFloat(e.x)
-                    if e.y == maxValue {
-                        pt.y = CGFloat(e.y * phaseY)
-                    } else if e.y == minValue {
-                        pt.y = CGFloat(e.y * phaseY)
+                    point.x = CGFloat(entry.x)
+                    if entry.y == maxValue {
+                        point.y = CGFloat(entry.y * phaseY)
+                    } else if entry.y == minValue {
+                        point.y = CGFloat(entry.y * phaseY)
                     }
-                    pt = pt.applying(valueToPixelMatrix)
+                    point = point.applying(valueToPixelMatrix)
 
-                    if (!viewPortHandler.isInBoundsRight(pt.x))
+                    if (!viewPortHandler.isInBoundsRight(point.x))
                     {
                         break
                     }
 
-                    if (!viewPortHandler.isInBoundsLeft(pt.x) || !viewPortHandler.isInBoundsY(pt.y))
+                    if (!viewPortHandler.isInBoundsLeft(point.x) || !viewPortHandler.isInBoundsY(point.y))
                     {
                         continue
                     }
@@ -80,12 +80,12 @@ class ChartRenderer: LineChartRenderer {
                     {
                         // In this part we draw min and max values
                         var textValue: String?
-                        if e.y == maxValue {
-                            pt.y -= yOffset
+                        if entry.y == maxValue {
+                            point.y -= yOffset
                             textValue = "$\(String.formatToCurrency(string: String(maxValue)))"
                             
-                        } else if e.y == minValue {
-                            pt.y += yOffset / 5
+                        } else if entry.y == minValue {
+                            point.y += yOffset / 5
                             textValue = "$\(String.formatToCurrency(string: String(minValue)))"
                         }
 
@@ -93,8 +93,8 @@ class ChartRenderer: LineChartRenderer {
 
                             context.drawText(textValue,
                                              at: CGPoint(
-                                                x: pt.x,
-                                                y: pt.y ),
+                                                x: point.x,
+                                                y: point.y ),
                                              align: .center,
                                              attributes: [NSAttributedString.Key.font: valueFont, NSAttributedString.Key.foregroundColor: Constants.Color.Asset.priceUSD])
                         }

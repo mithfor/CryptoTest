@@ -47,7 +47,7 @@ struct Constants {
             
             static let changePersent24HrNegative: UIColor = UIColor(red: 1.00, green: 0.23, blue: 0.19, alpha: 1.00)
             
-            static let priceUSD: UIColor = UIColor(red: 0.24, green: 0.24, blue: 0.26, alpha: 1.00)
+            static let priceUSD: UIColor = UIColor(red: 0.24, green: 0.24, blue: 0.26, alpha: 0.60)
         }
     }
 
