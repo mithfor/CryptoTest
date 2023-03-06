@@ -43,6 +43,15 @@
 		883CEEFA29B6274200D9ABDA /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEF929B6274200D9ABDA /* PaddingLabel.swift */; };
 		883CEEFB29B6274200D9ABDA /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEF929B6274200D9ABDA /* PaddingLabel.swift */; };
 		883CEEFC29B6274200D9ABDA /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEF929B6274200D9ABDA /* PaddingLabel.swift */; };
+		883CEF0129B6396800D9ABDA /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF0029B6396800D9ABDA /* DatabaseManager.swift */; };
+		883CEF0229B6396800D9ABDA /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF0029B6396800D9ABDA /* DatabaseManager.swift */; };
+		883CEF0329B6396800D9ABDA /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF0029B6396800D9ABDA /* DatabaseManager.swift */; };
+		883CEF0929B63B8F00D9ABDA /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF0829B63B8F00D9ABDA /* WatchlistViewModel.swift */; };
+		883CEF0A29B63B8F00D9ABDA /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF0829B63B8F00D9ABDA /* WatchlistViewModel.swift */; };
+		883CEF0B29B63B8F00D9ABDA /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF0829B63B8F00D9ABDA /* WatchlistViewModel.swift */; };
+		883CEF1A29B656FF00D9ABDA /* WatchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF1929B656FF00D9ABDA /* WatchList.swift */; };
+		883CEF1B29B656FF00D9ABDA /* WatchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF1929B656FF00D9ABDA /* WatchList.swift */; };
+		883CEF1C29B656FF00D9ABDA /* WatchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF1929B656FF00D9ABDA /* WatchList.swift */; };
 		889535A029AAA01C00FC4B91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895359F29AAA01C00FC4B91 /* Constants.swift */; };
 		889535A129AAA01C00FC4B91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895359F29AAA01C00FC4B91 /* Constants.swift */; };
 		889535A229AAA01C00FC4B91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895359F29AAA01C00FC4B91 /* Constants.swift */; };
@@ -125,6 +134,9 @@
 		883CEEEB29B6024A00D9ABDA /* ChangePercent24HrLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePercent24HrLabel.swift; sourceTree = "<group>"; };
 		883CEEF229B6225900D9ABDA /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		883CEEF929B6274200D9ABDA /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		883CEF0029B6396800D9ABDA /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		883CEF0829B63B8F00D9ABDA /* WatchlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewModel.swift; sourceTree = "<group>"; };
+		883CEF1929B656FF00D9ABDA /* WatchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchList.swift; sourceTree = "<group>"; };
 		8895359F29AAA01C00FC4B91 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		889535A929AAA50A00FC4B91 /* AssetsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableViewHeader.swift; sourceTree = "<group>"; };
 		889535B129AAAC7600FC4B91 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
@@ -221,8 +233,27 @@
 			children = (
 				883C402829ABF30200B44916 /* NetworkManager.swift */,
 				88DC6E0829ACABED00C8D62F /* IconManager.swift */,
+				883CEF0029B6396800D9ABDA /* DatabaseManager.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		883CEF0729B63B4500D9ABDA /* Watchlist */ = {
+			isa = PBXGroup;
+			children = (
+				883CEF1829B656E600D9ABDA /* Models */,
+				880C4B4129AA764000951D25 /* WatchlistViewController.swift */,
+				883CEF0829B63B8F00D9ABDA /* WatchlistViewModel.swift */,
+			);
+			path = Watchlist;
+			sourceTree = "<group>";
+		};
+		883CEF1829B656E600D9ABDA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				883CEF1929B656FF00D9ABDA /* WatchList.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		8895359E29AA9FFA00FC4B91 /* Constants */ = {
@@ -271,6 +302,7 @@
 			children = (
 				880C4B6029AA9B9400951D25 /* Assets */,
 				88DC6E0D29AD11BD00C8D62F /* AssetDetails */,
+				883CEF0729B63B4500D9ABDA /* Watchlist */,
 				883C402729ABF2E600B44916 /* Managers */,
 				88EF7A5229AB410B001D3572 /* Extensions */,
 				889535B029AAABFE00FC4B91 /* CustomViews */,
@@ -280,7 +312,6 @@
 				88D7763D299FDAB700BC782F /* Assets.xcassets */,
 				88D7763F299FDAB700BC782F /* LaunchScreen.storyboard */,
 				88D77642299FDAB700BC782F /* Info.plist */,
-				880C4B4129AA764000951D25 /* WatchlistViewController.swift */,
 				880C4B4829AA767B00951D25 /* SettingsViewController.swift */,
 			);
 			path = "devoronin-swift-test";
@@ -610,6 +641,7 @@
 			files = (
 				88DC6E1B29AD3E4700C8D62F /* AppConstants.swift in Sources */,
 				88E1311D29B0645600DAF0B0 /* ChartViewController.swift in Sources */,
+				883CEF0929B63B8F00D9ABDA /* WatchlistViewModel.swift in Sources */,
 				88EF7AA829AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				88DC6DF729AC6E7D00C8D62F /* AssetsInteractor.swift in Sources */,
 				883CEEF329B6225900D9ABDA /* UILabel+Ext.swift in Sources */,
@@ -632,12 +664,14 @@
 				889535A029AAA01C00FC4B91 /* Constants.swift in Sources */,
 				88E3340F29B12F33005B5152 /* AssetHistory.swift in Sources */,
 				88DC6E0F29AD11E200C8D62F /* AssetDetailsViewController.swift in Sources */,
+				883CEF1A29B656FF00D9ABDA /* WatchList.swift in Sources */,
 				889535AA29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */,
 				88CE8CDB29ADEDEB00C60DE3 /* DetailHorizontalStackView.swift in Sources */,
 				88DC6DFC29AC765500C8D62F /* AssetsPresenter.swift in Sources */,
 				880C4B5329AA7B7100951D25 /* AssetsViewController.swift in Sources */,
 				880C4B4929AA767B00951D25 /* SettingsViewController.swift in Sources */,
 				88DC6E2229AD468200C8D62F /* String+Ext.swift in Sources */,
+				883CEF0129B6396800D9ABDA /* DatabaseManager.swift in Sources */,
 				889535B229AAAC7600FC4B91 /* SearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -648,6 +682,7 @@
 			files = (
 				883C402B29ABF30200B44916 /* NetworkManager.swift in Sources */,
 				8839F7E229B1F2CF004D4399 /* AssetDetailsConfigurator.swift in Sources */,
+				883CEF0A29B63B8F00D9ABDA /* WatchlistViewModel.swift in Sources */,
 				883CEEED29B6024A00D9ABDA /* ChangePercent24HrLabel.swift in Sources */,
 				88EF7AA929AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				880C4B4329AA764000951D25 /* WatchlistViewController.swift in Sources */,
@@ -655,6 +690,8 @@
 				88D7764C299FDAB700BC782F /* devoronin_swift_testTests.swift in Sources */,
 				88DC6E1029AD11E200C8D62F /* AssetDetailsViewController.swift in Sources */,
 				883C402229ABF0A100B44916 /* Asset.swift in Sources */,
+				883CEF0229B6396800D9ABDA /* DatabaseManager.swift in Sources */,
+				883CEF1B29B656FF00D9ABDA /* WatchList.swift in Sources */,
 				880C4B4A29AA767B00951D25 /* SettingsViewController.swift in Sources */,
 				883CEEFB29B6274200D9ABDA /* PaddingLabel.swift in Sources */,
 				88E1311E29B0645600DAF0B0 /* ChartViewController.swift in Sources */,
@@ -677,6 +714,7 @@
 			files = (
 				883C402C29ABF30200B44916 /* NetworkManager.swift in Sources */,
 				8839F7E129B1F2CF004D4399 /* AssetDetailsConfigurator.swift in Sources */,
+				883CEF0B29B63B8F00D9ABDA /* WatchlistViewModel.swift in Sources */,
 				883CEEEE29B6024A00D9ABDA /* ChangePercent24HrLabel.swift in Sources */,
 				88EF7AAA29AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				880C4B4429AA764000951D25 /* WatchlistViewController.swift in Sources */,
@@ -684,6 +722,8 @@
 				88D77657299FDAB700BC782F /* devoronin_swift_testUITests.swift in Sources */,
 				88DC6E1129AD11E200C8D62F /* AssetDetailsViewController.swift in Sources */,
 				883C402329ABF0A100B44916 /* Asset.swift in Sources */,
+				883CEF0329B6396800D9ABDA /* DatabaseManager.swift in Sources */,
+				883CEF1C29B656FF00D9ABDA /* WatchList.swift in Sources */,
 				880C4B4B29AA767B00951D25 /* SettingsViewController.swift in Sources */,
 				883CEEFC29B6274200D9ABDA /* PaddingLabel.swift in Sources */,
 				88E1311F29B0645600DAF0B0 /* ChartViewController.swift in Sources */,

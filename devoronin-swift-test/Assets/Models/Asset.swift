@@ -41,6 +41,8 @@ struct Asset: Codable, Hashable, Equatable {
   var changePercent24Hr : String? = nil
   var vwap24Hr          : String? = nil
   var explorer          : String? = nil
+    
+//  var isInWatchList: Bool
 
   enum CodingKeys: String, CodingKey {
 
@@ -58,6 +60,8 @@ struct Asset: Codable, Hashable, Equatable {
     case explorer          = "explorer"
   
   }
+    
+    
 
   init(from decoder: Decoder) throws {
     let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -74,7 +78,8 @@ struct Asset: Codable, Hashable, Equatable {
     changePercent24Hr = try values.decodeIfPresent(String.self , forKey: .changePercent24Hr )
     vwap24Hr          = try values.decodeIfPresent(String.self , forKey: .vwap24Hr          )
     explorer          = try values.decodeIfPresent(String.self , forKey: .explorer          )
- 
+    
+//    isInWatchList = false
   }
 }
 

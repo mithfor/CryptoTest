@@ -20,10 +20,7 @@ struct Constants {
     }
     
     struct Icon {
-        static let assets = "bitcoinsign.circle.fill"
-        static let watchlistFill = "heart.fill"
         static let watchlist = "heart"
-        static let settings = "gearshape.fill"
         static let search = "magnifyingglass"
         static let details = "chevron.right"
     }
@@ -32,8 +29,7 @@ struct Constants {
         static let assets = "bitcoinsign.circle.fill"
         static let watchlist = "heart.fill"
         static let settings = "gearshape.fill"
-        static let search = "magnifyingglass"
-        static let details = "chevron.right"
+
     }
     
     struct Color {

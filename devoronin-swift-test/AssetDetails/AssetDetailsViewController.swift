@@ -21,6 +21,7 @@ final class AssetDetailsViewController: UIViewController {
     
     //MARK: - Private vars
     private let asset: Asset
+    private var isInWatchList = false
     
     var interactor: AssetDetailsInteractorInput?
     
@@ -69,16 +70,22 @@ final class AssetDetailsViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = Constants.Color.mainBackground
         navigationItem.largeTitleDisplayMode = .never
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: Constants.Icon.watchlist, style: .plain, target: self, action: #selector(didTapAddToWatchList))
+        
+        if WatchList().contains(asset) {
+            isInWatchList = true
+        }
+        
+        let imageName = isInWatchList == false ? Constants.Icon.watchlist : Constants.IconFill.watchlist
+        
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: imageName), style: .plain, target: self, action: #selector(didTapAddToWatchList))
 
         
         view.addSubview(detailView)
     }
     
-    @objc func didTapAddToWatchList() {
-        print(#function)
-    }
-    
+
+    // MARK: UPDATES
     private func updateUI() {
                 
         updateTitle(with: asset.name ?? "Default Name", and: asset.symbol ?? "Default Symbol")
@@ -92,6 +99,27 @@ final class AssetDetailsViewController: UIViewController {
         detailView.updateLine1(with: "$\(String.formatToCurrency(string: asset.marketCapUsd ?? "No data"))")
         detailView.updateLine2(with: "$\(String.formatToCurrency(string: asset.maxSupply ?? "No data"))")
         detailView.updateLine3(with: "$\(String.formatToCurrency(string: asset.volumeUsd24Hr ?? "No data"))")
+    }
+    
+    
+    //MARK: - ACTIONS
+    @objc func didTapAddToWatchList() {
+        
+        var imageName = ""
+        if isInWatchList {
+            imageName = Constants.Icon.watchlist
+            WatchList().remove(asset)
+            isInWatchList = false
+           
+        } else {
+            imageName = Constants.IconFill.watchlist
+            WatchList().add(asset)
+            isInWatchList = true
+        }
+
+        navigationItem.rightBarButtonItem?.image = UIImage(systemName: imageName)
+        
+                
     }
 }
 
@@ -120,8 +148,3 @@ extension AssetDetailsViewController: AssetDetailsViewControllerInput {
         presentAlertOnMainThread(title: "NetworkError", message: error.rawValue, buttonTitle: "OK")
     }
 }
-
-
-
-
-
