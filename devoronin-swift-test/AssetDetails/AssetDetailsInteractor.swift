@@ -16,14 +16,16 @@ protocol AssetDetailsInteractorOutput: AnyObject {
 
 final class AssetDetailsInteractor {
     
+    
+    
     private var assetHistory = [AssetHistory]()
     
     var presenter: AssetDetailsPresenterInput?
 }
 
 extension AssetDetailsInteractor: AssetDetailsInteractorInput {
-    func fetchHistory() {
-        NetworkManager.shared.fetchAssetHistory(id: "bitcoin") { [weak self] result in
+    func fetchHistory(asset: Asset) {
+        NetworkManager.shared.fetchAssetHistory(id: asset.id ?? "bitcoin") { [weak self] result in
             switch result {
             case .success(let responce):
                 self?.assetHistory = responce.data

@@ -8,9 +8,13 @@
 import Charts
 import UIKit
 
+protocol Updateable {
+    func updateLineChart()
+}
+
 class ChartViewController: UIViewController {
 
-    private let lineChart = LineChartView()
+    private let lineChartView = LineChartView()
     
 //    var yValues: [ChartDataEntry] = [
 //        ChartDataEntry(x: 0, y: 0),
@@ -27,10 +31,12 @@ class ChartViewController: UIViewController {
 //    ]
     
     var yValues = [ChartDataEntry]()
+    var maxY: Double?
+    var minY: Double?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         createChart()
     }
     
@@ -43,25 +49,22 @@ class ChartViewController: UIViewController {
         setupData()
         
         //configure the axis
-        lineChart.rightAxis.enabled = false
-        lineChart.leftAxis.enabled = false
-        lineChart.drawGridBackgroundEnabled = false
+        lineChartView.rightAxis.enabled = false
+        lineChartView.leftAxis.enabled = false
+        lineChartView.drawGridBackgroundEnabled = false
         
-        lineChart.xAxis.enabled = false
-        lineChart.animate(xAxisDuration: 1)
+        lineChartView.xAxis.enabled = false
+        lineChartView.animate(xAxisDuration: 1)
         
         //configure legend
-        
-
-
     }
     
     private func setupChartConstraints() {
-        view.addSubview(lineChart)
-        lineChart.translatesAutoresizingMaskIntoConstraints = false
-        lineChart.pinToEdges(of: view)
+        view.addSubview(lineChartView)
+        lineChartView.translatesAutoresizingMaskIntoConstraints = false
+        lineChartView.pinToEdges(of: view)
         
-        lineChart.center = view.center
+        lineChartView.center = view.center
     }
     
     private func setupData() {
@@ -69,17 +72,36 @@ class ChartViewController: UIViewController {
 
 //        var entries = [LineChartData]()
         
-        let set = LineChartDataSet(entries: yValues, label: "VALUE")
         
-        set.drawCirclesEnabled = false
-        set.mode = .cubicBezier
-        set.lineWidth = 1
-        set.setColor(.black)
         
-        let data = LineChartData(dataSet: set)
+        let lineChartDataSet = LineChartDataSet(entries: yValues, label: "VALUE")
         
-        data.setDrawValues(false)
-        lineChart.data = data
+        maxY = lineChartDataSet.yMax
+        minY = lineChartDataSet.yMin
+        
+        lineChartDataSet.drawCirclesEnabled = false
+        lineChartDataSet.mode = .cubicBezier
+        lineChartDataSet.lineWidth = 1
+        lineChartDataSet.setColor(.black)
+        
+        let lineChartData = LineChartData(dataSet: lineChartDataSet)
+//        lineChartData.setDrawValues(false)
+        
+        lineChartView.legend.enabled = false
+        
+        lineChartView.data = lineChartData
+        
+        lineChartView.renderer = ChartRenderer(view: lineChartView,
+                                               minValue: minY ?? 0.0,
+                                               maxValue: maxY ?? 0.0)
+        
+        
+    }
+}
+
+extension ChartViewController: Updateable {
+    func updateLineChart() {
+        setupData()
     }
 }
 

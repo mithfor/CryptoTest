@@ -225,7 +225,9 @@ extension AssetDetailsView: AssetDetailAccessable {
                                                           y: Double(item.priceUsd ?? "111.0") ?? 0.0))
         }
         
-        chartViewController.
+        DispatchQueue.main.async {
+            self.chartViewController.updateLineChart()
+        }
     }
     
     func updateAssetPriceUSD(with text: String, and color: UIColor) {
@@ -252,8 +254,7 @@ extension AssetDetailsView: AssetDetailAccessable {
 // MARK - ChartViewDelegate
 
 extension AssetDetailsViewController: ChartViewDelegate {
-
-
+    
 }
 
 

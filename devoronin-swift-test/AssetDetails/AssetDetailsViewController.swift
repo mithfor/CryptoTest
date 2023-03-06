@@ -14,7 +14,7 @@ protocol AssetDetailsViewControllerInput: AnyObject {
 }
 
 protocol AssetDetailsViewControllerOutput: AnyObject {
-    func fetchHistory()
+    func fetchHistory(asset: Asset)
 }
 
 final class AssetDetailsViewController: UIViewController {
@@ -50,7 +50,7 @@ final class AssetDetailsViewController: UIViewController {
         
         setupUI()
         
-        interactor?.fetchHistory()
+        interactor?.fetchHistory(asset: asset)
     }
     
     override func viewWillAppear(_ animated: Bool) {
