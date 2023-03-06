@@ -37,6 +37,12 @@
 		883CEEEC29B6024A00D9ABDA /* ChangePercent24HrLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEEB29B6024A00D9ABDA /* ChangePercent24HrLabel.swift */; };
 		883CEEED29B6024A00D9ABDA /* ChangePercent24HrLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEEB29B6024A00D9ABDA /* ChangePercent24HrLabel.swift */; };
 		883CEEEE29B6024A00D9ABDA /* ChangePercent24HrLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEEB29B6024A00D9ABDA /* ChangePercent24HrLabel.swift */; };
+		883CEEF329B6225900D9ABDA /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEF229B6225900D9ABDA /* UILabel+Ext.swift */; };
+		883CEEF429B6225900D9ABDA /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEF229B6225900D9ABDA /* UILabel+Ext.swift */; };
+		883CEEF529B6225900D9ABDA /* UILabel+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEF229B6225900D9ABDA /* UILabel+Ext.swift */; };
+		883CEEFA29B6274200D9ABDA /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEF929B6274200D9ABDA /* PaddingLabel.swift */; };
+		883CEEFB29B6274200D9ABDA /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEF929B6274200D9ABDA /* PaddingLabel.swift */; };
+		883CEEFC29B6274200D9ABDA /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEEF929B6274200D9ABDA /* PaddingLabel.swift */; };
 		889535A029AAA01C00FC4B91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895359F29AAA01C00FC4B91 /* Constants.swift */; };
 		889535A129AAA01C00FC4B91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895359F29AAA01C00FC4B91 /* Constants.swift */; };
 		889535A229AAA01C00FC4B91 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8895359F29AAA01C00FC4B91 /* Constants.swift */; };
@@ -117,6 +123,8 @@
 		883C402829ABF30200B44916 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		883CEEE429B5CFA100D9ABDA /* ChartRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartRenderer.swift; sourceTree = "<group>"; };
 		883CEEEB29B6024A00D9ABDA /* ChangePercent24HrLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePercent24HrLabel.swift; sourceTree = "<group>"; };
+		883CEEF229B6225900D9ABDA /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
+		883CEEF929B6274200D9ABDA /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		8895359F29AAA01C00FC4B91 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		889535A929AAA50A00FC4B91 /* AssetsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableViewHeader.swift; sourceTree = "<group>"; };
 		889535B129AAAC7600FC4B91 /* SearchTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextField.swift; sourceTree = "<group>"; };
@@ -231,6 +239,7 @@
 			children = (
 				889535B129AAAC7600FC4B91 /* SearchTextField.swift */,
 				883CEEEB29B6024A00D9ABDA /* ChangePercent24HrLabel.swift */,
+				883CEEF929B6274200D9ABDA /* PaddingLabel.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -334,6 +343,7 @@
 				88EF7AA729AB44CC001D3572 /* UIView+Ext.swift */,
 				88EF7A3E29AB40B0001D3572 /* UIViewController+Ext.swift */,
 				88DC6E2129AD468200C8D62F /* String+Ext.swift */,
+				883CEEF229B6225900D9ABDA /* UILabel+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -602,6 +612,7 @@
 				88E1311D29B0645600DAF0B0 /* ChartViewController.swift in Sources */,
 				88EF7AA829AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				88DC6DF729AC6E7D00C8D62F /* AssetsInteractor.swift in Sources */,
+				883CEEF329B6225900D9ABDA /* UILabel+Ext.swift in Sources */,
 				880C4B4229AA764000951D25 /* WatchlistViewController.swift in Sources */,
 				88D77639299FDAB500BC782F /* MainViewController.swift in Sources */,
 				8839F7D429B1EB5D004D4399 /* AssetDetailsConfigurator.swift in Sources */,
@@ -613,6 +624,7 @@
 				880C4B5A29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */,
 				88D77635299FDAB500BC782F /* AppDelegate.swift in Sources */,
 				883C402129ABF0A100B44916 /* Asset.swift in Sources */,
+				883CEEFA29B6274200D9ABDA /* PaddingLabel.swift in Sources */,
 				88DC40EF29ADCD5100EF8A55 /* AssetDetailsView.swift in Sources */,
 				88DC6E0929ACABED00C8D62F /* IconManager.swift in Sources */,
 				88DC6E0129AC7D0D00C8D62F /* AssetsConfigurator.swift in Sources */,
@@ -644,9 +656,11 @@
 				88DC6E1029AD11E200C8D62F /* AssetDetailsViewController.swift in Sources */,
 				883C402229ABF0A100B44916 /* Asset.swift in Sources */,
 				880C4B4A29AA767B00951D25 /* SettingsViewController.swift in Sources */,
+				883CEEFB29B6274200D9ABDA /* PaddingLabel.swift in Sources */,
 				88E1311E29B0645600DAF0B0 /* ChartViewController.swift in Sources */,
 				88CE8CDC29ADEDEB00C60DE3 /* DetailHorizontalStackView.swift in Sources */,
 				880C4B5B29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */,
+				883CEEF429B6225900D9ABDA /* UILabel+Ext.swift in Sources */,
 				889535AB29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */,
 				889535A129AAA01C00FC4B91 /* Constants.swift in Sources */,
 				88DC6E1C29AD3E4700C8D62F /* AppConstants.swift in Sources */,
@@ -671,9 +685,11 @@
 				88DC6E1129AD11E200C8D62F /* AssetDetailsViewController.swift in Sources */,
 				883C402329ABF0A100B44916 /* Asset.swift in Sources */,
 				880C4B4B29AA767B00951D25 /* SettingsViewController.swift in Sources */,
+				883CEEFC29B6274200D9ABDA /* PaddingLabel.swift in Sources */,
 				88E1311F29B0645600DAF0B0 /* ChartViewController.swift in Sources */,
 				88CE8CDD29ADEDEB00C60DE3 /* DetailHorizontalStackView.swift in Sources */,
 				880C4B5C29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */,
+				883CEEF529B6225900D9ABDA /* UILabel+Ext.swift in Sources */,
 				889535AC29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */,
 				889535A229AAA01C00FC4B91 /* Constants.swift in Sources */,
 				88DC6E1D29AD3E4700C8D62F /* AppConstants.swift in Sources */,

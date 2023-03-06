@@ -9,16 +9,16 @@ import UIKit
 
 class DetailHorizontalStackView: UIStackView {
 
-    lazy var leftLabel: UILabel = {
-        let label = UILabel()
+    lazy var leftLabel: PaddingLabel = {
+        let label = PaddingLabel()
         label.textAlignment = .left
+
         return label
     }()
     
-    lazy var rightLabel: UILabel = {
-        let label = UILabel()
+    lazy var rightLabel: PaddingLabel = {
+        let label = PaddingLabel()
         label.textAlignment = .right
-        label.textColor = .red
         return label
     }()
     
@@ -34,15 +34,10 @@ class DetailHorizontalStackView: UIStackView {
     
     func commonInit() {
         self.axis = .horizontal
-        leftLabel.text = "Market Cap"
-        rightLabel.text = "$119,150,835,874"
+    
+        backgroundColor = .white
         
         addArrangedSubview(leftLabel)
         addArrangedSubview(rightLabel)
-        
-        
     }
-    
-    
-    
 }

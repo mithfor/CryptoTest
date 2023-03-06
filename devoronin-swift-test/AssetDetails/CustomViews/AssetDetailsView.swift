@@ -62,7 +62,9 @@ final class AssetDetailsView: UIView, ChartViewDelegate {
         let stackView = UIStackView()
         stackView.axis = .vertical
         stackView.alignment = .center
-        stackView.distribution = .equalSpacing
+        stackView.distribution = .fillEqually
+        stackView.spacing = 2
+
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -182,9 +184,9 @@ final class AssetDetailsView: UIView, ChartViewDelegate {
     private func setupStackViewConstraints() {
         contentView.addSubview(stackView)
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            stackView.heightAnchor.constraint(equalToConstant: 172),
+            stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            stackView.heightAnchor.constraint(equalToConstant: 132),
             stackView.topAnchor.constraint(equalTo: chartViewController.view.bottomAnchor, constant: 20),
             stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -20)
         ])
@@ -197,17 +199,17 @@ final class AssetDetailsView: UIView, ChartViewDelegate {
         stackView.addArrangedSubview(stackLine3)
         
         NSLayoutConstraint.activate([
-            stackLine1.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: -24),
+            stackLine1.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: 0),
             stackLine1.heightAnchor.constraint(equalToConstant: 44)
         ])
         
         NSLayoutConstraint.activate([
-            stackLine2.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: -24),
+            stackLine2.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: 0),
             stackLine2.heightAnchor.constraint(equalToConstant: 44)
         ])
         
         NSLayoutConstraint.activate([
-            stackLine3.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: -24),
+            stackLine3.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: 0),
             stackLine3.heightAnchor.constraint(equalToConstant: 44)
         ])
     }
