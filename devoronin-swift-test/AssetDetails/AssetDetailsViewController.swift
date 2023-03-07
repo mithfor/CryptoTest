@@ -31,8 +31,6 @@ final class AssetDetailsViewController: UIViewController {
         return view
     }()
     
-    
-    
     // MARK: - Init
     init(asset: Asset) {
         self.asset = asset
@@ -45,7 +43,7 @@ final class AssetDetailsViewController: UIViewController {
     }
     
  
-    // MARK: - Override
+    //MARK:- OVERRIDEN METHODS
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,7 +63,7 @@ final class AssetDetailsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        assetDetailsView.frame = view.bounds
+        assetDetailsView.pinToEdges(of: view)
     }
     
     func configureRefreshControl() {

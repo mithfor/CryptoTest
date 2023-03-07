@@ -46,9 +46,6 @@
 		883CEF0129B6396800D9ABDA /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF0029B6396800D9ABDA /* DatabaseManager.swift */; };
 		883CEF0229B6396800D9ABDA /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF0029B6396800D9ABDA /* DatabaseManager.swift */; };
 		883CEF0329B6396800D9ABDA /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF0029B6396800D9ABDA /* DatabaseManager.swift */; };
-		883CEF0929B63B8F00D9ABDA /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF0829B63B8F00D9ABDA /* WatchlistViewModel.swift */; };
-		883CEF0A29B63B8F00D9ABDA /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF0829B63B8F00D9ABDA /* WatchlistViewModel.swift */; };
-		883CEF0B29B63B8F00D9ABDA /* WatchlistViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF0829B63B8F00D9ABDA /* WatchlistViewModel.swift */; };
 		883CEF1A29B656FF00D9ABDA /* WatchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF1929B656FF00D9ABDA /* WatchList.swift */; };
 		883CEF1B29B656FF00D9ABDA /* WatchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF1929B656FF00D9ABDA /* WatchList.swift */; };
 		883CEF1C29B656FF00D9ABDA /* WatchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883CEF1929B656FF00D9ABDA /* WatchList.swift */; };
@@ -94,6 +91,7 @@
 		88EF7AA829AB44CC001D3572 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EF7AA729AB44CC001D3572 /* UIView+Ext.swift */; };
 		88EF7AA929AB44CC001D3572 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EF7AA729AB44CC001D3572 /* UIView+Ext.swift */; };
 		88EF7AAA29AB44CC001D3572 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EF7AA729AB44CC001D3572 /* UIView+Ext.swift */; };
+		88F80AED29B72C53008A3E9F /* AssetsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F80AEC29B72C53008A3E9F /* AssetsTableView.swift */; };
 		94FFA24AD05366F39CAFEB73 /* Pods_devoronin_swift_testTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C46AD923FF588A1DD9D5229 /* Pods_devoronin_swift_testTests.framework */; };
 		ED6A36486F9CCF999F7FFCE3 /* Pods_devoronin_swift_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3770CD73AF50BB14983437B /* Pods_devoronin_swift_test.framework */; };
 /* End PBXBuildFile section */
@@ -135,7 +133,6 @@
 		883CEEF229B6225900D9ABDA /* UILabel+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Ext.swift"; sourceTree = "<group>"; };
 		883CEEF929B6274200D9ABDA /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		883CEF0029B6396800D9ABDA /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
-		883CEF0829B63B8F00D9ABDA /* WatchlistViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewModel.swift; sourceTree = "<group>"; };
 		883CEF1929B656FF00D9ABDA /* WatchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchList.swift; sourceTree = "<group>"; };
 		8895359F29AAA01C00FC4B91 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		889535A929AAA50A00FC4B91 /* AssetsTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableViewHeader.swift; sourceTree = "<group>"; };
@@ -165,6 +162,7 @@
 		88E3340E29B12F33005B5152 /* AssetHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetHistory.swift; sourceTree = "<group>"; };
 		88EF7A3E29AB40B0001D3572 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		88EF7AA729AB44CC001D3572 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		88F80AEC29B72C53008A3E9F /* AssetsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableView.swift; sourceTree = "<group>"; };
 		9E027F4B6D39C92745DDBE2A /* Pods-devoronin-swift-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-devoronin-swift-test.debug.xcconfig"; path = "Target Support Files/Pods-devoronin-swift-test/Pods-devoronin-swift-test.debug.xcconfig"; sourceTree = "<group>"; };
 		B02603EC9DDDE24880AA2C04 /* Pods-devoronin-swift-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-devoronin-swift-test.release.xcconfig"; path = "Target Support Files/Pods-devoronin-swift-test/Pods-devoronin-swift-test.release.xcconfig"; sourceTree = "<group>"; };
 		B3770CD73AF50BB14983437B /* Pods_devoronin_swift_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_devoronin_swift_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -243,7 +241,6 @@
 			children = (
 				883CEF1829B656E600D9ABDA /* Models */,
 				880C4B4129AA764000951D25 /* WatchlistViewController.swift */,
-				883CEF0829B63B8F00D9ABDA /* WatchlistViewModel.swift */,
 			);
 			path = Watchlist;
 			sourceTree = "<group>";
@@ -364,6 +361,7 @@
 			children = (
 				880C4B5929AA9B2A00951D25 /* AssetsTableViewCell.swift */,
 				889535A929AAA50A00FC4B91 /* AssetsTableViewHeader.swift */,
+				88F80AEC29B72C53008A3E9F /* AssetsTableView.swift */,
 			);
 			path = Subviews;
 			sourceTree = "<group>";
@@ -641,7 +639,6 @@
 			files = (
 				88DC6E1B29AD3E4700C8D62F /* AppConstants.swift in Sources */,
 				88E1311D29B0645600DAF0B0 /* ChartScrollView.swift in Sources */,
-				883CEF0929B63B8F00D9ABDA /* WatchlistViewModel.swift in Sources */,
 				88EF7AA829AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				88DC6DF729AC6E7D00C8D62F /* AssetsInteractor.swift in Sources */,
 				883CEEF329B6225900D9ABDA /* UILabel+Ext.swift in Sources */,
@@ -672,6 +669,7 @@
 				880C4B4929AA767B00951D25 /* SettingsViewController.swift in Sources */,
 				88DC6E2229AD468200C8D62F /* String+Ext.swift in Sources */,
 				883CEF0129B6396800D9ABDA /* DatabaseManager.swift in Sources */,
+				88F80AED29B72C53008A3E9F /* AssetsTableView.swift in Sources */,
 				889535B229AAAC7600FC4B91 /* SearchTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -682,7 +680,6 @@
 			files = (
 				883C402B29ABF30200B44916 /* NetworkManager.swift in Sources */,
 				8839F7E229B1F2CF004D4399 /* AssetDetailsConfigurator.swift in Sources */,
-				883CEF0A29B63B8F00D9ABDA /* WatchlistViewModel.swift in Sources */,
 				883CEEED29B6024A00D9ABDA /* ChangePercent24HrLabel.swift in Sources */,
 				88EF7AA929AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				880C4B4329AA764000951D25 /* WatchlistViewController.swift in Sources */,
@@ -714,7 +711,6 @@
 			files = (
 				883C402C29ABF30200B44916 /* NetworkManager.swift in Sources */,
 				8839F7E129B1F2CF004D4399 /* AssetDetailsConfigurator.swift in Sources */,
-				883CEF0B29B63B8F00D9ABDA /* WatchlistViewModel.swift in Sources */,
 				883CEEEE29B6024A00D9ABDA /* ChangePercent24HrLabel.swift in Sources */,
 				88EF7AAA29AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				880C4B4429AA764000951D25 /* WatchlistViewController.swift in Sources */,
