@@ -27,6 +27,8 @@ enum ActionState {
 }
 
 //MARK: - AssetsViewController
+
+
 class AssetsViewController: UIViewController {
     
     var interactor: AssetsInteractorInput?
@@ -36,8 +38,8 @@ class AssetsViewController: UIViewController {
     private var assetWithImage = AssetsWithImages()
     private var searching: ActionState = .inactive
     
-    let assetsTableView: UITableView = {
-       let tableView = UITableView()
+    let assetsTableView: AssetsTableView = {
+       let tableView = AssetsTableView()
         tableView.register(AssetsTableViewCell.self,
                            forCellReuseIdentifier: AssetsTableViewCell.identifier)
         tableView.backgroundColor = Constants.Color.mainBackground

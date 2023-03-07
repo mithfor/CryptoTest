@@ -11,8 +11,8 @@ class WatchlistViewController: UIViewController {
     //MARK: - VARIABLES
     var watchlist = WatchList()
     
-    private lazy var assetsTableView: UITableView = {
-        let tableView = UITableView()
+    private lazy var assetsTableView: AssetsTableView = {
+        let tableView = AssetsTableView()
         tableView.register(AssetsTableViewCell.self, forCellReuseIdentifier: AssetsTableViewCell.identifier)
         
         tableView.backgroundColor = .systemRed
@@ -58,13 +58,21 @@ class WatchlistViewController: UIViewController {
 
 extension WatchlistViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 11
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         return UITableViewCell()
     }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+//            assets?.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
 }
 
 extension WatchlistViewController:UITableViewDelegate {

@@ -7,11 +7,11 @@
 
 import Foundation
 
-protocol AssetsCongfigurator {
+protocol AssetsCongfiguratorProtocol {
     static func configured(_ vc: AssetsViewController) -> AssetsViewController
 }
 
-class DefaultAssetsConfigurator: AssetsCongfigurator {
+class AssetsConfigurator: AssetsCongfiguratorProtocol {
     static func configured(_ vc: AssetsViewController) -> AssetsViewController {
         let interactor = AssetsInteractor()
         let presenter = AssetsPresenter()
@@ -21,6 +21,4 @@ class DefaultAssetsConfigurator: AssetsCongfigurator {
         
         return vc
     }
-    
-    
 }

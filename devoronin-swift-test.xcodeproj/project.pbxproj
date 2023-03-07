@@ -92,6 +92,9 @@
 		88EF7AA929AB44CC001D3572 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EF7AA729AB44CC001D3572 /* UIView+Ext.swift */; };
 		88EF7AAA29AB44CC001D3572 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EF7AA729AB44CC001D3572 /* UIView+Ext.swift */; };
 		88F80AED29B72C53008A3E9F /* AssetsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F80AEC29B72C53008A3E9F /* AssetsTableView.swift */; };
+		88F80AF629B74825008A3E9F /* WatchlistConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F80AF529B74825008A3E9F /* WatchlistConfigurator.swift */; };
+		88F80AF729B74825008A3E9F /* WatchlistConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F80AF529B74825008A3E9F /* WatchlistConfigurator.swift */; };
+		88F80AF829B74825008A3E9F /* WatchlistConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F80AF529B74825008A3E9F /* WatchlistConfigurator.swift */; };
 		94FFA24AD05366F39CAFEB73 /* Pods_devoronin_swift_testTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C46AD923FF588A1DD9D5229 /* Pods_devoronin_swift_testTests.framework */; };
 		ED6A36486F9CCF999F7FFCE3 /* Pods_devoronin_swift_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3770CD73AF50BB14983437B /* Pods_devoronin_swift_test.framework */; };
 /* End PBXBuildFile section */
@@ -163,6 +166,7 @@
 		88EF7A3E29AB40B0001D3572 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		88EF7AA729AB44CC001D3572 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		88F80AEC29B72C53008A3E9F /* AssetsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsTableView.swift; sourceTree = "<group>"; };
+		88F80AF529B74825008A3E9F /* WatchlistConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistConfigurator.swift; sourceTree = "<group>"; };
 		9E027F4B6D39C92745DDBE2A /* Pods-devoronin-swift-test.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-devoronin-swift-test.debug.xcconfig"; path = "Target Support Files/Pods-devoronin-swift-test/Pods-devoronin-swift-test.debug.xcconfig"; sourceTree = "<group>"; };
 		B02603EC9DDDE24880AA2C04 /* Pods-devoronin-swift-test.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-devoronin-swift-test.release.xcconfig"; path = "Target Support Files/Pods-devoronin-swift-test/Pods-devoronin-swift-test.release.xcconfig"; sourceTree = "<group>"; };
 		B3770CD73AF50BB14983437B /* Pods_devoronin_swift_test.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_devoronin_swift_test.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,12 +204,12 @@
 		880C4B6029AA9B9400951D25 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				88EF7A3629AB3AB1001D3572 /* Subviews */,
 				8839F7C529B1D7FC004D4399 /* Models */,
 				88DC6DF629AC6E7D00C8D62F /* AssetsInteractor.swift */,
 				88DC6DFB29AC765500C8D62F /* AssetsPresenter.swift */,
 				880C4B5229AA7B7100951D25 /* AssetsViewController.swift */,
 				88DC6E0029AC7D0D00C8D62F /* AssetsConfigurator.swift */,
+				88EF7A3629AB3AB1001D3572 /* Subviews */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -239,8 +243,9 @@
 		883CEF0729B63B4500D9ABDA /* Watchlist */ = {
 			isa = PBXGroup;
 			children = (
-				883CEF1829B656E600D9ABDA /* Models */,
+				88F80AF529B74825008A3E9F /* WatchlistConfigurator.swift */,
 				880C4B4129AA764000951D25 /* WatchlistViewController.swift */,
+				883CEF1829B656E600D9ABDA /* Models */,
 			);
 			path = Watchlist;
 			sourceTree = "<group>";
@@ -637,6 +642,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88F80AF629B74825008A3E9F /* WatchlistConfigurator.swift in Sources */,
 				88DC6E1B29AD3E4700C8D62F /* AppConstants.swift in Sources */,
 				88E1311D29B0645600DAF0B0 /* ChartScrollView.swift in Sources */,
 				88EF7AA829AB44CC001D3572 /* UIView+Ext.swift in Sources */,
@@ -698,6 +704,7 @@
 				889535AB29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */,
 				889535A129AAA01C00FC4B91 /* Constants.swift in Sources */,
 				88DC6E1C29AD3E4700C8D62F /* AppConstants.swift in Sources */,
+				88F80AF729B74825008A3E9F /* WatchlistConfigurator.swift in Sources */,
 				889535B329AAAC7600FC4B91 /* SearchTextField.swift in Sources */,
 				8839F7F829B1F5C6004D4399 /* AssetDetailsPresenter.swift in Sources */,
 				883CEEE629B5CFA100D9ABDA /* ChartRenderer.swift in Sources */,
@@ -729,6 +736,7 @@
 				889535AC29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */,
 				889535A229AAA01C00FC4B91 /* Constants.swift in Sources */,
 				88DC6E1D29AD3E4700C8D62F /* AppConstants.swift in Sources */,
+				88F80AF829B74825008A3E9F /* WatchlistConfigurator.swift in Sources */,
 				889535B429AAAC7600FC4B91 /* SearchTextField.swift in Sources */,
 				8839F7F929B1F5C6004D4399 /* AssetDetailsPresenter.swift in Sources */,
 				883CEEE729B5CFA100D9ABDA /* ChartRenderer.swift in Sources */,

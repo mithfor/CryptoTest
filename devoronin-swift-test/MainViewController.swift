@@ -9,8 +9,6 @@ import UIKit
 
 class MainViewController: UITabBarController {
     
-    let titl = "12345"
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,7 +32,7 @@ class MainViewController: UITabBarController {
     
     private func createAssetsNavigationConroller() -> UINavigationController {
         
-        let assetsVC = DefaultAssetsConfigurator.configured(AssetsViewController())
+        let assetsVC = AssetsConfigurator.configured(AssetsViewController())
         assetsVC.title = TitlesConstants.assets
         assetsVC.tabBarItem = UITabBarItem(title: TitlesConstants.assets,
                                            image: UIImage(systemName: Constants.IconFill.assets),

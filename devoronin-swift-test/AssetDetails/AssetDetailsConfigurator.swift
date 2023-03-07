@@ -19,7 +19,7 @@ class DefaultAssetDetailsConfigurator: AssetDetailsCongfigurator {
         let presenter = AssetDetailsPresenter()
         vc.interactor = interactor
         interactor.presenter = presenter
-        presenter.viewController = vc as? AssetDetailsPresenterOutput
+        presenter.viewController = vc
         
         return vc
     }
