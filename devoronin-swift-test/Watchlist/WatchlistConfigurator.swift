@@ -14,7 +14,7 @@ protocol WatchlistConfiguratorProtocol {
 class WatchlistConfigurator: WatchlistConfiguratorProtocol {
     
     static func configured(_ vc: WatchlistViewController) -> WatchlistViewController {
-//        let interactor = AssetDetailsInteractor()
+        let interactor = WatchlistInteractor()
 //        let presenter = AssetDetailsPresenter()
 //        vc.interactor = interactor
 //        interactor.presenter = presenter

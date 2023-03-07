@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		68E6B04D1C126C2A12516C20 /* Pods_devoronin_swift_test_devoronin_swift_testUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F7984C6FB0A0769579C2D6 /* Pods_devoronin_swift_test_devoronin_swift_testUITests.framework */; };
+		8808266929B750FB0027F385 /* WatchlistInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808266829B750FB0027F385 /* WatchlistInteractor.swift */; };
+		8808266A29B750FB0027F385 /* WatchlistInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808266829B750FB0027F385 /* WatchlistInteractor.swift */; };
 		880C4B4229AA764000951D25 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B4129AA764000951D25 /* WatchlistViewController.swift */; };
 		880C4B4329AA764000951D25 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B4129AA764000951D25 /* WatchlistViewController.swift */; };
 		880C4B4429AA764000951D25 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B4129AA764000951D25 /* WatchlistViewController.swift */; };
@@ -122,6 +124,7 @@
 		79F10EA53A407E4BDDA48614 /* Pods-devoronin-swift-test-devoronin-swift-testUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-devoronin-swift-test-devoronin-swift-testUITests.release.xcconfig"; path = "Target Support Files/Pods-devoronin-swift-test-devoronin-swift-testUITests/Pods-devoronin-swift-test-devoronin-swift-testUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7B4C38CFD3B942CE2D2585E5 /* Pods-devoronin-swift-testTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-devoronin-swift-testTests.debug.xcconfig"; path = "Target Support Files/Pods-devoronin-swift-testTests/Pods-devoronin-swift-testTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8107904866CB2EE7F055C5CF /* Pods-devoronin-swift-testTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-devoronin-swift-testTests.release.xcconfig"; path = "Target Support Files/Pods-devoronin-swift-testTests/Pods-devoronin-swift-testTests.release.xcconfig"; sourceTree = "<group>"; };
+		8808266829B750FB0027F385 /* WatchlistInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistInteractor.swift; sourceTree = "<group>"; };
 		880C4B4129AA764000951D25 /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
 		880C4B4829AA767B00951D25 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		880C4B5229AA7B7100951D25 /* AssetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
@@ -204,12 +207,12 @@
 		880C4B6029AA9B9400951D25 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				88EF7A3629AB3AB1001D3572 /* Customviews */,
 				8839F7C529B1D7FC004D4399 /* Models */,
+				88DC6E0029AC7D0D00C8D62F /* AssetsConfigurator.swift */,
 				88DC6DF629AC6E7D00C8D62F /* AssetsInteractor.swift */,
 				88DC6DFB29AC765500C8D62F /* AssetsPresenter.swift */,
 				880C4B5229AA7B7100951D25 /* AssetsViewController.swift */,
-				88DC6E0029AC7D0D00C8D62F /* AssetsConfigurator.swift */,
-				88EF7A3629AB3AB1001D3572 /* Subviews */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				88F80AF529B74825008A3E9F /* WatchlistConfigurator.swift */,
+				8808266829B750FB0027F385 /* WatchlistInteractor.swift */,
 				880C4B4129AA764000951D25 /* WatchlistViewController.swift */,
 				883CEF1829B656E600D9ABDA /* Models */,
 			);
@@ -352,23 +356,23 @@
 			isa = PBXGroup;
 			children = (
 				88DC40EA29ADC89E00EF8A55 /* CustomViews */,
-				8839F7C029B1D7AE004D4399 /* AssetDetailsInteractor.swift */,
-				88DC6E0E29AD11E200C8D62F /* AssetDetailsViewController.swift */,
-				8839F7D329B1EB5D004D4399 /* AssetDetailsConfigurator.swift */,
-				8839F7F629B1F5C6004D4399 /* AssetDetailsPresenter.swift */,
 				8839F7CC29B1D809004D4399 /* Models */,
+				8839F7D329B1EB5D004D4399 /* AssetDetailsConfigurator.swift */,
+				8839F7C029B1D7AE004D4399 /* AssetDetailsInteractor.swift */,
+				8839F7F629B1F5C6004D4399 /* AssetDetailsPresenter.swift */,
+				88DC6E0E29AD11E200C8D62F /* AssetDetailsViewController.swift */,
 			);
 			path = AssetDetails;
 			sourceTree = "<group>";
 		};
-		88EF7A3629AB3AB1001D3572 /* Subviews */ = {
+		88EF7A3629AB3AB1001D3572 /* Customviews */ = {
 			isa = PBXGroup;
 			children = (
 				880C4B5929AA9B2A00951D25 /* AssetsTableViewCell.swift */,
 				889535A929AAA50A00FC4B91 /* AssetsTableViewHeader.swift */,
 				88F80AEC29B72C53008A3E9F /* AssetsTableView.swift */,
 			);
-			path = Subviews;
+			path = Customviews;
 			sourceTree = "<group>";
 		};
 		88EF7A5229AB410B001D3572 /* Extensions */ = {
@@ -648,6 +652,7 @@
 				88EF7AA829AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				88DC6DF729AC6E7D00C8D62F /* AssetsInteractor.swift in Sources */,
 				883CEEF329B6225900D9ABDA /* UILabel+Ext.swift in Sources */,
+				8808266929B750FB0027F385 /* WatchlistInteractor.swift in Sources */,
 				880C4B4229AA764000951D25 /* WatchlistViewController.swift in Sources */,
 				88D77639299FDAB500BC782F /* MainViewController.swift in Sources */,
 				8839F7D429B1EB5D004D4399 /* AssetDetailsConfigurator.swift in Sources */,
@@ -690,6 +695,7 @@
 				88EF7AA929AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				880C4B4329AA764000951D25 /* WatchlistViewController.swift in Sources */,
 				88DC6E2329AD468200C8D62F /* String+Ext.swift in Sources */,
+				8808266A29B750FB0027F385 /* WatchlistInteractor.swift in Sources */,
 				88D7764C299FDAB700BC782F /* devoronin_swift_testTests.swift in Sources */,
 				88DC6E1029AD11E200C8D62F /* AssetDetailsViewController.swift in Sources */,
 				883C402229ABF0A100B44916 /* Asset.swift in Sources */,
