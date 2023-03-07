@@ -10,6 +10,8 @@
 		68E6B04D1C126C2A12516C20 /* Pods_devoronin_swift_test_devoronin_swift_testUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8F7984C6FB0A0769579C2D6 /* Pods_devoronin_swift_test_devoronin_swift_testUITests.framework */; };
 		8808266929B750FB0027F385 /* WatchlistInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808266829B750FB0027F385 /* WatchlistInteractor.swift */; };
 		8808266A29B750FB0027F385 /* WatchlistInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808266829B750FB0027F385 /* WatchlistInteractor.swift */; };
+		8808267829B7524D0027F385 /* WatchlistPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808267729B7524D0027F385 /* WatchlistPresenter.swift */; };
+		8808267929B7524D0027F385 /* WatchlistPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8808267729B7524D0027F385 /* WatchlistPresenter.swift */; };
 		880C4B4229AA764000951D25 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B4129AA764000951D25 /* WatchlistViewController.swift */; };
 		880C4B4329AA764000951D25 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B4129AA764000951D25 /* WatchlistViewController.swift */; };
 		880C4B4429AA764000951D25 /* WatchlistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880C4B4129AA764000951D25 /* WatchlistViewController.swift */; };
@@ -125,6 +127,7 @@
 		7B4C38CFD3B942CE2D2585E5 /* Pods-devoronin-swift-testTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-devoronin-swift-testTests.debug.xcconfig"; path = "Target Support Files/Pods-devoronin-swift-testTests/Pods-devoronin-swift-testTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8107904866CB2EE7F055C5CF /* Pods-devoronin-swift-testTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-devoronin-swift-testTests.release.xcconfig"; path = "Target Support Files/Pods-devoronin-swift-testTests/Pods-devoronin-swift-testTests.release.xcconfig"; sourceTree = "<group>"; };
 		8808266829B750FB0027F385 /* WatchlistInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistInteractor.swift; sourceTree = "<group>"; };
+		8808267729B7524D0027F385 /* WatchlistPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistPresenter.swift; sourceTree = "<group>"; };
 		880C4B4129AA764000951D25 /* WatchlistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchlistViewController.swift; sourceTree = "<group>"; };
 		880C4B4829AA767B00951D25 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		880C4B5229AA7B7100951D25 /* AssetsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetsViewController.swift; sourceTree = "<group>"; };
@@ -248,6 +251,7 @@
 			children = (
 				88F80AF529B74825008A3E9F /* WatchlistConfigurator.swift */,
 				8808266829B750FB0027F385 /* WatchlistInteractor.swift */,
+				8808267729B7524D0027F385 /* WatchlistPresenter.swift */,
 				880C4B4129AA764000951D25 /* WatchlistViewController.swift */,
 				883CEF1829B656E600D9ABDA /* Models */,
 			);
@@ -672,6 +676,7 @@
 				889535A029AAA01C00FC4B91 /* Constants.swift in Sources */,
 				88E3340F29B12F33005B5152 /* AssetHistory.swift in Sources */,
 				88DC6E0F29AD11E200C8D62F /* AssetDetailsViewController.swift in Sources */,
+				8808267829B7524D0027F385 /* WatchlistPresenter.swift in Sources */,
 				883CEF1A29B656FF00D9ABDA /* WatchList.swift in Sources */,
 				889535AA29AAA50A00FC4B91 /* AssetsTableViewHeader.swift in Sources */,
 				88CE8CDB29ADEDEB00C60DE3 /* DetailHorizontalStackView.swift in Sources */,
@@ -713,6 +718,7 @@
 				88F80AF729B74825008A3E9F /* WatchlistConfigurator.swift in Sources */,
 				889535B329AAAC7600FC4B91 /* SearchTextField.swift in Sources */,
 				8839F7F829B1F5C6004D4399 /* AssetDetailsPresenter.swift in Sources */,
+				8808267929B7524D0027F385 /* WatchlistPresenter.swift in Sources */,
 				883CEEE629B5CFA100D9ABDA /* ChartRenderer.swift in Sources */,
 				88EF7A4029AB40B0001D3572 /* UIViewController+Ext.swift in Sources */,
 			);

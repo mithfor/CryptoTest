@@ -1,5 +1,5 @@
 //
-//  WatchlistConfigurator.swift
+//  WatchListConfigurator.swift
 //  devoronin-swift-test
 //
 //  Created by Dmitrii Voronin on 07.03.2023.
@@ -7,18 +7,18 @@
 
 import Foundation
 
-protocol WatchlistConfiguratorProtocol {
-    static func configured(_ vc: WatchlistViewController) -> WatchlistViewController
+protocol WatchListConfiguratorProtocol {
+    static func configured(_ vc: WatchListViewController) -> WatchListViewController
 }
 
-class WatchlistConfigurator: WatchlistConfiguratorProtocol {
+class WatchListConfigurator: WatchListConfiguratorProtocol {
     
-    static func configured(_ vc: WatchlistViewController) -> WatchlistViewController {
-        let interactor = WatchlistInteractor()
-//        let presenter = AssetDetailsPresenter()
-//        vc.interactor = interactor
-//        interactor.presenter = presenter
-//        presenter.viewController = vc
+    static func configured(_ vc: WatchListViewController) -> WatchListViewController {
+        let interactor = WatchListInteractor()
+        let presenter = WatchListPresenter()
+        vc.interactor = interactor
+        interactor.presenter = presenter
+        presenter.viewController = vc as? WatchListPresenterOutput
         
         return vc
     }

@@ -9,7 +9,7 @@ import Foundation
 
 class WatchList : ObservableObject {
     var assets = Set<String>()
-    var key = "Watchlist"
+    var key = "WatchList"
     
     init() {
         

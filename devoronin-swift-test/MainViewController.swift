@@ -25,7 +25,7 @@ class MainViewController: UITabBarController {
         
         viewControllers = [
             createAssetsNavigationConroller(),
-            createWatchlistNavigationController(),
+            createWatchListNavigationController(),
             createSettingsNavigationController()
         ]
     }
@@ -40,8 +40,8 @@ class MainViewController: UITabBarController {
         return UINavigationController(rootViewController: assetsVC)
     }
     
-    private func createWatchlistNavigationController() -> UINavigationController {
-        let watchlistVC = WatchlistViewController()
+    private func createWatchListNavigationController() -> UINavigationController {
+        let watchlistVC = WatchListViewController()
         watchlistVC.title = TitlesConstants.watchlist
         watchlistVC.tabBarItem = UITabBarItem(title: watchlistVC.title,
                                               image: UIImage(systemName: Constants.IconFill.watchlist),

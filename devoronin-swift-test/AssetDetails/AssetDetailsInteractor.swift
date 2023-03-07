@@ -16,8 +16,6 @@ protocol AssetDetailsInteractorOutput: AnyObject {
 
 final class AssetDetailsInteractor {
     
-    
-    
     private var assetHistory = [AssetHistory]()
     
     var presenter: AssetDetailsPresenterInput?

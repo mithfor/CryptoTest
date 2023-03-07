@@ -24,7 +24,7 @@ final class DatabaseManager {
         return Set(array)
     }
     
-    func updateWatchlist(asset: Asset) {
+    func updateWatchList(asset: Asset) {
         var assets = load()
         
         

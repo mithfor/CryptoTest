@@ -1,5 +1,5 @@
 //
-//  WatchlistViewController.swift
+//  WatchListViewController.swift
 //  devoronin-swift-test
 //
 //  Created by Dmitrii Voronin on 25.02.2023.
@@ -7,7 +7,18 @@
 
 import UIKit
 
-class WatchlistViewController: UIViewController {
+protocol WatchListViewControllerInput: class {
+    
+}
+
+protocol WatchListViewControllerOutput: class {
+    func fetchFavoriteAssets(watchList: WatchList)
+}
+
+class WatchListViewController: UIViewController {
+    
+    var interactor: WatchListInteractorInput?
+    
     //MARK: - VARIABLES
     var watchlist = WatchList()
     
@@ -28,6 +39,7 @@ class WatchlistViewController: UIViewController {
                 
         setupUI()
         
+        fetchFavoriteAssets()
     }
     
     override func viewDidLayoutSubviews() {
@@ -50,13 +62,15 @@ class WatchlistViewController: UIViewController {
         
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .automatic
-        
-        
+    }
+    
+    private func fetchFavoriteAssets() {
+        interactor?.fetchFavoriteAssets(watchList: watchlist)
     }
 
 }
 
-extension WatchlistViewController: UITableViewDataSource {
+extension WatchListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 11
     }
@@ -75,6 +89,6 @@ extension WatchlistViewController: UITableViewDataSource {
     
 }
 
-extension WatchlistViewController:UITableViewDelegate {
+extension WatchListViewController:UITableViewDelegate {
     
 }

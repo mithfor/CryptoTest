@@ -51,7 +51,7 @@ struct Constants {
 
 struct TitlesConstants {
     static let assets = "Assets"
-    static let watchlist = "Watchlist"
+    static let watchlist = "WatchList"
     static let settings = "Setting"
 }
 
