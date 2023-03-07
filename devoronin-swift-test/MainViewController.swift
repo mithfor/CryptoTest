@@ -41,7 +41,8 @@ class MainViewController: UITabBarController {
     }
     
     private func createWatchListNavigationController() -> UINavigationController {
-        let watchlistVC = WatchListViewController()
+        
+        let watchlistVC = WatchListConfigurator.configured(WatchListViewController())
         watchlistVC.title = TitlesConstants.watchlist
         watchlistVC.tabBarItem = UITabBarItem(title: watchlistVC.title,
                                               image: UIImage(systemName: Constants.IconFill.watchlist),

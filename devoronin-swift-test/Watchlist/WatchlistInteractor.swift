@@ -20,6 +20,12 @@ final class WatchListInteractor {
 
 extension WatchListInteractor: WatchListInteractorInput {
     func fetchFavoriteAssets(watchList: WatchList) {
+        
+        
+        watchList.load()
+        
+        //NetworkManager.shared.fetchAsset()
+        
         print(#function)
     }
     

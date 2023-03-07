@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WatchList : ObservableObject {
+class WatchList {
     var assets = Set<String>()
     var key = "WatchList"
     

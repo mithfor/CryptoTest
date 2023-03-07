@@ -16,7 +16,6 @@ class AssetsTableViewCell: UITableViewCell {
     //TODO: - make ViewModel
     private var assetViewModel: Asset?
     
-    
     static let identifier = "AssetsTableViewCell"
     
     weak var delegate: AssetsTableViewCellDelegate?
@@ -100,7 +99,6 @@ class AssetsTableViewCell: UITableViewCell {
        contentView.addSubview(assetDetailsButton)
         selectionStyle = .none
     
-
        contentView.clipsToBounds = true
        contentView.contentMode = .center
        contentView.isMultipleTouchEnabled = true
@@ -118,7 +116,6 @@ class AssetsTableViewCell: UITableViewCell {
         
         contentView.addSubview(assetPriceUSDLabel)
         contentView.addSubview(assetChangePercent24HrLabel)
-        
 
     }
     
@@ -153,7 +150,7 @@ class AssetsTableViewCell: UITableViewCell {
         ])
     }
     
-    func configureWith(delegate: AssetsTableViewCellDelegate, and asset: Asset, image: UIImage?) {
+    func configureWith(delegate: AssetsTableViewCellDelegate?, and asset: Asset, image: UIImage?) {
         self.delegate = delegate
         self.assetViewModel = asset
         self.assetImage = image
@@ -165,8 +162,7 @@ class AssetsTableViewCell: UITableViewCell {
         assetSymbolLabel.text = assetViewModel?.symbol
         assetNameLabel.text = assetViewModel?.name
         assetPriceUSDLabel.text = "$\(String.formatToCurrency(string: assetViewModel?.priceUsd ?? ""))"
-        
-
+    
         assetChangePercent24HrLabel.setupText(with: Double(assetViewModel?.changePercent24Hr ?? "0.00") ?? 0.0)
         
     }

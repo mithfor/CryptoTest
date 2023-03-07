@@ -8,15 +8,16 @@
 import Foundation
 
 protocol WatchListConfiguratorProtocol {
-    static func configured(_ vc: WatchListViewController) -> WatchListViewController
+    static func configured(_ vc: WatchListViewController, with watchList: WatchList) -> WatchListViewController
 }
 
 class WatchListConfigurator: WatchListConfiguratorProtocol {
-    
-    static func configured(_ vc: WatchListViewController) -> WatchListViewController {
+    static func configured(_ vc: WatchListViewController, with watchList: WatchList = WatchList()) -> WatchListViewController {
         let interactor = WatchListInteractor()
         let presenter = WatchListPresenter()
         vc.interactor = interactor
+        // Inject Data
+        vc.watchlist = watchList
         interactor.presenter = presenter
         presenter.viewController = vc as? WatchListPresenterOutput
         

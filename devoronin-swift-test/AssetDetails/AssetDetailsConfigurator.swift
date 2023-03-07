@@ -7,13 +7,12 @@
 
 import Foundation
 
-protocol AssetDetailsCongfigurator {
+protocol AssetDetailsCongfiguratorProtocol {
     static func configured(_ vc: AssetDetailsViewController) -> AssetDetailsViewController
 }
 
-class DefaultAssetDetailsConfigurator: AssetDetailsCongfigurator {
+class AssetDetailsConfigurator: AssetDetailsCongfiguratorProtocol {
 
-    
     static func configured(_ vc: AssetDetailsViewController) -> AssetDetailsViewController {
         let interactor = AssetDetailsInteractor()
         let presenter = AssetDetailsPresenter()

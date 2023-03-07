@@ -16,7 +16,6 @@ protocol WatchListViewControllerOutput: class {
 }
 
 class WatchListViewController: UIViewController {
-    
     var interactor: WatchListInteractorInput?
     
     //MARK: - VARIABLES
@@ -67,7 +66,6 @@ class WatchListViewController: UIViewController {
     private func fetchFavoriteAssets() {
         interactor?.fetchFavoriteAssets(watchList: watchlist)
     }
-
 }
 
 extension WatchListViewController: UITableViewDataSource {
@@ -76,8 +74,12 @@ extension WatchListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        return UITableViewCell()
+//        if let cell = tableView.dequeueReusableCell(withIdentifier: AssetsTableViewCell.identifier, for: indexPath) as? AssetsTableViewCell {
+//            cell.configureWith(delegate: nil, and: Asset(from: <#Decoder#>), image: UIImage(systemName: "house"))
+//            return cell
+//        } else {
+            return UITableViewCell()
+//        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
