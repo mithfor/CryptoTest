@@ -1,5 +1,5 @@
 //
-//  ChartViewController.swift
+//  ChartScrollView.swift
 //  devoronin-swift-test
 //
 //  Created by Dmitrii Voronin on 02.03.2023.
@@ -12,23 +12,43 @@ protocol Updateable {
     func updateLineChart()
 }
 
-class ChartViewController: UIViewController {
+class ChartScrollView: UIScrollView {
 
-    private let lineChartView = LineChartView()
+    private lazy var lineChartView: LineChartView = {
+        let view = LineChartView()
+        return view
+    }()
+    
+    private lazy var contentView: UIView = {
+        let view = UIView()
+        return view
+    }()
     
     var yValues = [ChartDataEntry]()
     var maxY: Double?
     var minY: Double?
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        createChart()
+//    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         createChart()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
 
     private func createChart() {
-        //create bar chart
+        
+        setupContentViewConstraints()
+        
+        //create line chart
         setupChartConstraints()
         
         //supply data
@@ -47,20 +67,30 @@ class ChartViewController: UIViewController {
         
     }
     
+    private func setupContentViewConstraints() {
+        addSubview(contentView)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        let heightConstraint = contentView.heightAnchor.constraint(equalTo: heightAnchor)
+        heightConstraint.priority = UILayoutPriority(250)
+        NSLayoutConstraint.activate([
+            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contentView.widthAnchor.constraint(equalTo: widthAnchor),
+            heightConstraint,
+        ])
+    }
+    
     private func setupChartConstraints() {
-        view.addSubview(lineChartView)
+        contentView.addSubview(lineChartView)
         lineChartView.translatesAutoresizingMaskIntoConstraints = false
-        lineChartView.pinToEdges(of: view)
-        
-        lineChartView.center = view.center
+
+        lineChartView.pinToEdges(of: contentView)
+
     }
     
     private func setupData() {
-        
-
-//        var entries = [LineChartData]()
-        
-        
         
         let lineChartDataSet = LineChartDataSet(entries: yValues, label: "VALUE")
         
@@ -82,7 +112,7 @@ class ChartViewController: UIViewController {
     }
 }
 
-extension ChartViewController: Updateable {
+extension ChartScrollView: Updateable {
     func updateLineChart() {
         setupData()
     }

@@ -84,9 +84,9 @@
 		88DC6E2229AD468200C8D62F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E2129AD468200C8D62F /* String+Ext.swift */; };
 		88DC6E2329AD468200C8D62F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E2129AD468200C8D62F /* String+Ext.swift */; };
 		88DC6E2429AD468200C8D62F /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88DC6E2129AD468200C8D62F /* String+Ext.swift */; };
-		88E1311D29B0645600DAF0B0 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1311C29B0645600DAF0B0 /* ChartViewController.swift */; };
-		88E1311E29B0645600DAF0B0 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1311C29B0645600DAF0B0 /* ChartViewController.swift */; };
-		88E1311F29B0645600DAF0B0 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1311C29B0645600DAF0B0 /* ChartViewController.swift */; };
+		88E1311D29B0645600DAF0B0 /* ChartScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1311C29B0645600DAF0B0 /* ChartScrollView.swift */; };
+		88E1311E29B0645600DAF0B0 /* ChartScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1311C29B0645600DAF0B0 /* ChartScrollView.swift */; };
+		88E1311F29B0645600DAF0B0 /* ChartScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E1311C29B0645600DAF0B0 /* ChartScrollView.swift */; };
 		88E3340F29B12F33005B5152 /* AssetHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E3340E29B12F33005B5152 /* AssetHistory.swift */; };
 		88EF7A3F29AB40B0001D3572 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EF7A3E29AB40B0001D3572 /* UIViewController+Ext.swift */; };
 		88EF7A4029AB40B0001D3572 /* UIViewController+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88EF7A3E29AB40B0001D3572 /* UIViewController+Ext.swift */; };
@@ -161,7 +161,7 @@
 		88DC6E0E29AD11E200C8D62F /* AssetDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetDetailsViewController.swift; sourceTree = "<group>"; };
 		88DC6E1A29AD3E4700C8D62F /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		88DC6E2129AD468200C8D62F /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		88E1311C29B0645600DAF0B0 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
+		88E1311C29B0645600DAF0B0 /* ChartScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartScrollView.swift; sourceTree = "<group>"; };
 		88E3340E29B12F33005B5152 /* AssetHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetHistory.swift; sourceTree = "<group>"; };
 		88EF7A3E29AB40B0001D3572 /* UIViewController+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext.swift"; sourceTree = "<group>"; };
 		88EF7AA729AB44CC001D3572 /* UIView+Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -340,7 +340,7 @@
 			children = (
 				88DC40EE29ADCD5100EF8A55 /* AssetDetailsView.swift */,
 				88CE8CDA29ADEDEB00C60DE3 /* DetailHorizontalStackView.swift */,
-				88E1311C29B0645600DAF0B0 /* ChartViewController.swift */,
+				88E1311C29B0645600DAF0B0 /* ChartScrollView.swift */,
 				883CEEE429B5CFA100D9ABDA /* ChartRenderer.swift */,
 			);
 			path = CustomViews;
@@ -640,7 +640,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88DC6E1B29AD3E4700C8D62F /* AppConstants.swift in Sources */,
-				88E1311D29B0645600DAF0B0 /* ChartViewController.swift in Sources */,
+				88E1311D29B0645600DAF0B0 /* ChartScrollView.swift in Sources */,
 				883CEF0929B63B8F00D9ABDA /* WatchlistViewModel.swift in Sources */,
 				88EF7AA829AB44CC001D3572 /* UIView+Ext.swift in Sources */,
 				88DC6DF729AC6E7D00C8D62F /* AssetsInteractor.swift in Sources */,
@@ -694,7 +694,7 @@
 				883CEF1B29B656FF00D9ABDA /* WatchList.swift in Sources */,
 				880C4B4A29AA767B00951D25 /* SettingsViewController.swift in Sources */,
 				883CEEFB29B6274200D9ABDA /* PaddingLabel.swift in Sources */,
-				88E1311E29B0645600DAF0B0 /* ChartViewController.swift in Sources */,
+				88E1311E29B0645600DAF0B0 /* ChartScrollView.swift in Sources */,
 				88CE8CDC29ADEDEB00C60DE3 /* DetailHorizontalStackView.swift in Sources */,
 				880C4B5B29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */,
 				883CEEF429B6225900D9ABDA /* UILabel+Ext.swift in Sources */,
@@ -726,7 +726,7 @@
 				883CEF1C29B656FF00D9ABDA /* WatchList.swift in Sources */,
 				880C4B4B29AA767B00951D25 /* SettingsViewController.swift in Sources */,
 				883CEEFC29B6274200D9ABDA /* PaddingLabel.swift in Sources */,
-				88E1311F29B0645600DAF0B0 /* ChartViewController.swift in Sources */,
+				88E1311F29B0645600DAF0B0 /* ChartScrollView.swift in Sources */,
 				88CE8CDD29ADEDEB00C60DE3 /* DetailHorizontalStackView.swift in Sources */,
 				880C4B5C29AA9B2A00951D25 /* AssetsTableViewCell.swift in Sources */,
 				883CEEF529B6225900D9ABDA /* UILabel+Ext.swift in Sources */,

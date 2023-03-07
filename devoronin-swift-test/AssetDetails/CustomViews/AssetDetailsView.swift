@@ -52,10 +52,10 @@ final class AssetDetailsView: UIView {
         return label
     }()
     
-    private lazy var chartViewController: ChartViewController = {
-        let vc = ChartViewController()
-        vc.view.translatesAutoresizingMaskIntoConstraints = false
-        return vc
+    private lazy var chartScrollView: ChartScrollView = {
+        let view = ChartScrollView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
     }()
     
     private lazy var stackView: UIStackView = {
@@ -118,7 +118,7 @@ final class AssetDetailsView: UIView {
         
         setupAssetPriceUSDLabelConstraints()
         setupAssetChangePercent24HrLabelConstraints()
-        setupChartControllerViewConstraints()
+        setupChartScrollViewConstraints()
         setupStackViewConstraints()
         setupLinesConstraints()
         
@@ -189,15 +189,15 @@ final class AssetDetailsView: UIView {
     }
     
     
-    private func setupChartControllerViewConstraints() {
-        contentView.addSubview(chartViewController.view)
+    private func setupChartScrollViewConstraints() {
+        contentView.addSubview(chartScrollView)
         NSLayoutConstraint.activate([
-            chartViewController.view.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            chartViewController.view.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            chartViewController.view.heightAnchor.constraint(equalToConstant: 240),
-            chartViewController.view.topAnchor.constraint(lessThanOrEqualTo: assetChangePercent24HrLabel.bottomAnchor, constant: 10)
+            chartScrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            chartScrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            chartScrollView.heightAnchor.constraint(equalToConstant: 240),
+            chartScrollView.topAnchor.constraint(lessThanOrEqualTo: assetChangePercent24HrLabel.bottomAnchor, constant: 10)
         ])
-        chartViewController.view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        chartScrollView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
     }
     
     private func setupStackViewConstraints() {
@@ -206,7 +206,7 @@ final class AssetDetailsView: UIView {
             stackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             stackView.heightAnchor.constraint(equalToConstant: 132),
-            stackView.topAnchor.constraint(equalTo: chartViewController.view.bottomAnchor, constant: 20),
+            stackView.topAnchor.constraint(equalTo: chartScrollView.bottomAnchor, constant: 20),
             stackView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -20)
         ])
     }
@@ -241,12 +241,12 @@ extension AssetDetailsView: AssetDetailAccessable {
     func updateHistoryChart(with data: [AssetHistory]) {
         
         data.enumerated().forEach { (index, item) in
-        chartViewController.yValues.append(ChartDataEntry(x: Double(index),
+            chartScrollView.yValues.append(ChartDataEntry(x: Double(index),
                                                           y: Double(item.priceUsd ?? "No Data") ?? 0.0))
         }
         
         DispatchQueue.main.async {
-            self.chartViewController.updateLineChart()
+            self.chartScrollView.updateLineChart()
         }
     }
     
