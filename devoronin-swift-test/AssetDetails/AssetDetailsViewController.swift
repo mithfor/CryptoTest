@@ -25,7 +25,7 @@ final class AssetDetailsViewController: UIViewController {
     
     var interactor: AssetDetailsInteractorInput?
     
-    private var detailView: AssetDetailsView = {
+    private var assetDetailsView: AssetDetailsView = {
         let view = AssetDetailsView()
         
         return view
@@ -52,6 +52,8 @@ final class AssetDetailsViewController: UIViewController {
         setupUI()
         
         interactor?.fetchHistory(asset: asset)
+        
+        configureRefreshControl()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,7 +65,23 @@ final class AssetDetailsViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        detailView.frame = view.bounds
+        assetDetailsView.frame = view.bounds
+    }
+    
+    func configureRefreshControl() {
+        assetDetailsView.scrollView.refreshControl = UIRefreshControl()
+        assetDetailsView.scrollView.refreshControl?.addTarget(self, action:
+                                          #selector(handleRefreshControl),
+                                          for: .valueChanged)
+    }
+        
+    @objc func handleRefreshControl() {
+        
+        interactor?.fetchHistory(asset: asset)
+
+       DispatchQueue.main.async {
+            self.assetDetailsView.scrollView.refreshControl?.endRefreshing()
+       }
     }
     
     // MARK: - Setup
@@ -71,7 +89,7 @@ final class AssetDetailsViewController: UIViewController {
         view.backgroundColor = Constants.Color.mainBackground
         navigationItem.largeTitleDisplayMode = .never
     
-        view.addSubview(detailView)
+        view.addSubview(assetDetailsView)
     }
     
 
@@ -86,11 +104,11 @@ final class AssetDetailsViewController: UIViewController {
     }
     
     private func updateDetailView() {
-        detailView.updateAssetPriceUSD(with: "$\(String.formatToCurrency(string: asset.priceUsd ?? "No data"))", and: Constants.Color.Asset.symbol)
-        detailView.updateAssetChangePercent24Hr(with: asset.changePercent24Hr ?? "No data")
-        detailView.updateLine1(with: "$\(String.formatToCurrency(string: asset.marketCapUsd ?? "No data"))")
-        detailView.updateLine2(with: "$\(String.formatToCurrency(string: asset.supply ?? "No data"))")
-        detailView.updateLine3(with: "$\(String.formatToCurrency(string: asset.volumeUsd24Hr ?? "No data"))")
+        assetDetailsView.updateAssetPriceUSD(with: "$\(String.formatToCurrency(string: asset.priceUsd ?? "No data"))", and: Constants.Color.Asset.symbol)
+        assetDetailsView.updateAssetChangePercent24Hr(with: asset.changePercent24Hr ?? "No data")
+        assetDetailsView.updateLine1(with: "$\(String.formatToCurrency(string: asset.marketCapUsd ?? "No data"))")
+        assetDetailsView.updateLine2(with: "$\(String.formatToCurrency(string: asset.supply ?? "No data"))")
+        assetDetailsView.updateLine3(with: "$\(String.formatToCurrency(string: asset.volumeUsd24Hr ?? "No data"))")
     }
     
     private func updateWatchList() {
@@ -124,7 +142,7 @@ final class AssetDetailsViewController: UIViewController {
 
 extension AssetDetailsViewController: AssetDetailsViewControllerInput {
     func updateHistory(with assetHistory: [AssetHistory]) {
-        detailView.updateHistoryChart(with: assetHistory)
+        assetDetailsView.updateHistoryChart(with: assetHistory)
     }
     
     func updateTitle(with name: String, and symbol: String) {

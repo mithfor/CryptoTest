@@ -28,12 +28,6 @@ class ChartScrollView: UIScrollView {
     var maxY: Double?
     var minY: Double?
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        createChart()
-//    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         createChart()

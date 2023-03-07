@@ -18,14 +18,18 @@ protocol AssetDetailAccessable: class {
     func updateHistoryChart(with data: [AssetHistory])
 }
 
+//protocol Refreshable: class {
+//    func refreshData()
+//}
+
 final class AssetDetailsView: UIView {
     //MARK: - CHARTS
     
-//     var lineChartView = LineChartView()
     
     //MARK: VARIABLES
     
-    private lazy var scrollView: UIScrollView = {
+    // TODO: return to private
+    lazy var scrollView: UIScrollView = {
         let sv = UIScrollView()
         return sv
     }()
@@ -110,9 +114,7 @@ final class AssetDetailsView: UIView {
     }
     
     private func commonInit() {
-        
-//        lineChartView.delegate = self
-        
+                
         setupScrollViewContstraints()
         setupContentViewConstraints()
         
@@ -121,26 +123,9 @@ final class AssetDetailsView: UIView {
         setupChartScrollViewConstraints()
         setupStackViewConstraints()
         setupLinesConstraints()
-        
-        configureRefreshControl ()
     }
     
-    func configureRefreshControl () {
-        self.scrollView.refreshControl = UIRefreshControl()
-        self.scrollView.refreshControl?.addTarget(self, action:
-                                          #selector(handleRefreshControl),
-                                          for: .valueChanged)
-    }
-        
-    @objc func handleRefreshControl() {
-        
-//       interactor?.fetchAssets()
 
-       DispatchQueue.main.async {
-            
-          self.scrollView.refreshControl?.endRefreshing()
-       }
-    }
     
     // MARK: - CONSTRAINTS METHODS
     
@@ -270,11 +255,5 @@ extension AssetDetailsView: AssetDetailAccessable {
         stackLine3.rightLabel.text = value
     }
 }
-
-//// MARK - ChartViewDelegate
-//
-//extension AssetDetailsViewController: ChartViewDelegate {
-//    
-//}
 
 
