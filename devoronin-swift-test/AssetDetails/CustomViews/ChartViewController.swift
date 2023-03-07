@@ -16,20 +16,6 @@ class ChartViewController: UIViewController {
 
     private let lineChartView = LineChartView()
     
-//    var yValues: [ChartDataEntry] = [
-//        ChartDataEntry(x: 0, y: 0),
-//        ChartDataEntry(x: 1, y: 4),
-//        ChartDataEntry(x: 2, y: 6),
-//        ChartDataEntry(x: 3, y: 8),
-//        ChartDataEntry(x: 4, y: 100),
-//        ChartDataEntry(x: 5, y: 6),
-//        ChartDataEntry(x: 6, y: 7),
-//        ChartDataEntry(x: 7, y: 8),
-//        ChartDataEntry(x: 8, y: 50),
-//        ChartDataEntry(x: 9, y: 0)
-//
-//    ]
-    
     var yValues = [ChartDataEntry]()
     var maxY: Double?
     var minY: Double?
@@ -54,9 +40,11 @@ class ChartViewController: UIViewController {
         lineChartView.drawGridBackgroundEnabled = false
         
         lineChartView.xAxis.enabled = false
-        lineChartView.animate(xAxisDuration: 1)
+        lineChartView.isUserInteractionEnabled = false
         
         //configure legend
+        lineChartView.legend.enabled = false
+        
     }
     
     private func setupChartConstraints() {
@@ -85,8 +73,6 @@ class ChartViewController: UIViewController {
         lineChartDataSet.setColor(.black)
         
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
-        
-        lineChartView.legend.enabled = false
         
         lineChartView.data = lineChartData
         
