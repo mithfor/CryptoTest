@@ -6,7 +6,7 @@
 //
 
 import Foundation
-typealias WatchListInteractorInput =  WatchListViewControllerOutput
+typealias WatchListInteractorInput = WatchListViewControllerOutput
 
 protocol WatchListInteractorOutput: AnyObject {
 //    func fetchFailure(error: NetworkError)
@@ -20,13 +20,20 @@ final class WatchListInteractor {
 
 extension WatchListInteractor: WatchListInteractorInput {
     func fetchFavoriteAssets(watchList: WatchList) {
-        
+        print(#function)
         
         watchList.load()
         
-        //NetworkManager.shared.fetchAsset()
+        let assetsIds = watchList.assets
+            
+        assetsIds.forEach { id in
+            print(id)
+            
+            
+        }
         
-        print(#function)
+        //NetworkManager.shared.fetchAsset()
+
     }
     
 }
