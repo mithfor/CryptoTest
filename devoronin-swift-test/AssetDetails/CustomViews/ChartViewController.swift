@@ -85,7 +85,6 @@ class ChartViewController: UIViewController {
         lineChartDataSet.setColor(.black)
         
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
-//        lineChartData.setDrawValues(false)
         
         lineChartView.legend.enabled = false
         
@@ -94,8 +93,6 @@ class ChartViewController: UIViewController {
         lineChartView.renderer = ChartRenderer(view: lineChartView,
                                                minValue: minY ?? 0.0,
                                                maxValue: maxY ?? 0.0)
-        
-        
     }
 }
 

@@ -22,7 +22,6 @@ final class AssetDetailsViewController: UIViewController {
     //MARK: - Private vars
     private let asset: Asset
     private let watchList = WatchList()
-//    private var isInWatchList = false
     
     var interactor: AssetDetailsInteractorInput?
     
@@ -95,8 +94,10 @@ final class AssetDetailsViewController: UIViewController {
     }
     
     private func updateWatchList() {
-        let imageName = watchList.contains(asset) == false ? Constants.Icon.watchlist : Constants.IconFill.watchlist
         
+        watchList.load()
+        
+        let imageName = watchList.contains(asset) == false ? Constants.Icon.watchlist : Constants.IconFill.watchlist
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: imageName), style: .plain, target: self, action: #selector(didTapAddToWatchList))
     }
@@ -109,12 +110,10 @@ final class AssetDetailsViewController: UIViewController {
         if watchList.contains(asset) {
             imageName = Constants.Icon.watchlist
             watchList.remove(asset)
-//            isInWatchList = false
            
         } else {
             imageName = Constants.IconFill.watchlist
             watchList.add(asset)
-//            isInWatchList = true
         }
 
         navigationItem.rightBarButtonItem?.image = UIImage(systemName: imageName)

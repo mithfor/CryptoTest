@@ -8,13 +8,13 @@
 import Foundation
 
 class WatchList : ObservableObject {
-    @Published var assets: Set<String>
-    @Published var key = "Watchlist"
+    var assets = Set<String>()
+    var key = "Watchlist"
     
     init() {
         
         //load saved adata
-        assets = []
+        self.load()
     }
     
     func contains(_ asset: Asset) -> Bool {
@@ -23,27 +23,22 @@ class WatchList : ObservableObject {
     }
     
     func add(_ asset: Asset) {
-        print(#function)
-        objectWillChange.send()
+
         assets.insert(asset.id ?? "bitcoin")
         save()
     }
     
     func remove(_ asset: Asset) {
-        print(#function)
-        objectWillChange.send()
         assets.remove(asset.id ?? "bitcoin")
         save()
     }
     
     func save() {
-        // write out our data
-        
-        print(#function)
+        UserDefaults.standard.set(Array(assets), forKey: key)
     }
     
-    func load() -> Set<String>{
-        print(#function)
-        return Set<String>()
+    func load(){
+        let array = UserDefaults.standard.object(forKey: key) as? [String]
+        assets = Set(array ?? [String]())
     }
 }
