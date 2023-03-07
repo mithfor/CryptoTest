@@ -89,7 +89,7 @@ final class AssetDetailsViewController: UIViewController {
         detailView.updateAssetPriceUSD(with: "$\(String.formatToCurrency(string: asset.priceUsd ?? "No data"))", and: Constants.Color.Asset.symbol)
         detailView.updateAssetChangePercent24Hr(with: asset.changePercent24Hr ?? "No data")
         detailView.updateLine1(with: "$\(String.formatToCurrency(string: asset.marketCapUsd ?? "No data"))")
-        detailView.updateLine2(with: "$\(String.formatToCurrency(string: asset.maxSupply ?? "No data"))")
+        detailView.updateLine2(with: "$\(String.formatToCurrency(string: asset.supply ?? "No data"))")
         detailView.updateLine3(with: "$\(String.formatToCurrency(string: asset.volumeUsd24Hr ?? "No data"))")
     }
     
