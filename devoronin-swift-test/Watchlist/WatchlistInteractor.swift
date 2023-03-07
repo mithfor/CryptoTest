@@ -9,31 +9,57 @@ import Foundation
 typealias WatchListInteractorInput = WatchListViewControllerOutput
 
 protocol WatchListInteractorOutput: AnyObject {
-//    func fetchFailure(error: NetworkError)
+    func fetchFailure(error: NetworkError)
+    func fetchAssets(_ assets: Assets)
 }
 
 final class WatchListInteractor {
     lazy var watchList = WatchList()
     
+    private var asset: Asset?
+    private var assets = Assets()
+    
     var presenter: WatchListPresenterInput?
 }
 
 extension WatchListInteractor: WatchListInteractorInput {
+    
+    func fetchAssetDetails(by id: String,
+                           completion: @escaping ((AssetResponse) -> ())) {
+        
+        NetworkManager.shared.fetchAsset(by: id) { [weak self] result in
+            switch result {
+            case .success(let response):
+                self?.asset = response.data
+                print(self?.asset as Any)
+                completion(response)
+            case .failure(let error):
+                print(error)
+                self?.presenter?.fetchFailure(error: error)
+            }
+        }
+        
+    }
+    
     func fetchFavoriteAssets(watchList: WatchList) {
         print(#function)
         
         watchList.load()
         
         let assetsIds = watchList.assets
-            
+        let group = DispatchGroup()
+        
         assetsIds.forEach { id in
-            print(id)
+            group.enter()
             
-            
+            fetchAssetDetails(by: id) { [weak self] result in
+                self?.assets.append(result.data)
+                group.leave()
+            }
         }
         
-        //NetworkManager.shared.fetchAsset()
-
+        group.notify(queue: .main) {
+            self.presenter?.fetchAssets(self.assets)
+        }
     }
-    
 }

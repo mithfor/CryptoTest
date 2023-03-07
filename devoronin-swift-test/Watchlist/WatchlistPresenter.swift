@@ -15,6 +15,15 @@ final class WatchListPresenter {
 }
 
 extension WatchListPresenter: WatchListPresenterInput {
+    func fetchAssets(_ assets: Assets) {
+        viewController?.updateAssets(assets)
+    }
+    
+    func fetchFailure(error: NetworkError) {
+        viewController?.updateFailed(with: error)
+    }
+}
+    
     
 //    func fetched(_ assetIcon: AssetIcon, completion: (AssetIcon) -> ()) {
 //        completion(assetIcon)
@@ -24,7 +33,3 @@ extension WatchListPresenter: WatchListPresenterInput {
 //        viewController?.updateFailed(with: error)
 //    }
     
-//    func fetched(assets: Assets) {
-//        viewController?.updateAssets(assets: assets)
-//    }
-}

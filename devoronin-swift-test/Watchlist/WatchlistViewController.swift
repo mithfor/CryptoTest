@@ -8,11 +8,13 @@
 import UIKit
 
 protocol WatchListViewControllerInput: class {
-    
+    func updateFailed(with error: NetworkError)
+    func updateAssets(_ assets: Assets)
 }
 
 protocol WatchListViewControllerOutput: class {
     func fetchFavoriteAssets(watchList: WatchList)
+    func fetchAssetDetails(by id: String, completion: @escaping (AssetResponse) -> ())
 }
 
 class WatchListViewController: UIViewController {
@@ -20,6 +22,7 @@ class WatchListViewController: UIViewController {
     
     //MARK: - VARIABLES
     var watchlist = WatchList()
+    var assets = Assets()
     
     private lazy var assetsTableView: AssetsTableView = {
         let tableView = AssetsTableView()
@@ -37,6 +40,12 @@ class WatchListViewController: UIViewController {
         view.backgroundColor = .cyan
                 
         setupUI()
+        
+        fetchFavoriteAssets()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         fetchFavoriteAssets()
     }
@@ -70,16 +79,18 @@ class WatchListViewController: UIViewController {
 
 extension WatchListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 11
+        return watchlist.assets.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: AssetsTableViewCell.identifier, for: indexPath) as? AssetsTableViewCell {
-//            cell.configureWith(delegate: nil, and: Asset(from: <#Decoder#>), image: UIImage(systemName: "house"))
-//            return cell
-//        } else {
+        
+        if assets.isEmpty {return UITableViewCell()}
+        if let cell = tableView.dequeueReusableCell(withIdentifier: AssetsTableViewCell.identifier, for: indexPath) as? AssetsTableViewCell {
+            cell.configureWith(delegate: nil, and: assets[indexPath.row], image: UIImage(systemName: "house"))
+            return cell
+        } else {
             return UITableViewCell()
-//        }
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -93,4 +104,15 @@ extension WatchListViewController: UITableViewDataSource {
 
 extension WatchListViewController:UITableViewDelegate {
     
+}
+
+extension WatchListViewController: WatchListViewControllerInput {
+    func updateAssets(_ assets: Assets) {
+        self.assets = assets
+        assetsTableView.reloadData()
+    }
+    
+    func updateFailed(with error: NetworkError) {
+        presentAlertOnMainThread(title: "NetworkError", message: error.rawValue, buttonTitle: "OK")
+    }
 }

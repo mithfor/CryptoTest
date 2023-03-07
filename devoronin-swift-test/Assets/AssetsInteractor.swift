@@ -34,8 +34,8 @@ extension AssetsInteractor: AssetsInteractorInput {
     func fetchAssets() {
         NetworkManager.shared.fetchAssets(page: 1) { [weak self] result in
             switch result {
-            case .success(let responce):
-                self?.assets = responce.data
+            case .success(let response):
+                self?.assets = response.data
                 self?.presenter?.fetched(assets: self?.assets ?? Assets())
             case .failure(let error):
                 self?.presenter?.fetchFailure(error: error)

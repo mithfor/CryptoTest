@@ -25,8 +25,8 @@ extension AssetDetailsInteractor: AssetDetailsInteractorInput {
     func fetchHistory(asset: Asset) {
         NetworkManager.shared.fetchAssetHistory(id: asset.id ?? "bitcoin") { [weak self] result in
             switch result {
-            case .success(let responce):
-                self?.assetHistory = responce.data
+            case .success(let response):
+                self?.assetHistory = response.data
                 self?.presenter?.historyFetched(assetHistory: self?.assetHistory ?? [AssetHistory]())
             case .failure(let error):
                 self?.presenter?.fetchFailure(error: error)

@@ -31,7 +31,7 @@ final class AssetDetailsViewController: UIViewController {
         return view
     }()
     
-    // MARK: - Init
+    // MARK: - INIT
     init(asset: Asset) {
         self.asset = asset
 
@@ -82,7 +82,7 @@ final class AssetDetailsViewController: UIViewController {
        }
     }
     
-    // MARK: - Setup
+    // MARK: - SETUP
     private func setupUI() {
         view.backgroundColor = Constants.Color.mainBackground
         navigationItem.largeTitleDisplayMode = .never
@@ -133,8 +133,6 @@ final class AssetDetailsViewController: UIViewController {
         }
 
         navigationItem.rightBarButtonItem?.image = UIImage(systemName: imageName)
-        
-                
     }
 }
 

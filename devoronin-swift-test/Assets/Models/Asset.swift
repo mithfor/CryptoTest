@@ -26,6 +26,15 @@ struct AssetListResponse: Codable {
     let data: [Asset]
 }
 
+struct AssetResponse: Codable {
+    enum CodingKeys: String, CodingKey {
+        case data = "data"
+    }
+    
+    let data: Asset
+}
+
+
 // MARK: - Asset
 struct Asset: Codable, Hashable, Equatable {
 
@@ -78,8 +87,6 @@ struct Asset: Codable, Hashable, Equatable {
     changePercent24Hr = try values.decodeIfPresent(String.self , forKey: .changePercent24Hr )
     vwap24Hr          = try values.decodeIfPresent(String.self , forKey: .vwap24Hr          )
     explorer          = try values.decodeIfPresent(String.self , forKey: .explorer          )
-    
-//    isInWatchList = false
   }
 }
 
