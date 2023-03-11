@@ -8,7 +8,7 @@
 import Foundation
 
 class WatchList {
-    var assets = Set<String>()
+    var assetsIds = Set<String>()
     var key = "WatchList"
     
     init() {
@@ -19,27 +19,27 @@ class WatchList {
     
     func contains(_ asset: Asset) -> Bool {
         print(#function)
-        return assets.contains(asset.id ?? "bitcoin")
+        return assetsIds.contains(asset.id ?? "bitcoin")
     }
     
     func add(_ asset: Asset) {
 
-        assets.insert(asset.id ?? "bitcoin")
+        assetsIds.insert(asset.id ?? "bitcoin")
         save()
     }
     
     func remove(_ asset: Asset) {
-        assets.remove(asset.id ?? "bitcoin")
+        assetsIds.remove(asset.id ?? "bitcoin")
         save()
     }
     
     func save() {
         UserDefaults.standard.removeObject(forKey: key)
-        UserDefaults.standard.set(Array(assets), forKey: key)
+        UserDefaults.standard.set(Array(assetsIds), forKey: key)
     }
     
     func load(){
         let array = UserDefaults.standard.object(forKey: key) as? [String]
-        assets = Set(array ?? [String]())
+        assetsIds = Set(array ?? [String]())
     }
 }

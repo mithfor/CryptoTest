@@ -16,7 +16,7 @@ protocol WatchListInteractorOutput: AnyObject {
 final class WatchListInteractor {
     lazy var watchList = WatchList()
     
-    private var asset: Asset?
+//    private var asset: Ass®et?
     private var assets = Assets()
     
     var presenter: WatchListPresenterInput?
@@ -32,8 +32,8 @@ extension WatchListInteractor: WatchListInteractorInput {
         NetworkManager.shared.fetchAsset(by: id) { [weak self] result in
             switch result {
             case .success(let response):
-                self?.asset = response.data
-                print(self?.asset as Any)
+//                self?.asset = response.data
+//                print(self?.asset as Any)
                 completion(response)
             case .failure(let error):
                 print(error)
@@ -48,20 +48,23 @@ extension WatchListInteractor: WatchListInteractorInput {
         
         watchList.load()
         
-        let assetsIds = watchList.assets
-        let group = DispatchGroup()
+        let assetsIds = watchList.assetsIds
         
-        assetsIds.forEach { id in
-            group.enter()
+        DispatchQueue.global().async {
+            let group = DispatchGroup()
             
-            fetchAssetDetails(by: id) { [weak self] result in
-                self?.assets.append(result.data)
-                group.leave()
+            assetsIds.forEach { id in
+                group.enter()
+                
+                self.fetchAssetDetails(by: id) { [weak self] result in
+                    self?.assets.append(result.data)
+                    group.leave()
+                }
             }
-        }
-        
-        group.notify(queue: .main) {
-            self.presenter?.fetchAssets(self.assets)
+            
+            group.notify(queue: .main) {
+                self.presenter?.fetchAssets(self.assets)
+            }
         }
     }
 }

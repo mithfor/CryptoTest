@@ -126,8 +126,8 @@
             filePath = "devoronin-swift-test/Watchlist/WatchlistViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "tableView(_:commit:forRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -142,8 +142,8 @@
             filePath = "devoronin-swift-test/Watchlist/WatchlistViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -151,16 +151,128 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A8F3B2E8-C1D9-4A01-83D0-2B0658AC0FAF"
+            uuid = "9726B356-F1B5-4716-8F2E-F0D5D83D0904"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "devoronin-swift-test/Watchlist/Models/WatchList.swift"
+            filePath = "devoronin-swift-test/Watchlist/WatchlistViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "remove(_:)"
+            startingLineNumber = "138"
+            endingLineNumber = "138"
+            landmarkName = "updateAssets(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7482F857-A9E5-491F-B613-3D4401EC1FB3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
+            landmarkName = "fetchFavoriteAssets(watchList:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7482F857-A9E5-491F-B613-3D4401EC1FB3 - ec8dbf7c06505b9a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "devoronin_swift_test.WatchListInteractor.fetchFavoriteAssets(watchList: devoronin_swift_test.WatchList) -&gt; ()"
+                  moduleName = "devoronin-swift-test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "53"
+                  endingLineNumber = "53"
+                  offsetFromSymbolStart = "500">
+               </Location>
+               <Location
+                  uuid = "7482F857-A9E5-491F-B613-3D4401EC1FB3 - aadad0169b2cbdec"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in devoronin_swift_test.WatchListInteractor.fetchFavoriteAssets(watchList: devoronin_swift_test.WatchList) -&gt; ()"
+                  moduleName = "devoronin-swift-test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "54"
+                  endingLineNumber = "54"
+                  offsetFromSymbolStart = "232">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B80FB875-FB28-4122-87B2-19F6322BEB29"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "fetchFavoriteAssets(watchList:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B80FB875-FB28-4122-87B2-19F6322BEB29 - aadad0169b2cbda2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in devoronin_swift_test.WatchListInteractor.fetchFavoriteAssets(watchList: devoronin_swift_test.WatchList) -&gt; ()"
+                  moduleName = "devoronin-swift-test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "270">
+               </Location>
+               <Location
+                  uuid = "B80FB875-FB28-4122-87B2-19F6322BEB29 - 75cf89f6f8ffa397"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; () in closure #1 () -&gt; () in devoronin_swift_test.WatchListInteractor.fetchFavoriteAssets(watchList: devoronin_swift_test.WatchList) -&gt; ()"
+                  moduleName = "devoronin-swift-test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FDD7DEBE-37A0-4835-BCDE-A7754613FD27"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "fetchFavoriteAssets(watchList:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -7,16 +7,19 @@
 
 import UIKit
 
+//MARK: - WatchListViewControllerInput
 protocol WatchListViewControllerInput: class {
     func updateFailed(with error: NetworkError)
     func updateAssets(_ assets: Assets)
 }
 
+//MARK: - WatchListViewControllerOutput
 protocol WatchListViewControllerOutput: class {
     func fetchFavoriteAssets(watchList: WatchList)
     func fetchAssetDetails(by id: String, completion: @escaping (AssetResponse) -> ())
 }
 
+//MARK: - WatchListViewController
 class WatchListViewController: UIViewController {
     var interactor: WatchListInteractorInput?
     
@@ -27,9 +30,7 @@ class WatchListViewController: UIViewController {
     private lazy var assetsTableView: AssetsTableView = {
         let tableView = AssetsTableView()
         tableView.register(AssetsTableViewCell.self, forCellReuseIdentifier: AssetsTableViewCell.identifier)
-        
-        tableView.backgroundColor = .systemRed
-        
+                
         return tableView
     }()
 
@@ -83,7 +84,7 @@ class WatchListViewController: UIViewController {
 // MARK: - UITableViewDataSource
 extension WatchListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return watchlist.assets.count
+        return watchlist.assetsIds.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -138,6 +139,6 @@ extension WatchListViewController: WatchListViewControllerInput {
     }
     
     func updateFailed(with error: NetworkError) {
-        presentAlertOnMainThread(title: "NetworkError", message: error.rawValue, buttonTitle: "OK")
+        presentAlertOnMainThread(title: "Error", message: error.rawValue, buttonTitle: "OK")
     }
 }
