@@ -34,6 +34,7 @@ class WatchList {
     }
     
     func save() {
+        UserDefaults.standard.removeObject(forKey: key)
         UserDefaults.standard.set(Array(assets), forKey: key)
     }
     

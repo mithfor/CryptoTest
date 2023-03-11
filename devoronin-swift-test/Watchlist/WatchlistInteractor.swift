@@ -22,6 +22,8 @@ final class WatchListInteractor {
     var presenter: WatchListPresenterInput?
 }
 
+
+//MARK: - WatchListInteractorInput
 extension WatchListInteractor: WatchListInteractorInput {
     
     func fetchAssetDetails(by id: String,

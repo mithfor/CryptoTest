@@ -120,6 +120,7 @@ final class AssetDetailsViewController: UIViewController {
     
     
     //MARK: - ACTIONS
+    // TODO: - move logic to interactor
     @objc func didTapAddToWatchList() {
         
         var imageName = ""
@@ -136,6 +137,8 @@ final class AssetDetailsViewController: UIViewController {
     }
 }
 
+
+//MARK: - AssetDetailsViewControllerInput
 extension AssetDetailsViewController: AssetDetailsViewControllerInput {
     func updateHistory(with assetHistory: [AssetHistory]) {
         assetDetailsView.updateHistoryChart(with: assetHistory)

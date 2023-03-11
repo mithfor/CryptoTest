@@ -56,6 +56,8 @@ class WatchListViewController: UIViewController {
         assetsTableView.pinToEdges(of: view)
     }
     
+    
+    // MARK: - SETUP
     private func setupAssetsTableViewConstraints() {
         view.addSubview(assetsTableView)
         assetsTableView.pinToEdges(of: view)
@@ -77,14 +79,20 @@ class WatchListViewController: UIViewController {
     }
 }
 
+
+// MARK: - UITableViewDataSource
 extension WatchListViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return watchlist.assets.count
     }
     
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if assets.isEmpty {return UITableViewCell()}
+        guard !assets.isEmpty else { return UITableViewCell() }
         if let cell = tableView.dequeueReusableCell(withIdentifier: AssetsTableViewCell.identifier, for: indexPath) as? AssetsTableViewCell {
             cell.configureWith(delegate: nil, and: assets[indexPath.row], image: UIImage(systemName: "house"))
             return cell
@@ -92,20 +100,37 @@ extension WatchListViewController: UITableViewDataSource {
             return UITableViewCell()
         }
     }
+
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-//            assets?.remove(at: indexPath.row)
+            
+            watchlist.remove(assets.remove(at: indexPath.row))
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
 }
 
-extension WatchListViewController:UITableViewDelegate {
+// MARK: - UITableViewDelegate
+extension WatchListViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return Constants.tableCellHeight
+        
+    }
+    
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Remove"
+    }
 }
 
+
+//MARK: - WatchListViewControllerInput
 extension WatchListViewController: WatchListViewControllerInput {
     func updateAssets(_ assets: Assets) {
         self.assets = assets
