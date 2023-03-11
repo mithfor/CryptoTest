@@ -42,7 +42,6 @@ class ChartRenderer: LineChartRenderer {
                 guard let dataSet = dataSets[i] as? LineChartDataSet
                     else { continue }
 
-//                let valueFont = dataSet.valueFont
                 let valueFont = UIFont.systemFont(ofSize: 13, weight: .regular)
                 let trans = dataProvider.getTransformer(forAxis: dataSet.axisDependency)
                 let valueToPixelMatrix = trans.valueToPixelMatrix
