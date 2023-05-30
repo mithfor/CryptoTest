@@ -34,6 +34,38 @@
             endingLineNumber = "17"
             landmarkName = "save(assets:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "6229DE25-54CF-44F9-8CD6-46983186301A - db34701a8fbe4b34"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "devoronin_swift_test.DatabaseManager.save(assets: Swift.Set&lt;devoronin_swift_test.Asset&gt;) -&gt; ()"
+                  moduleName = "devoronin-swift-test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriivoronin/Develop/CryptoTest/devoronin-swift-test/Managers/DatabaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "59">
+               </Location>
+               <Location
+                  uuid = "6229DE25-54CF-44F9-8CD6-46983186301A - db34701a8fbe4b34"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "devoronin_swift_test.DatabaseManager.save(assets: Swift.Set&lt;devoronin_swift_test.Asset&gt;) -&gt; ()"
+                  moduleName = "devoronin-swift-test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriivoronin/Develop/CryptoTest/devoronin-swift-test/Managers/DatabaseManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "319">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -180,34 +212,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "7482F857-A9E5-491F-B613-3D4401EC1FB3 - ec8dbf7c06505b9a"
+                  uuid = "7482F857-A9E5-491F-B613-3D4401EC1FB3 - dc5d33f7d745d6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "devoronin_swift_test.WatchListInteractor.fetchFavoriteAssets(watchList: devoronin_swift_test.WatchList) -&gt; ()"
                   moduleName = "devoronin-swift-test"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
+                  urlString = "file:///Users/dmitriivoronin/Develop/CryptoTest/devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "53"
                   endingLineNumber = "53"
-                  offsetFromSymbolStart = "500">
+                  offsetFromSymbolStart = "506">
                </Location>
                <Location
-                  uuid = "7482F857-A9E5-491F-B613-3D4401EC1FB3 - aadad0169b2cbdec"
+                  uuid = "7482F857-A9E5-491F-B613-3D4401EC1FB3 - 468b32596aaba220"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 () -&gt; () in devoronin_swift_test.WatchListInteractor.fetchFavoriteAssets(watchList: devoronin_swift_test.WatchList) -&gt; ()"
                   moduleName = "devoronin-swift-test"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
+                  urlString = "file:///Users/dmitriivoronin/Develop/CryptoTest/devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "54"
                   endingLineNumber = "54"
-                  offsetFromSymbolStart = "232">
+                  offsetFromSymbolStart = "194">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -228,34 +260,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "B80FB875-FB28-4122-87B2-19F6322BEB29 - aadad0169b2cbda2"
+                  uuid = "B80FB875-FB28-4122-87B2-19F6322BEB29 - 468b32596aaba3e6"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 () -&gt; () in devoronin_swift_test.WatchListInteractor.fetchFavoriteAssets(watchList: devoronin_swift_test.WatchList) -&gt; ()"
                   moduleName = "devoronin-swift-test"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
+                  urlString = "file:///Users/dmitriivoronin/Develop/CryptoTest/devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "56"
                   endingLineNumber = "56"
-                  offsetFromSymbolStart = "270">
+                  offsetFromSymbolStart = "238">
                </Location>
                <Location
-                  uuid = "B80FB875-FB28-4122-87B2-19F6322BEB29 - 75cf89f6f8ffa397"
+                  uuid = "B80FB875-FB28-4122-87B2-19F6322BEB29 - 999e6bb90978bdd3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "closure #1 (Swift.String) -&gt; () in closure #1 () -&gt; () in devoronin_swift_test.WatchListInteractor.fetchFavoriteAssets(watchList: devoronin_swift_test.WatchList) -&gt; ()"
                   moduleName = "devoronin-swift-test"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
+                  urlString = "file:///Users/dmitriivoronin/Develop/CryptoTest/devoronin-swift-test/Watchlist/WatchlistInteractor.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "57"
                   endingLineNumber = "57"
-                  offsetFromSymbolStart = "56">
+                  offsetFromSymbolStart = "82">
                </Location>
             </Locations>
          </BreakpointContent>

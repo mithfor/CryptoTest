@@ -20,34 +20,34 @@
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6919C0C3-02A9-495E-A785-7360E58C80F5 - 949fae85739dd983"
+                  uuid = "6919C0C3-02A9-495E-A785-7360E58C80F5 - 3ded0180bf2b1353"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "devoronin_swift_test.NetworkManager.downloadImage(from: devoronin_swift_test.Asset, completed: (Swift.Result&lt;__C.UIImage, devoronin_swift_test.NetworkError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "devoronin-swift-test"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Managers/NetworkManager.swift"
+                  urlString = "file:///Users/dmitriivoronin/Develop/CryptoTest/devoronin-swift-test/Managers/NetworkManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "182"
                   endingLineNumber = "182"
-                  offsetFromSymbolStart = "1381">
+                  offsetFromSymbolStart = "1207">
                </Location>
                <Location
-                  uuid = "6919C0C3-02A9-495E-A785-7360E58C80F5 - 72b5b24ba65c4d1a"
+                  uuid = "6919C0C3-02A9-495E-A785-7360E58C80F5 - a0ebd8236941d094"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in devoronin_swift_test.NetworkManager.downloadImage(from: devoronin_swift_test.Asset, completed: (Swift.Result&lt;__C.UIImage, devoronin_swift_test.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in devoronin_swift_test.NetworkManager.downloadImage(from: devoronin_swift_test.Asset, completed: (Swift.Result&lt;__C.UIImage, devoronin_swift_test.NetworkError&gt;) -&gt; ()) -&gt; ()"
                   moduleName = "devoronin-swift-test"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/dmitriivoronin/Develop/OwnProjects/devoronin-swift-test/devoronin-swift-test/Managers/NetworkManager.swift"
+                  urlString = "file:///Users/dmitriivoronin/Develop/CryptoTest/devoronin-swift-test/Managers/NetworkManager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "184"
                   endingLineNumber = "184"
-                  offsetFromSymbolStart = "402">
+                  offsetFromSymbolStart = "291">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -66,6 +66,38 @@
             endingLineNumber = "189"
             landmarkName = "downloadImage(from:completed:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7C20F509-6117-45AE-9679-85369CB8AB6F - a0ebd8236941d7cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in devoronin_swift_test.NetworkManager.downloadImage(from: devoronin_swift_test.Asset, completed: (Swift.Result&lt;__C.UIImage, devoronin_swift_test.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "devoronin-swift-test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriivoronin/Develop/CryptoTest/devoronin-swift-test/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "189"
+                  endingLineNumber = "189"
+                  offsetFromSymbolStart = "326">
+               </Location>
+               <Location
+                  uuid = "7C20F509-6117-45AE-9679-85369CB8AB6F - a0ebd8236941d7cb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in devoronin_swift_test.NetworkManager.downloadImage(from: devoronin_swift_test.Asset, completed: (Swift.Result&lt;__C.UIImage, devoronin_swift_test.NetworkError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "devoronin-swift-test"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dmitriivoronin/Develop/CryptoTest/devoronin-swift-test/Managers/NetworkManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "189"
+                  endingLineNumber = "189"
+                  offsetFromSymbolStart = "584">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
